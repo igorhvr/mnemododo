@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  android:title="@string/settings">
+  
+	<PreferenceCategory
+	   android:title="@string/setting_cat_operation">
+
+		<ListPreference
+			android:title="@string/setting_card_dir"
+	        android:summary="@string/setting_card_dir_summary"
+			android:key="cards_path"
+            android:dialogTitle="@string/select_card_dir"
+		/>
+
+        <ListPreference
+            android:title="@string/setting_cards_to_load"
+            android:summary="@string/setting_cards_to_load_summary"
+            android:key="cards_to_load"
+            android:dialogTitle="@string/select_trade_off"
+            android:entries="@array/entries_cards_to_load"
+            android:entryValues="@array/values_cards_to_load"
+        />
+
+    </PreferenceCategory>
+
+	<PreferenceCategory
+	   android:title="@string/setting_cat_appearance">
+    
+	    <CheckBoxPreference
+			android:summary="@string/setting_center_summary"
+			android:key="center"
+			android:title="@string/setting_center"
+		/>
+	
+		<CheckBoxPreference
+			android:summary="@string/setting_touch_buttons_summary"
+			android:key="touch_buttons"
+			android:title="@string/setting_touch_buttons"
+		/>
+
+        <ListPreference
+            android:title="@string/setting_font_size"
+            android:summary="@string/setting_font_size_summary"
+            android:key="card_font_size"
+            android:dialogTitle="@string/select_font_size"
+            android:entries="@array/entries_font_size"
+            android:entryValues="@array/values_font_size"
+        />
+
+    </PreferenceCategory>
+
+
+</PreferenceScreen>

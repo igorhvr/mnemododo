@@ -1,0 +1,20 @@
+
+body {
+    background: black;
+    color: white;
+    border-top: thin solid white;
+    border-bottom: thin solid white;
+}
+
+hr {
+    background-color: white;
+}
+
+div.q {
+    color: blue;
+}
+
+div.a {
+    background: red
+}
+

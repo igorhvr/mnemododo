@@ -1,0 +1,4 @@
+^bin/classes\.dex$
+^bin/mnemododo\.apk$
+^bin/resources\.ap_$
+^mnemogogo-android-[0-9]+\.[0-9]+\.[0-9]+\.jar$

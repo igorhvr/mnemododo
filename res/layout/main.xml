@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:id="@+id/cardview_layout"
+	android:layout_width="fill_parent"
+	android:layout_height="fill_parent"
+	android:orientation="vertical">
+
+	<LinearLayout
+		android:id="@+id/headings"
+        android:orientation="horizontal"	
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
+	
+		<TextView
+			android:id="@+id/category"
+	        android:textSize="9pt"
+	        android:layout_width="fill_parent"
+	        android:layout_height="wrap_content"
+	        android:layout_weight="1"
+	        android:gravity="left"
+	        android:focusableInTouchMode="true"/>
+	        
+		<TextView
+			android:id="@+id/cards_left"
+	        android:textSize="9pt"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_weight="1"
+	        android:minEms="4"
+	        android:gravity="right"
+	        android:focusableInTouchMode="true"/>
+	</LinearLayout>
+	
+	<LinearLayout
+		android:id="@+id/card_layout"
+        android:orientation="horizontal"	
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+		android:layout_weight="1">
+	        
+		<WebView
+			android:id="@+id/card_webview"
+			android:layout_width="fill_parent"
+			android:layout_height="fill_parent"
+		/>
+	</LinearLayout>
+
+	<LinearLayout
+		android:id="@+id/progress_bar"
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+		android:orientation="horizontal"
+		android:layout_weight="0"
+		android:visibility="gone">
+	
+			<ProgressBar
+				android:id="@+id/bar"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content">
+			</ProgressBar>
+		
+	</LinearLayout>		
+
+	<LinearLayout
+		android:id="@+id/grading_buttons"
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+		android:orientation="horizontal"
+		android:layout_weight="0"
+		android:visibility="gone">
+
+		<Button
+			android:id="@+id/grade0"
+			android:text="@string/grade0"
+			android:layout_weight="1"
+			android:layout_width="fill_parent"
+			android:layout_height="wrap_content" />
+
+		<Button
+			android:id="@+id/grade1"
+			android:text="@string/grade1"
+			android:layout_weight="1"
+			android:layout_width="fill_parent"
+			android:layout_height="wrap_content" />
+
+		<Button
+			android:id="@+id/grade2"
+			android:text="@string/grade2"
+			android:layout_weight="1"
+			android:layout_width="fill_parent"
+			android:layout_height="wrap_content" />
+
+		<Button
+			android:id="@+id/grade3"
+			android:text="@string/grade3"
+			android:layout_weight="1"
+			android:layout_width="fill_parent"
+			android:layout_height="wrap_content" />
+
+		<Button
+			android:id="@+id/grade4"
+			android:text="@string/grade4"
+			android:layout_weight="1"
+			android:layout_width="fill_parent"
+			android:layout_height="wrap_content" />
+
+		<Button
+			android:id="@+id/grade5"
+			android:text="@string/grade5"
+			android:layout_weight="1"
+			android:layout_width="fill_parent"
+			android:layout_height="wrap_content" />
+
+	</LinearLayout>
+	
+	<LinearLayout
+		android:id="@+id/show_buttons"
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+		android:orientation="horizontal"
+		android:layout_weight="0"
+		android:visibility="invisible">
+
+		<Button
+			android:id="@+id/show"
+			android:text="@string/show"
+			android:layout_width="fill_parent"
+			android:layout_height="wrap_content"/>
+
+	</LinearLayout>
+
+</LinearLayout>
+

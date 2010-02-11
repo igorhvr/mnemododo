@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+  	xmlns:android="http://schemas.android.com/apk/res/android"
+  	android:id="@+id/layout_root"
+  	android:orientation="vertical"
+  	android:layout_width="fill_parent"
+  	android:layout_height="fill_parent"
+  	android:padding="10dp"
+  	android:gravity="center_horizontal"
+  >
+	<ImageView
+		android:id="@+id/logo"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:src="@drawable/icon128"
+		android:paddingBottom="20dp"
+	/>
+
+	  <LinearLayout
+	  	xmlns:android="http://schemas.android.com/apk/res/android"
+	  	android:id="@+id/layout_names"
+	  	android:orientation="vertical"
+	  	android:layout_width="wrap_content"
+	  	android:layout_height="wrap_content"
+	  >
+		  <LinearLayout
+			xmlns:android="http://schemas.android.com/apk/res/android"
+			android:id="@+id/about_author_layout"
+			android:orientation="horizontal"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+		  >
+
+			<TextView	
+				android:text="@string/about_author_label"
+				android:id="@+id/label_author"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:gravity="left"
+				android:paddingRight="5dp"
+				android:textStyle="bold"
+			/>
+
+			<TextView	
+				android:text="@string/about_author"
+				android:id="@+id/text_author"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:gravity="left"
+			/>
+			
+		</LinearLayout>
+
+	  	<LinearLayout
+			xmlns:android="http://schemas.android.com/apk/res/android"
+			android:id="@+id/about_mnemosyne_layout"
+			android:orientation="horizontal"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+		  >
+			<TextView	
+				android:text="@string/about_mnemosyne_label"
+				android:id="@+id/label_mnemosyne"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:gravity="left"
+				android:paddingRight="5dp"
+				android:textStyle="bold"
+			/>
+			<TextView	
+				android:text="@string/about_mnemosyne"
+				android:id="@+id/text_mnemosyne"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:gravity="left"
+			/>			
+		</LinearLayout>
+		
+	  	<LinearLayout
+			xmlns:android="http://schemas.android.com/apk/res/android"
+			android:id="@+id/about_sm2_layout"
+			android:orientation="horizontal"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+		  >
+			<TextView	
+				android:text="@string/about_sm2_label"
+				android:id="@+id/label_sm2"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:gravity="left"
+				android:paddingRight="5dp"
+				android:textStyle="bold"
+			/>
+
+			<TextView	
+				android:text="@string/about_sm2"
+				android:id="@+id/text_sm2"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:gravity="left"
+			/>
+		</LinearLayout>
+	
+	</LinearLayout>
+
+</LinearLayout>

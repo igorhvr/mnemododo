@@ -30,6 +30,7 @@ public abstract class ProgressTask<Params, Result>
     private int progress_max = 10000;
     private int progress_level = 0;
     protected int style = ProgressDialog.STYLE_SPINNER;
+    boolean task_done = false;
 
     protected abstract String getMessage();
     protected abstract Context getContext();
@@ -42,10 +43,11 @@ public abstract class ProgressTask<Params, Result>
             if (progress_dialog != null) {
                 progress_dialog.dismiss();
                 progress_dialog = null;
+                task_done = true;
             }
 
         } else {
-            if (progress_dialog == null) {
+            if (progress_dialog == null && !task_done) {
                 progress_dialog = new ProgressDialog(getContext());
                 progress_dialog.setProgressStyle(style);
                 progress_dialog.setMessage(getMessage());
@@ -53,7 +55,10 @@ public abstract class ProgressTask<Params, Result>
                 progress_dialog.setCancelable(false);
                 progress_dialog.show();
             }
-            progress_dialog.setProgress(progress[0]);
+            
+            if (progress_dialog != null) {
+                progress_dialog.setProgress(progress[0]);
+            }
         }
     }
 

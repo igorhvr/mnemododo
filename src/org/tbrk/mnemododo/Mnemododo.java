@@ -35,6 +35,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
 import android.preference.PreferenceManager;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -79,7 +80,7 @@ public class Mnemododo
     protected String html_pre = "<html><body>";
     protected static final String html_post = "</body></html>";
         
-        /* data */      
+    /* data */      
     protected HexCsvAndroid carddb;
     boolean carddb_dirty = false;
 
@@ -220,7 +221,7 @@ public class Mnemododo
         }
     }
 
-    /* Configuration, TODO: store properly, use system separator */
+    /* Configuration */
     
     String cards_path = null;
     int cards_to_load = 50;
@@ -230,8 +231,8 @@ public class Mnemododo
     String card_font = "";
     int[] key;
     
-    int make_visible_delay = 200;
-    int make_visible_fade_delay = 500;
+    int make_visible_delay = 400;
+    int make_visible_fade_delay = 400;
 
     /** Called when the activity is first created. */
     public void onCreate(Bundle savedInstanceState)
@@ -309,8 +310,14 @@ public class Mnemododo
                 && !settings_cards_path.endsWith(File.separator)) {
             settings_cards_path = settings_cards_path + File.separator;
         }
-
-        if (touch_buttons) {
+        
+        boolean will_load_cards =
+            (cards_path == null && settings_cards_path != null)
+            || (cards_path != null
+                && settings_cards_path != null
+                && !cards_path.equals(settings_cards_path));
+                
+        if (touch_buttons && !will_load_cards) {
             show_buttons
                     .setVisibility(mode == Mode.SHOW_QUESTION ? View.VISIBLE
                             : View.GONE);
@@ -322,17 +329,12 @@ public class Mnemododo
             grading_buttons.setVisibility(View.GONE);
         }
 
-        if (cards_path == null) {
-            if (settings_cards_path != null) {
-                setCardDir(settings_cards_path);
-                reload = false;
-            }
-        } else {
-            if ((settings_cards_path != null)
-                    && (!cards_path.equals(settings_cards_path))) {
-                setCardDir(settings_cards_path);
-                reload = false;
-            }
+        if (will_load_cards) {
+            setCardDir(settings_cards_path);
+            reload = false;
+        } else if (cards_path == null) {
+            setMode(Mode.NO_CARDS);
+            reload = false;
         }
         
         if (webview != null) {
@@ -385,6 +387,8 @@ public class Mnemododo
 
     protected void onActivityResult(int requestCode, int resultCode, Intent data)
     {
+        super.onActivityResult(requestCode, resultCode, data);
+
         if ((requestCode == REQUEST_SETTINGS) && (resultCode == RESULT_OK)) {
             loadPrefs();
         }
@@ -639,7 +643,6 @@ public class Mnemododo
 
         cards_path = path;
 
-        // TODO: check whether this is really necessary
         saveCards();
         if (carddb != null) {
             carddb.close();
@@ -713,7 +716,7 @@ public class Mnemododo
         case NO_CARDS:
             html = new StringBuffer(html_pre);
 
-            html.append("<div style=\"padding: 1ex; text-align: center\"><p>");
+            html.append("<div style=\"padding: 1ex;\"><p>");
             html.append(getString(R.string.no_cards_main));
             html.append("</p><ol>");
 
@@ -734,7 +737,7 @@ public class Mnemododo
 
         case NO_NEW_CARDS:
             html = new StringBuffer(html_pre);
-            html.append("<div style=\"padding: 1ex\"><p>");
+            html.append("<div style=\"padding: 1ex; text-align: center;\"><p>");
             html.append(getString(R.string.no_cards_left));
             html.append("</p></div>");
             html.append(html_post);

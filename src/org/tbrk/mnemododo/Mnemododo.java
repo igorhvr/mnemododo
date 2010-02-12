@@ -473,7 +473,7 @@ public class Mnemododo
     public void onResume()
     {
         super.onResume();
-        pauseThinking();
+        unpauseThinking();
     }
 
     public void onPause()
@@ -707,6 +707,7 @@ public class Mnemododo
             break;
 
         case SHOW_ANSWER:
+            pauseThinking();
             if (cur_card != null) {
                 if (touch_buttons) {
                     hidden_view = grading_buttons;
@@ -865,12 +866,6 @@ public class Mnemododo
         if (thinking_from == null) {
             thinking_from = new Date();
         }
-    }
-
-    protected long stopThinking()
-    {
-        pauseThinking();
-        return thinking_msecs;
     }
 
     protected void showFatal(String msg, final boolean exit)

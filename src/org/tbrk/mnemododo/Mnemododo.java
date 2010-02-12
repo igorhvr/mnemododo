@@ -159,6 +159,9 @@ public class Mnemododo
 			if (result) {
 				carddb = loaddb;
 				carddb_dirty = false;
+                try {
+                    carddb.backupCards(new StringBuffer(cards_path), null);
+                } catch (IOException e) { }
 				nextQuestion();
 			} else {
 				carddb = null;
@@ -302,8 +305,7 @@ public class Mnemododo
         key[KEY_GRADE3] = settings.getInt("key_grade3", KeyEvent.KEYCODE_3);
         key[KEY_GRADE4] = settings.getInt("key_grade4", KeyEvent.KEYCODE_4);
         key[KEY_GRADE5] = settings.getInt("key_grade5", KeyEvent.KEYCODE_5);
-        key[KEY_SHOW_ANSWER] = settings.getInt("key_show_answer",
-                KeyEvent.KEYCODE_DPAD_CENTER);
+        key[KEY_SHOW_ANSWER] = settings.getInt("key_show_answer", KeyEvent.KEYCODE_9);
 
         String settings_cards_path = settings.getString("cards_path", null);
         if (settings_cards_path != null

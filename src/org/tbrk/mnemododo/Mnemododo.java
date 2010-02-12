@@ -430,7 +430,7 @@ public class Mnemododo
         menu.add(0, MENU_STATISTICS, 0, getString(R.string.statistics))
                 .setIcon(R.drawable.icon_stats);
 
-        menu.add(0, MENU_SCHEDULE, 0, getString(R.string.future_schedule))
+        menu.add(0, MENU_SCHEDULE, 0, getString(R.string.schedule))
                 .setIcon(R.drawable.icon_schedule);
 
         menu.add(0, MENU_SETTINGS, 0, getString(R.string.settings)).setIcon(
@@ -592,7 +592,7 @@ public class Mnemododo
                 int[] indays = carddb.getFutureSchedule();
                 if (indays != null) {
                     dialog = new Dialog(mContext);
-                    dialog.setTitle(getString(R.string.for_days_text));
+                    dialog.setTitle(getString(R.string.schedule));
                     dialog.setContentView(R.layout.schedule);
                     TableLayout table = (TableLayout) dialog
                             .findViewById(R.id.schedule_table);

@@ -13,7 +13,7 @@
 <string name="ok">OK</string>
 
 <string name="skip_card">Skip card</string>             <!-- XXX -->
-<string name="future_schedule">Planification</string>
+<string name="schedule">Planification</string>
 <string name="settings">Paramètres</string>
 <string name="card_statistics">Statistiques de la carte</string>
 
@@ -31,13 +31,11 @@
 <string name="no_new_cards_title">No new cards</string>             <!-- XXX -->
 <string name="no_cards_left">There are no new cards to review at this time.</string>             <!-- XXX -->
 
-<string name="for_days_text">Future schedule</string>             <!-- XXX -->
 <string name="in_text">Dans</string>
 <string name="day_text">jour</string>
 <string name="days_text">jours</string>
 
 <string name="statistics">Statistiques</string>
-<string name="current_card">Current Card</string>             <!-- XXX -->
 <string name="easiness">Facilité:</string>
 <string name="repetitions">Répétitions:</string>
 <string name="lapses">Oubils:</string>
@@ -63,7 +61,7 @@
              <!-- XXX from here XXX -->
 <string name="setting_card_dir">Card directory</string>
 <string name="setting_card_dir_summary">The location of the files exported from Mnemogogo.</string>
-<string name="cannot_find_card_dirs">(None were found on this phone!)</string>
+<string name="cannot_find_card_dirs">(None were found on this device!)</string>
 <string name="setting_cards_to_load">Loading cards</string>
 <string name="setting_cards_to_load_summary">Balance memory and speed when loading card contents.</string>
 <string name="select_trade_off">Select trade off</string>

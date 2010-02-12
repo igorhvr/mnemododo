@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-<!--  translators: please do not change the name="..." attributes! -->
-   
 <string name="grade0">0</string>
 <string name="grade1">1</string>
 <string name="grade2">2</string>
@@ -12,32 +10,30 @@
 <string name="show">Toon anwoord</string>
 <string name="ok">OK</string>
 
-<string name="skip_card">Skip card</string>             <!-- XXX -->
-<string name="future_schedule">Rooster</string>
+<string name="skip_card">Kaart overslaan</string>
+<string name="schedule">Rooster</string>
 <string name="settings">Instellingen</string>
 <string name="card_statistics">Kaart Statistieken</string>
 
-<string name="select_card_dir">Select a card directory</string>             <!-- XXX -->
+<string name="select_card_dir">Selecteer kaartenbestand</string>
 
-<string name="not_enough_memory_to_load">Not enough memory to load cards.</string>             <!-- XXX -->
-<string name="fatal_error">Fatal Error</string>             <!-- XXX -->
-<string name="no_card_loaded_text">Unexpected error: card not loaded.</string>             <!-- XXX -->
-<string name="update_overdue_text">An export from Mnemogogo is overdue!</string>             <!-- XXX -->
-<string name="update_today_text">An export from Mnemogogo is due today.</string>             <!-- XXX -->
-<string name="no_card_dirs">No card directories could be found. Please export from Mnemogogo!</string>             <!-- XXX -->
-<string name="corrupt_card_dir">The exported cards are corrupt.</string>             <!-- XXX -->
+<string name="not_enough_memory_to_load">Niet genoeg geheugen om kaarten op te laden.</string>
+<string name="fatal_error">Fatale fout</string>
+<string name="no_card_loaded_text">Onverwachte fout: kaart niet opgeladen.</string>
+<string name="update_overdue_text">Een export van Mnemogogo is te laat!</string>
+<string name="update_today_text">Een export van Mnemogogo wordt vandaag verwacht.</string>
+<string name="no_card_dirs">Geen kaartenbestand gevonden. Exporteer alstublieft van Mnemogogo!</string>
+<string name="corrupt_card_dir">De geëxporteerden kaarten zijn beschadigd.</string>
 
-<string name="no_cards_title">No cards</string>             <!-- XXX -->
-<string name="no_new_cards_title">No new cards</string>             <!-- XXX -->
-<string name="no_cards_left">There are no new cards to review at this time.</string>             <!-- XXX -->
+<string name="no_cards_title">Geen kaarten</string>
+<string name="no_new_cards_title">Geen nieuwe kaarten</string>
+<string name="no_cards_left">Er zijn op dit moment geen nieuwe kaarten te bekijken.</string>
 
-<string name="for_days_text">Future schedule</string>             <!-- XXX -->
 <string name="in_text">Over</string>
 <string name="day_text">dag</string>
 <string name="days_text">dagen</string>
 
 <string name="statistics">Statistieken</string>
-<string name="current_card">Current Card</string>             <!-- XXX -->
 <string name="easiness">Eenvoud:</string>
 <string name="repetitions">Herhalingen:</string>
 <string name="lapses">Uitvoeringen:</string>
@@ -50,53 +46,53 @@
 <string name="about_author">Timothy Bourke</string>
 <string name="about_mnemosyne_label">Mnemosyne:</string>
 <string name="about_mnemosyne">Peter Bienstman</string>
-<string name="about_sm2_label">SM-2 Algorithm:</string>             <!-- XXX -->
+<string name="about_sm2_label">SM-2 Algoritme:</string>
 <string name="about_sm2">Piotr Wozniak</string>
 
-             <!-- XXX FROM HERE XXX -->
-<string name="no_cards_main">A valid card directory has not yet been selected.</string>
-<string name="no_cards_step1">Export cards from Mnemosyne to your SD card using the Mnemogogo plugin.</string>
-<string name="no_cards_step2">Choose the exported directory from the Settings screen.</string>
+<string name="no_cards_main">Een geldig kaartenbestand is nog niet geselecteerd.</string>
 
-<string name="setting_cat_operation">Operation</string>
-<string name="setting_cat_appearance">Appearance</string>
+<string name="no_cards_step1">Export kaarten van Mnemosyne naar uw SD kaart met gebruik van de Mnemogogo plugin.</string>
+<string name="no_cards_step2">Kies het geëxporteerde bestand van het Instellingen scherm.</string>
 
-<string name="setting_card_dir">Card directory</string>
-<string name="setting_card_dir_summary">The location of the files exported from Mnemogogo.</string>
-<string name="cannot_find_card_dirs">(None were found on this phone!)</string>
-<string name="setting_cards_to_load">Loading cards</string>
-<string name="setting_cards_to_load_summary">Balance memory and speed when loading card contents.</string>
-<string name="select_trade_off">Select trade off</string>
+<string name="setting_cat_operation">Functie</string>
+<string name="setting_cat_appearance">Uiterlijk</string>
 
-<string name="setting_center">Center card text</string>
-<string name="setting_center_summary">Center question and answer texts.</string>
-<string name="setting_touch_buttons">Onscreen buttons</string>
-<string name="setting_touch_buttons_summary">Display buttons for showing answers and grading.</string>
-<string name="setting_font_size">Card text size</string>
-<string name="setting_font_size_summary">Set the size of text in cards.</string>
-<string name="select_font_size">Select card text size</string>
+<string name="setting_card_dir">Kaartenbestand</string>
+<string name="setting_card_dir_summary">De plaats van de files geëxporteerd van Mnemogogo.</string>
+<string name="cannot_find_card_dirs">(Geen enkele gevonden op dit apparaat!)</string>
+<string name="setting_cards_to_load">Kaarten opladen</string>
+<string name="setting_cards_to_load_summary">Balanceer geheugen en snelheid als de inhoud van de kaarten wordt geladen.</string>
+<string name="select_trade_off">Kies tussenoplossing</string>
 
-<string name="loading_card_dir">Loading statistics...</string>
-<string name="loading_cards">Loading card contents...</string>
-<string name="searching_for_card_dirs">Searching for card directories...</string>
+<string name="setting_center">Kaart tekst in het midden plaatsen</string>
+<string name="setting_center_summary">Vraag en antwoord in het midden plaatsen.</string>
+<string name="setting_touch_buttons">Scherm knopjes</string>
+<string name="setting_touch_buttons_summary">Toon knopjes om antwoorden en cijfers te laten zien.</string>
+<string name="setting_font_size">Kaart tekst grootte</string>
+<string name="setting_font_size_summary">Kies de grootte van de tekst op de kaarten.</string>
+<string name="select_font_size">Kies tekst grootte</string>
+
+<string name="loading_card_dir">Statistieken opladen...</string>
+<string name="loading_cards">Inhoud kaarten opladen...</string>
+<string name="searching_for_card_dirs">Opzoeken naar kaartenbestanden...</string>
 
 <string-array name="entries_cards_to_load">
-	<item>More loading, less memory</item>
-	<item>Balance loading and memory</item>
-	<item>Less loading, more memory</item>
+	<item>Meer opladen, minder geheugen</item>
+	<item>Balans opladen en geheugen</item>
+	<item>Minder opladen, meer geheugen</item>
 </string-array>
 
 <string-array name="entries_font_size">
-    <item>Very small</item>
-    <item>Small</item>
-    <item>Normal</item>
-    <item>Large</item>
-    <item>Very large</item>
+    <item>Heel klein</item>
+    <item>Klein</item>
+    <item>Normaal</item>
+    <item>Groot</item>
+    <item>Heel groot</item>
 </string-array>
 
-<string name="eula_title">License</string>
-<string name="eula_accept">Accept</string>
-<string name="eula_refuse">Refuse</string>
+<string name="eula_title">Licentie</string>
+<string name="eula_accept">Accepteer</string>
+<string name="eula_refuse">Weiger</string>
 
 <!-- translators: please do not translate below this line! -->
 

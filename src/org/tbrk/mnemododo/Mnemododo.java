@@ -35,7 +35,6 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
 import android.preference.PreferenceManager;
-import android.util.Log;
 import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -266,6 +265,9 @@ public class Mnemododo
         // Animation
         buttonAnimation = new AlphaAnimation(0.0f, 1.0f);
         buttonAnimation.setDuration(make_visible_fade_delay);
+        
+        
+        Eula.show(Mnemododo.this);
     }
 
     public void loadPrefs()

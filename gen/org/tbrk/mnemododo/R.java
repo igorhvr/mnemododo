@@ -89,8 +89,8 @@ public final class R {
  translators: please do not translate below this line! 
  translators: please do not translate below this line! 
          */
-        public static final int app_name=0x7f05003f;
-        public static final int app_version=0x7f050040;
+        public static final int app_name=0x7f050042;
+        public static final int app_version=0x7f050043;
         public static final int cannot_find_card_dirs=0x7f050031;
         public static final int card_statistics=0x7f05000b;
         /**  XXX 
@@ -108,6 +108,9 @@ public final class R {
  XXX 
          */
         public static final int easiness=0x7f05001d;
+        public static final int eula_accept=0x7f050040;
+        public static final int eula_refuse=0x7f050041;
+        public static final int eula_title=0x7f05003f;
         /**  XXX 
  XXX 
  XXX 

@@ -20,7 +20,7 @@
 <string name="not_enough_memory_to_load">Niet genoeg geheugen om kaarten op te laden.</string>
 <string name="fatal_error">Fatale fout</string>
 <string name="no_card_loaded_text">Onverwachte fout: kaart niet opgeladen.</string>
-<string name="update_overdue_text">Een export van Mnemogogo is te laat!</string>
+<string name="update_overdue_text">Een export van Mnemogogo is te laat.</string>
 <string name="update_today_text">Een export van Mnemogogo wordt vandaag verwacht.</string>
 <string name="no_card_dirs">Geen kaartenbestand gevonden. Exporteer alstublieft van Mnemogogo!</string>
 <string name="corrupt_card_dir">De geëxporteerden kaarten zijn beschadigd.</string>
@@ -34,12 +34,12 @@
 <string name="days_text">dagen</string>
 
 <string name="statistics">Statistieken</string>
-<string name="easiness">Eenvoud:</string>
+<string name="easiness">Eenvoudigheid:</string>
 <string name="repetitions">Herhalingen:</string>
 <string name="lapses">Uitvoeringen:</string>
 <string name="grade">Beoordeling:</string>
-<string name="days_since_last_repetition">Aantal dagen vanaf laatste bevraging:</string>
-<string name="days_until_next_repetition">Dagen tot volgende bevraging:</string>
+<string name="days_since_last_repetition">Aantal dagen sinds laatste repetitie:</string>
+<string name="days_until_next_repetition">Dagen tot volgende repetitie:</string>
 
 <string name="info">Over</string>
 <string name="about_author_label">Programmeur:</string>
@@ -51,26 +51,26 @@
 
 <string name="no_cards_main">Een geldig kaartenbestand is nog niet geselecteerd.</string>
 
-<string name="no_cards_step1">Export kaarten van Mnemosyne naar uw SD kaart met gebruik van de Mnemogogo plugin.</string>
+<string name="no_cards_step1">Exporteer kaarten van Mnemosyne naar uw SD kaart met gebruik van de Mnemogogo plugin.</string>
 <string name="no_cards_step2">Kies het geëxporteerde bestand van het Instellingen scherm.</string>
 
 <string name="setting_cat_operation">Functie</string>
 <string name="setting_cat_appearance">Uiterlijk</string>
 
 <string name="setting_card_dir">Kaartenbestand</string>
-<string name="setting_card_dir_summary">De plaats van de files geëxporteerd van Mnemogogo.</string>
-<string name="cannot_find_card_dirs">(Geen enkele gevonden op dit apparaat!)</string>
+<string name="setting_card_dir_summary">De plaats van de dossiers geëxporteerd van Mnemogogo.</string>
+<string name="cannot_find_card_dirs">(Geen enkele kaarten gevonden op dit apparaat!)</string>
 <string name="setting_cards_to_load">Kaarten opladen</string>
-<string name="setting_cards_to_load_summary">Balanceer geheugen en snelheid als de inhoud van de kaarten wordt geladen.</string>
+<string name="setting_cards_to_load_summary">Balanceer geheugen en snelheid terwijl de inhoud van de kaarten wordt geladen.</string>
 <string name="select_trade_off">Kies tussenoplossing</string>
 
 <string name="setting_center">Kaart tekst in het midden plaatsen</string>
 <string name="setting_center_summary">Vraag en antwoord in het midden plaatsen.</string>
 <string name="setting_touch_buttons">Scherm knopjes</string>
 <string name="setting_touch_buttons_summary">Toon knopjes om antwoorden en cijfers te laten zien.</string>
-<string name="setting_font_size">Kaart tekst grootte</string>
-<string name="setting_font_size_summary">Kies de grootte van de tekst op de kaarten.</string>
-<string name="select_font_size">Kies tekst grootte</string>
+<string name="setting_font_size">Kaart lettergrootte</string>
+<string name="setting_font_size_summary">Kies de lettergrootte op de kaarten.</string>
+<string name="select_font_size">Kies lettergrootte</string>
 
 <string name="loading_card_dir">Statistieken opladen...</string>
 <string name="loading_cards">Inhoud kaarten opladen...</string>

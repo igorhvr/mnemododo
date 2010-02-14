@@ -39,6 +39,7 @@ import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.View.OnClickListener;
 import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
@@ -95,7 +96,7 @@ public class Mnemododo
                            R.id.grade3, R.id.grade4, R.id.grade5};
     int[] other_buttons = {R.id.show};
 
-    View grading_buttons;
+    TableLayout grading_buttons;
     View show_buttons;
     View ok_buttons;
     View hidden_view = null;
@@ -229,6 +230,7 @@ public class Mnemododo
     int cards_to_load = 50;
     boolean center = true;
     boolean touch_buttons = true;
+    boolean two_grading_rows = false;
     String card_font_size = "normal";
     String card_font = "";
     int[] key;
@@ -243,7 +245,7 @@ public class Mnemododo
         setContentView(R.layout.main);
         // Setup UI specifics
         webview = (WebView) findViewById(R.id.card_webview);
-        grading_buttons = findViewById(R.id.grading_buttons);
+        grading_buttons = (TableLayout) findViewById(R.id.grading_buttons);
         show_buttons = findViewById(R.id.show_buttons);
 
         for (int butid : grade_buttons) {
@@ -282,19 +284,22 @@ public class Mnemododo
             editor.putBoolean("touch_buttons", touch_buttons);
             editor.putString("card_font_size", card_font_size);
             editor.putString("cards_to_load", Integer.toString(cards_to_load));
+            editor.putBoolean("two_grading_rows", two_grading_rows);
             editor.commit();
         }
 
         // load prefs
         cards_to_load = Integer.parseInt(settings.getString("cards_to_load", "50"));
         touch_buttons = settings.getBoolean("touch_buttons", true);
+        boolean two_grading_rows = settings.getBoolean("two_grading_rows", false);
 
         boolean ncenter = settings.getBoolean("center", true);
         String ncard_font = settings.getString("card_font", "");
         String ncard_font_size = settings.getString("card_font_size", "normal");
 
-        boolean reload = (center != ncenter) || (!card_font.equals(ncard_font))
-                || (!card_font_size.equals(ncard_font_size));
+        boolean reload = (center != ncenter)
+            || (!card_font.equals(ncard_font))
+            || (!card_font_size.equals(ncard_font_size));
         center = ncenter;
         card_font = ncard_font;
         card_font_size = ncard_font_size;
@@ -320,6 +325,8 @@ public class Mnemododo
             || (cards_path != null
                 && settings_cards_path != null
                 && !cards_path.equals(settings_cards_path));
+        
+        reconfigureGradingButtons(two_grading_rows ? 2 : 1);
                 
         if (touch_buttons && !will_load_cards) {
             show_buttons
@@ -351,6 +358,48 @@ public class Mnemododo
                 hidden_view = null;
                 new LoadCardTask().execute(mode == Mode.SHOW_ANSWER, false);
             }
+        }
+    }
+    
+    protected void reconfigureGradingButtons(int num_rows)
+    {
+        int curr_rows = grading_buttons.getChildCount();
+        
+        if (curr_rows == num_rows) {
+            return;
+        }
+        
+        // Get existing buttons
+        Button buttons[] = new Button[grade_buttons.length];
+        for (int i = 0; i < grade_buttons.length; ++i) {
+            buttons[i] = (Button) findViewById(grade_buttons[i]);
+        }
+        
+        // Remove existing rows and buttons
+        for (int i = 0; i < curr_rows; ++i) {
+            TableRow row = (TableRow) grading_buttons.getChildAt(i);
+            row.removeAllViews();
+        }
+        grading_buttons.removeAllViews();
+        
+        // Add new rows
+        TableRow rows[] = new TableRow[num_rows];
+        
+        for (int i = 0; i < rows.length; ++i) {
+            rows[i] = new TableRow(Mnemododo.this);
+            rows[i].setLayoutParams(
+                    new ViewGroup.LayoutParams(
+                    ViewGroup.LayoutParams.FILL_PARENT,
+                    ViewGroup.LayoutParams.WRAP_CONTENT
+                ));
+            
+            grading_buttons.addView(rows[i]);
+        }
+        
+        // Add buttons to new rows
+        int num_per_row = grade_buttons.length / num_rows;        
+        for (int i = 0; i < grade_buttons.length; ++i) {
+            rows[i / num_per_row].addView(buttons[i]);
         }
     }
 
@@ -665,6 +714,8 @@ public class Mnemododo
     {
         TextView cardsl_title = (TextView) findViewById(R.id.cards_left);
         cardsl_title.setText(Integer.toString(cards_left));
+
+        TextView cat_title = (TextView) findViewById(R.id.category);
         
         cardsl_title.setBackgroundColor(android.graphics.Color.BLACK);
         if (carddb != null) {

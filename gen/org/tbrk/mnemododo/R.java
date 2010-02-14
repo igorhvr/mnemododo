@@ -88,8 +88,8 @@ public final class R {
  translators: please do not translate below this line! 
  translators: please do not translate below this line! 
          */
-        public static final int app_name=0x7f050040;
-        public static final int app_version=0x7f050041;
+        public static final int app_name=0x7f050042;
+        public static final int app_version=0x7f050043;
         public static final int cannot_find_card_dirs=0x7f05002f;
         public static final int card_statistics=0x7f05000b;
         /**  XXX 
@@ -186,6 +186,10 @@ public final class R {
         public static final int setting_font_size_summary=0x7f050038;
         public static final int setting_touch_buttons=0x7f050035;
         public static final int setting_touch_buttons_summary=0x7f050036;
+        /**  TODO: new or changed 
+         */
+        public static final int setting_two_grading_rows=0x7f050040;
+        public static final int setting_two_grading_rows_summary=0x7f050041;
         public static final int settings=0x7f05000a;
         public static final int show=0x7f050006;
         public static final int skip_card=0x7f050008;

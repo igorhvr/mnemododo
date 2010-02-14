@@ -39,13 +39,13 @@
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
 		android:layout_weight="1">
-	        
+    
 		<WebView
 			android:id="@+id/card_webview"
 			android:layout_width="fill_parent"
 			android:layout_height="fill_parent"
 		/>
-	</LinearLayout>
+    </LinearLayout>
 
 	<LinearLayout
 		android:id="@+id/progress_bar"
@@ -63,57 +63,57 @@
 		
 	</LinearLayout>		
 
-	<LinearLayout
-		android:id="@+id/grading_buttons"
-		android:layout_width="fill_parent"
-		android:layout_height="wrap_content"
-		android:orientation="horizontal"
-		android:layout_weight="0"
-		android:visibility="gone">
+    <TableLayout
+        android:id="@+id/grading_buttons"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0"
+        android:visibility="gone">
 
-		<Button
-			android:id="@+id/grade0"
-			android:text="@string/grade0"
-			android:layout_weight="1"
-			android:layout_width="fill_parent"
-			android:layout_height="wrap_content" />
-
-		<Button
-			android:id="@+id/grade1"
-			android:text="@string/grade1"
-			android:layout_weight="1"
-			android:layout_width="fill_parent"
-			android:layout_height="wrap_content" />
-
-		<Button
-			android:id="@+id/grade2"
-			android:text="@string/grade2"
-			android:layout_weight="1"
-			android:layout_width="fill_parent"
-			android:layout_height="wrap_content" />
-
-		<Button
-			android:id="@+id/grade3"
-			android:text="@string/grade3"
-			android:layout_weight="1"
-			android:layout_width="fill_parent"
-			android:layout_height="wrap_content" />
-
-		<Button
-			android:id="@+id/grade4"
-			android:text="@string/grade4"
-			android:layout_weight="1"
-			android:layout_width="fill_parent"
-			android:layout_height="wrap_content" />
-
-		<Button
-			android:id="@+id/grade5"
-			android:text="@string/grade5"
-			android:layout_weight="1"
-			android:layout_width="fill_parent"
-			android:layout_height="wrap_content" />
-
-	</LinearLayout>
+        <TableRow>
+			<Button
+				android:id="@+id/grade0"
+				android:text="@string/grade0"
+				android:layout_weight="1"
+				android:layout_width="fill_parent"
+				android:layout_height="wrap_content" />
+	
+			<Button
+				android:id="@+id/grade1"
+				android:text="@string/grade1"
+				android:layout_weight="1"
+				android:layout_width="fill_parent"
+				android:layout_height="wrap_content" />
+	
+			<Button
+				android:id="@+id/grade2"
+				android:text="@string/grade2"
+				android:layout_weight="1"
+				android:layout_width="fill_parent"
+				android:layout_height="wrap_content" />
+	
+			<Button
+				android:id="@+id/grade3"
+				android:text="@string/grade3"
+				android:layout_weight="1"
+				android:layout_width="fill_parent"
+				android:layout_height="wrap_content" />
+	
+			<Button
+				android:id="@+id/grade4"
+				android:text="@string/grade4"
+				android:layout_weight="1"
+				android:layout_width="fill_parent"
+				android:layout_height="wrap_content" />
+	
+			<Button
+				android:id="@+id/grade5"
+				android:text="@string/grade5"
+				android:layout_weight="1"
+				android:layout_width="fill_parent"
+				android:layout_height="wrap_content" />
+        </TableRow>
+    </TableLayout>
 	
 	<LinearLayout
 		android:id="@+id/show_buttons"

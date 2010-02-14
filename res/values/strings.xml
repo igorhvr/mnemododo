@@ -95,6 +95,10 @@
 <string name="eula_accept">Accept</string>
 <string name="eula_refuse">Refuse</string>
 
+<!-- TODO: new or changed -->
+<string name="setting_two_grading_rows">Bigger grading buttons</string>
+<string name="setting_two_grading_rows_summary">Show the grading buttons over two rows.</string>
+
 <!-- translators: please do not translate below this line! -->
 
 <string name="app_name">Mnemododo</string>

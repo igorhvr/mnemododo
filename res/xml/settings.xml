@@ -48,6 +48,12 @@
             android:entryValues="@array/values_font_size"
         />
 
+        <CheckBoxPreference
+            android:summary="@string/setting_two_grading_rows_summary"
+            android:key="two_grading_rows"
+            android:title="@string/setting_two_grading_rows"
+        />
+
     </PreferenceCategory>
 
 

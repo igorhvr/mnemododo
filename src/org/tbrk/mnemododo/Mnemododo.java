@@ -237,6 +237,7 @@ public class Mnemododo
     
     int make_visible_delay = 400;
     int make_visible_fade_delay = 400;
+    boolean num_left_color_changed = false;
 
     /** Called when the activity is first created. */
     public void onCreate(Bundle savedInstanceState)
@@ -715,18 +716,21 @@ public class Mnemododo
         TextView cardsl_title = (TextView) findViewById(R.id.cards_left);
         cardsl_title.setText(Integer.toString(cards_left));
 
-        TextView cat_title = (TextView) findViewById(R.id.category);
-        
-        cardsl_title.setBackgroundColor(android.graphics.Color.BLACK);
+        if (num_left_color_changed) {
+            cardsl_title.setBackgroundColor(android.graphics.Color.BLACK);
+        }
+
         if (carddb != null) {
             int daysLeft = carddb.daysLeft();
 
             if (daysLeft < 0) {
                 cardsl_title.setBackgroundColor(android.graphics.Color.RED);
                 cardsl_title.setTextColor(android.graphics.Color.BLACK);
+                num_left_color_changed = true;
             } else if (daysLeft == 0) {
                 cardsl_title.setBackgroundColor(android.graphics.Color.YELLOW);
                 cardsl_title.setTextColor(android.graphics.Color.BLACK);
+                num_left_color_changed = true;
             }
         }
     }

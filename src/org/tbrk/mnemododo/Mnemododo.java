@@ -103,73 +103,73 @@ public class Mnemododo
 
     private Handler handler = new Handler();
     private Animation buttonAnimation;
-	private Runnable makeViewVisible = new Runnable() {
-		public void run() {
-			if (hidden_view != null) {
-				hidden_view.setVisibility(View.VISIBLE);
-				if (buttonAnimation != null) {
-					hidden_view.startAnimation(buttonAnimation);
-				}
-			}
-		}
-	};
+        private Runnable makeViewVisible = new Runnable() {
+                public void run() {
+                        if (hidden_view != null) {
+                                hidden_view.setVisibility(View.VISIBLE);
+                                if (buttonAnimation != null) {
+                                        hidden_view.startAnimation(buttonAnimation);
+                                }
+                        }
+                }
+        };
                 
     /* Tasks */
         
-	private class LoadStatsTask
-		extends ProgressTask<String, Boolean>
-	{
-		protected HexCsvAndroid loaddb;
-		protected String error_msg;
+        private class LoadStatsTask
+                extends ProgressTask<String, Boolean>
+        {
+                protected HexCsvAndroid loaddb;
+                protected String error_msg;
 
-		protected String getMessage()
-		{
-			return getString(R.string.loading_card_dir);
-		}
+                protected String getMessage()
+                {
+                        return getString(R.string.loading_card_dir);
+                }
 
-		protected Context getContext()
-		{
-			return Mnemododo.this;
-		}
+                protected Context getContext()
+                {
+                        return Mnemododo.this;
+                }
 
-		public Boolean doInBackground(String... path)
-		{
-			try {
-				loaddb = new HexCsvAndroid(path[0], LoadStatsTask.this);
-				loaddb.cards_to_load = cards_to_load;
+                public Boolean doInBackground(String... path)
+                {
+                        try {
+                                loaddb = new HexCsvAndroid(path[0], LoadStatsTask.this);
+                                loaddb.cards_to_load = cards_to_load;
 
-			} catch (Exception e) {
-				error_msg = getString(R.string.corrupt_card_dir) + "\n\n("
-						+ e.toString() + ")";
-				stopOperation();
-				return false;
+                        } catch (Exception e) {
+                                error_msg = getString(R.string.corrupt_card_dir) + "\n\n("
+                                                + e.toString() + ")";
+                                stopOperation();
+                                return false;
 
-			} catch (OutOfMemoryError e) {
-				error_msg = getString(R.string.not_enough_memory_to_load);
-				stopOperation();
-				return false;
-			}
+                        } catch (OutOfMemoryError e) {
+                                error_msg = getString(R.string.not_enough_memory_to_load);
+                                stopOperation();
+                                return false;
+                        }
 
-			stopOperation();
-			return true;
-		}
+                        stopOperation();
+                        return true;
+                }
 
-		public void onPostExecute(Boolean result)
-		{
-			if (result) {
-				carddb = loaddb;
-				carddb_dirty = false;
+                public void onPostExecute(Boolean result)
+                {
+                        if (result) {
+                                carddb = loaddb;
+                                carddb_dirty = false;
                 try {
                     carddb.backupCards(new StringBuffer(cards_path), null);
                 } catch (IOException e) { }
-				nextQuestion();
-			} else {
-				carddb = null;
-				setMode(Mode.NO_CARDS);
-				showFatal(error_msg, false);
-			}
-		}
-	}
+                                nextQuestion();
+                        } else {
+                                carddb = null;
+                                setMode(Mode.NO_CARDS);
+                                showFatal(error_msg, false);
+                        }
+                }
+        }
         
     private class LoadCardTask extends ProgressTask<Boolean, String>
     {

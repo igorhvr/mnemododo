@@ -55,7 +55,6 @@ public class Mnemododo
     implements OnClickListener
 {       
     enum Mode { SHOW_QUESTION, SHOW_ANSWER, NO_CARDS, NO_NEW_CARDS }
-    Mode mode = Mode.SHOW_QUESTION;
     
     static final int DIALOG_ABOUT = 0;
     static final int DIALOG_STATS = 1;
@@ -77,19 +76,36 @@ public class Mnemododo
     protected static final int KEY_GRADE5 = 5;
     protected static final int KEY_SHOW_ANSWER = 6;
     
-    protected String html_pre = "<html><body>";
     protected static final String html_post = "</body></html>";
-        
-    /* data */      
-    protected HexCsvAndroid carddb;
-    boolean carddb_dirty = false;
 
-    protected Card cur_card;
+    /* data (always recalculated) */
+    boolean carddb_dirty = false;
     private Date thinking_from;
+
+    final int make_visible_delay = 400;
+    final int make_visible_fade_delay = 400;
+    boolean num_left_color_changed = false;
+
+    /* data (cache on temporary restart) */
+
+    Mode mode = Mode.SHOW_QUESTION;
+    protected String html_pre = "<html><body>";
+    protected HexCsvAndroid carddb;
+    protected Card cur_card;
     private long thinking_msecs = 0;
+    String cards_path = null;
+
+    /* Configuration */
     
+    int cards_to_load = 50;
+    boolean center = true;
+    boolean touch_buttons = true;
+    boolean two_grading_rows = false;
+    String card_font_size = "normal";
+    String card_font = "";
+    int[] key;
+
     /* UI */
-    Runtime rt = Runtime.getRuntime();
     WebView webview;
     
     int[] grade_buttons = {R.id.grade0, R.id.grade1, R.id.grade2,
@@ -116,60 +132,60 @@ public class Mnemododo
                 
     /* Tasks */
         
-        private class LoadStatsTask
-                extends ProgressTask<String, Boolean>
-        {
-                protected HexCsvAndroid loaddb;
-                protected String error_msg;
+    private class LoadStatsTask
+            extends ProgressTask<String, Boolean>
+    {
+            protected HexCsvAndroid loaddb;
+            protected String error_msg;
 
-                protected String getMessage()
-                {
-                        return getString(R.string.loading_card_dir);
-                }
+            protected String getMessage()
+            {
+                    return getString(R.string.loading_card_dir);
+            }
 
-                protected Context getContext()
-                {
-                        return Mnemododo.this;
-                }
+            protected Context getContext()
+            {
+                    return Mnemododo.this;
+            }
 
-                public Boolean doInBackground(String... path)
-                {
-                        try {
-                                loaddb = new HexCsvAndroid(path[0], LoadStatsTask.this);
-                                loaddb.cards_to_load = cards_to_load;
+            public Boolean doInBackground(String... path)
+            {
+                    try {
+                            loaddb = new HexCsvAndroid(path[0], LoadStatsTask.this);
+                            loaddb.cards_to_load = cards_to_load;
 
-                        } catch (Exception e) {
-                                error_msg = getString(R.string.corrupt_card_dir) + "\n\n("
-                                                + e.toString() + ")";
-                                stopOperation();
-                                return false;
+                    } catch (Exception e) {
+                            error_msg = getString(R.string.corrupt_card_dir) + "\n\n("
+                                            + e.toString() + ")";
+                            stopOperation();
+                            return false;
 
-                        } catch (OutOfMemoryError e) {
-                                error_msg = getString(R.string.not_enough_memory_to_load);
-                                stopOperation();
-                                return false;
-                        }
+                    } catch (OutOfMemoryError e) {
+                            error_msg = getString(R.string.not_enough_memory_to_load);
+                            stopOperation();
+                            return false;
+                    }
 
-                        stopOperation();
-                        return true;
-                }
+                    stopOperation();
+                    return true;
+            }
 
-                public void onPostExecute(Boolean result)
-                {
-                        if (result) {
-                                carddb = loaddb;
-                                carddb_dirty = false;
-                try {
-                    carddb.backupCards(new StringBuffer(cards_path), null);
-                } catch (IOException e) { }
-                                nextQuestion();
-                        } else {
-                                carddb = null;
-                                setMode(Mode.NO_CARDS);
-                                showFatal(error_msg, false);
-                        }
-                }
-        }
+            public void onPostExecute(Boolean result)
+            {
+                    if (result) {
+                            carddb = loaddb;
+                            carddb_dirty = false;
+            try {
+                carddb.backupCards(new StringBuffer(cards_path), null);
+            } catch (IOException e) { }
+                            nextQuestion();
+                    } else {
+                            carddb = null;
+                            setMode(Mode.NO_CARDS);
+                            showFatal(error_msg, false);
+                    }
+            }
+    }
         
     private class LoadCardTask extends ProgressTask<Boolean, String>
     {
@@ -210,6 +226,7 @@ public class Mnemododo
         public void onPostExecute(String html)
         {
             setCategory(cur_card.categoryName());
+            
             webview.loadDataWithBaseURL("file://" + cards_path, html,
                     "text/html", "UTF-8", "");
 
@@ -224,26 +241,12 @@ public class Mnemododo
         }
     }
 
-    /* Configuration */
-    
-    String cards_path = null;
-    int cards_to_load = 50;
-    boolean center = true;
-    boolean touch_buttons = true;
-    boolean two_grading_rows = false;
-    String card_font_size = "normal";
-    String card_font = "";
-    int[] key;
-    
-    int make_visible_delay = 400;
-    int make_visible_fade_delay = 400;
-    boolean num_left_color_changed = false;
-
     /** Called when the activity is first created. */
     public void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
+
         // Setup UI specifics
         webview = (WebView) findViewById(R.id.card_webview);
         grading_buttons = (TableLayout) findViewById(R.id.grading_buttons);
@@ -263,18 +266,30 @@ public class Mnemododo
         findViewById(R.id.category).setOnClickListener(this);
 
         // Get settings and load cards if necessary
-        loadPrefs();
+        loadPrefs((Mnemododo) getLastNonConfigurationInstance());
 
         // Animation
         buttonAnimation = new AlphaAnimation(0.0f, 1.0f);
         buttonAnimation.setDuration(make_visible_fade_delay);
         
-        
         Eula.show(Mnemododo.this);
     }
 
-    public void loadPrefs()
+    public void loadPrefs(Mnemododo lastDodo)
     {
+        boolean quick_restart = false;
+        Mode nmode = mode;
+        
+        if (lastDodo != null) {
+            nmode = lastDodo.mode;
+            html_pre = lastDodo.html_pre;
+            cards_path = lastDodo.cards_path;
+            carddb = lastDodo.carddb;
+            cur_card = lastDodo.cur_card;
+            thinking_msecs = lastDodo.thinking_msecs;
+            quick_restart = true;
+        }
+        
         SharedPreferences settings = PreferenceManager
                 .getDefaultSharedPreferences(this);
 
@@ -300,7 +315,8 @@ public class Mnemododo
 
         boolean reload = (center != ncenter)
             || (!card_font.equals(ncard_font))
-            || (!card_font_size.equals(ncard_font_size));
+            || (!card_font_size.equals(ncard_font_size))
+            || quick_restart;
         center = ncenter;
         card_font = ncard_font;
         card_font_size = ncard_font_size;
@@ -326,15 +342,15 @@ public class Mnemododo
             || (cards_path != null
                 && settings_cards_path != null
                 && !cards_path.equals(settings_cards_path));
-        
+
         reconfigureGradingButtons(two_grading_rows ? 2 : 1);
                 
         if (touch_buttons && !will_load_cards) {
             show_buttons
-                    .setVisibility(mode == Mode.SHOW_QUESTION ? View.VISIBLE
+                    .setVisibility(nmode == Mode.SHOW_QUESTION ? View.VISIBLE
                             : View.GONE);
             grading_buttons
-                    .setVisibility(mode == Mode.SHOW_ANSWER ? View.VISIBLE
+                    .setVisibility(nmode == Mode.SHOW_ANSWER ? View.VISIBLE
                             : View.GONE);
         } else {
             show_buttons.setVisibility(View.GONE);
@@ -357,7 +373,7 @@ public class Mnemododo
 
             if (reload) {
                 hidden_view = null;
-                new LoadCardTask().execute(mode == Mode.SHOW_ANSWER, false);
+                setMode(nmode, false);
             }
         }
     }
@@ -444,7 +460,7 @@ public class Mnemododo
         super.onActivityResult(requestCode, resultCode, data);
 
         if ((requestCode == REQUEST_SETTINGS) && (resultCode == RESULT_OK)) {
-            loadPrefs();
+            loadPrefs(null);
         }
     }
 
@@ -520,6 +536,11 @@ public class Mnemododo
         }
 
         return super.onOptionsItemSelected(item);
+    }
+    
+    public Object onRetainNonConfigurationInstance()
+    {
+        return this;
     }
 
     public void onResume()
@@ -737,6 +758,11 @@ public class Mnemododo
 
     public void setMode(Mode m)
     {
+        setMode(m, true);
+    }
+
+    public void setMode(Mode m, boolean start_thinking)
+    {
         StringBuffer html;
 
         if (m == Mode.NO_CARDS || m == Mode.NO_NEW_CARDS || !touch_buttons) {
@@ -755,21 +781,23 @@ public class Mnemododo
 
         switch (m) {
         case SHOW_QUESTION:
+            setNumLeft(carddb.numScheduled());
             if (cur_card != null) {
                 if (touch_buttons) {
                     hidden_view = show_buttons;
                 }
-                new LoadCardTask().execute(false);
+                new LoadCardTask().execute(false, start_thinking);
             }
             break;
 
         case SHOW_ANSWER:
             pauseThinking();
+            setNumLeft(carddb.numScheduled());
             if (cur_card != null) {
                 if (touch_buttons) {
                     hidden_view = grading_buttons;
                 }
-                new LoadCardTask().execute(true);
+                new LoadCardTask().execute(true, start_thinking);
             }
             break;
 
@@ -891,7 +919,6 @@ public class Mnemododo
         }
 
         try {
-            setNumLeft(carddb.numScheduled());
             setMode(Mode.SHOW_QUESTION);
 
         } catch (Exception e) {

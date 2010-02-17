@@ -77,17 +77,45 @@ public class Settings
     public void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
+
         addPreferencesFromResource(R.xml.settings);
+        setCardDirEntries();
 
+        setResult(RESULT_OK);
+    }
+    
+    public void setCardDirEntries()
+    {
         ListPreference pref_card_dir = (ListPreference) getPreferenceScreen()
-                .findPreference("cards_path");
+            .findPreference("cards_path");
         CharSequence[] entries = pref_card_dir.getEntries();
-
+        
+        if (entries == null) {
+            entries = (CharSequence[]) getLastNonConfigurationInstance();
+        }
+        
         if ((entries == null) || (entries.length == 0)) {
             pref_card_dir.setEnabled(false);
             new FindCardDirsTask().execute(pref_card_dir);
-        }
 
+        } else {
+            pref_card_dir.setEntries(entries);
+            pref_card_dir.setEntryValues(entries);
+            pref_card_dir.setEnabled(true);
+        }
+    }
+    
+    public Object onRetainNonConfigurationInstance()
+    {
+        ListPreference pref_card_dir = (ListPreference) getPreferenceScreen()
+            .findPreference("cards_path");
+        return pref_card_dir.getEntries();
+    }
+
+    public void onResume()
+    {
+        super.onResume();
+        setCardDirEntries();
         setResult(RESULT_OK);
     }
 

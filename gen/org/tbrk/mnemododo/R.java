@@ -90,10 +90,9 @@ public final class R {
          */
         public static final int app_name=0x7f050042;
         public static final int app_version=0x7f050043;
-        public static final int cannot_find_card_dirs=0x7f05002f;
+        public static final int cannot_find_card_dirs=0x7f05002d;
         public static final int card_statistics=0x7f05000b;
         /**  XXX 
- XXX 
          */
         public static final int corrupt_card_dir=0x7f050013;
         public static final int day_text=0x7f050018;
@@ -101,11 +100,10 @@ public final class R {
         public static final int days_text=0x7f050019;
         public static final int days_until_next_repetition=0x7f050020;
         public static final int easiness=0x7f05001b;
-        public static final int eula_accept=0x7f05003e;
-        public static final int eula_refuse=0x7f05003f;
-        public static final int eula_title=0x7f05003d;
+        public static final int eula_accept=0x7f05003c;
+        public static final int eula_refuse=0x7f05003d;
+        public static final int eula_title=0x7f05003b;
         /**  XXX 
- XXX 
          */
         public static final int fatal_error=0x7f05000e;
         public static final int grade=0x7f05001e;
@@ -120,86 +118,68 @@ public final class R {
         public static final int grade4=0x7f050004;
         public static final int grade5=0x7f050005;
         /**  XXX 
- XXX 
          */
         public static final int in_text=0x7f050017;
         public static final int info=0x7f050021;
         public static final int lapses=0x7f05001d;
-        public static final int loading_card_dir=0x7f05003a;
-        public static final int loading_cards=0x7f05003b;
+        public static final int loading_card_dir=0x7f050038;
+        public static final int loading_cards=0x7f050039;
         /**  XXX 
- XXX 
          */
         public static final int no_card_dirs=0x7f050012;
         /**  XXX 
- XXX 
          */
         public static final int no_card_loaded_text=0x7f05000f;
         /**  XXX 
- XXX 
          */
         public static final int no_cards_left=0x7f050016;
         /**  XXX from here XXX 
          */
         public static final int no_cards_main=0x7f050028;
+        public static final int no_cards_step1=0x7f050040;
+        public static final int no_cards_step2=0x7f050041;
         /**  XXX 
-         */
-        public static final int no_cards_step1=0x7f050029;
-        /**  XXX 
-         */
-        public static final int no_cards_step2=0x7f05002a;
-        /**  XXX 
- XXX 
          */
         public static final int no_cards_title=0x7f050014;
         /**  XXX 
- XXX 
          */
         public static final int no_new_cards_title=0x7f050015;
         /**  XXX 
- XXX 
          */
         public static final int not_enough_memory_to_load=0x7f05000d;
         public static final int ok=0x7f050007;
         public static final int repetitions=0x7f05001c;
         /**  XXX 
- XXX 
          */
         public static final int schedule=0x7f050009;
-        public static final int searching_for_card_dirs=0x7f05003c;
+        public static final int searching_for_card_dirs=0x7f05003a;
         public static final int select_card_dir=0x7f05000c;
-        public static final int select_font_size=0x7f050039;
-        public static final int select_trade_off=0x7f050032;
-        /**  XXX from here XXX 
-         */
-        public static final int setting_card_dir=0x7f05002d;
-        public static final int setting_card_dir_summary=0x7f05002e;
-        public static final int setting_cards_to_load=0x7f050030;
-        public static final int setting_cards_to_load_summary=0x7f050031;
-        public static final int setting_cat_appearance=0x7f05002c;
-        /**  XXX 
-         */
-        public static final int setting_cat_operation=0x7f05002b;
-        public static final int setting_center=0x7f050033;
-        public static final int setting_center_summary=0x7f050034;
-        public static final int setting_font_size=0x7f050037;
-        public static final int setting_font_size_summary=0x7f050038;
-        public static final int setting_touch_buttons=0x7f050035;
-        public static final int setting_touch_buttons_summary=0x7f050036;
+        public static final int select_font_size=0x7f050037;
+        public static final int select_trade_off=0x7f050030;
+        public static final int setting_card_dir=0x7f05002b;
+        public static final int setting_card_dir_summary=0x7f05002c;
+        public static final int setting_cards_to_load=0x7f05002e;
+        public static final int setting_cards_to_load_summary=0x7f05002f;
+        public static final int setting_cat_appearance=0x7f05002a;
+        public static final int setting_cat_operation=0x7f050029;
+        public static final int setting_center=0x7f050031;
+        public static final int setting_center_summary=0x7f050032;
+        public static final int setting_font_size=0x7f050035;
+        public static final int setting_font_size_summary=0x7f050036;
+        public static final int setting_touch_buttons=0x7f050033;
+        public static final int setting_touch_buttons_summary=0x7f050034;
         /**  TODO: new or changed 
          */
-        public static final int setting_two_grading_rows=0x7f050040;
-        public static final int setting_two_grading_rows_summary=0x7f050041;
+        public static final int setting_two_grading_rows=0x7f05003e;
+        public static final int setting_two_grading_rows_summary=0x7f05003f;
         public static final int settings=0x7f05000a;
         public static final int show=0x7f050006;
         public static final int skip_card=0x7f050008;
         public static final int statistics=0x7f05001a;
         /**  XXX 
- XXX 
          */
         public static final int update_overdue_text=0x7f050010;
         /**  XXX 
- XXX 
          */
         public static final int update_today_text=0x7f050011;
     }

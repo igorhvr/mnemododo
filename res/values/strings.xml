@@ -52,8 +52,6 @@
 <string name="about_sm2">Piotr Wozniak</string>
 
 <string name="no_cards_main">A valid card directory has not yet been selected.</string>
-<string name="no_cards_step1">Export cards from Mnemosyne to your SD card using the Mnemogogo plugin.</string>
-<string name="no_cards_step2">Choose the exported directory from the Settings screen.</string>
 
 <string name="setting_cat_operation">Operation</string>
 <string name="setting_cat_appearance">Appearance</string>
@@ -98,6 +96,11 @@
 <!-- TODO: new or changed -->
 <string name="setting_two_grading_rows">Bigger grading buttons</string>
 <string name="setting_two_grading_rows_summary">Show the grading buttons over two rows.</string>
+
+<string name="no_cards_step1">At a PC: Export cards from
+Mnemosyne to your SD card using the Mnemogogo plugin.</string>
+<string name="no_cards_step2">On this phone: choose the exported directory from the
+Mnemododo Settings screen (press the Menu button, and then choose Settings).</string>
 
 <!-- translators: please do not translate below this line! -->
 

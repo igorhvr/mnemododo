@@ -12,24 +12,24 @@
 <string name="show">Afficher la réponse</string>
 <string name="ok">OK</string>
 
-<string name="skip_card">Skip card</string>             <!-- XXX -->
+<string name="skip_card">Sauter cette carte</string>
 <string name="schedule">Planification</string>
 <string name="settings">Paramètres</string>
 <string name="card_statistics">Statistiques de la carte</string>
 
-<string name="select_card_dir">Select a card directory</string>             <!-- XXX -->
+<string name="select_card_dir">Choisissez un répertoire de cartes</string>
 
-<string name="not_enough_memory_to_load">Not enough memory to load cards.</string>             <!-- XXX -->
-<string name="fatal_error">Fatal Error</string>             <!-- XXX -->
-<string name="no_card_loaded_text">Unexpected error: card not loaded.</string>             <!-- XXX -->
-<string name="update_overdue_text">An export from Mnemogogo is overdue!</string>             <!-- XXX -->
-<string name="update_today_text">An export from Mnemogogo is due today.</string>             <!-- XXX -->
-<string name="no_card_dirs">No card directories could be found. Please export from Mnemogogo!</string>             <!-- XXX -->
-<string name="corrupt_card_dir">The exported cards are corrupt.</string>             <!-- XXX -->
+<string name="not_enough_memory_to_load">Le mémoire actuel ne suffit pas pour charger les cartes.</string>
+<string name="fatal_error">Erreur fatal</string>
+<string name="no_card_loaded_text">Erreur imprévu: cette carte n'est pas chargé.</string>
+<string name="update_overdue_text">Une exportation de Mnemogogo est en retard!</string>
+<string name="update_today_text">Une exportation de Mnemogogo est nécessaire aujourd'hui.</string>
+<string name="no_card_dirs">Aucuns répertoires de cartes peuvent être trouvés. Merci d'exporter de Mnemogogo!</string>
+<string name="corrupt_card_dir">Le répertoire de cartes est endommagés.</string>
 
-<string name="no_cards_title">No cards</string>             <!-- XXX -->
-<string name="no_new_cards_title">No new cards</string>             <!-- XXX -->
-<string name="no_cards_left">There are no new cards to review at this time.</string>             <!-- XXX -->
+<string name="no_cards_title">Aucunes cartes</string>
+<string name="no_new_cards_title">Aucunes nouvelles cartes</string>
+<string name="no_cards_left">Il n'y a pas actuellement les nouvelles cartes à voir.</string>
 
 <string name="in_text">Dans</string>
 <string name="day_text">jour</string>
@@ -51,37 +51,39 @@
 <string name="about_sm2_label">Algorithme de SM-2:</string>
 <string name="about_sm2">Piotr Wozniak</string>
 
-<string name="no_cards_main">A valid card directory has not yet been selected.</string>             <!-- XXX -->
-<string name="no_cards_step1">Export cards from Mnemosyne to your SD card using the Mnemogogo plugin.</string>             <!-- XXX -->
-<string name="no_cards_step2">Choose the exported directory from the Settings screen.</string>             <!-- XXX -->
+<string name="no_cards_main">Aucun répertoire de cartes n'est encore choisi.</string>
+<string name="no_cards_step1">Au PC: exporter des cartes de Mnemosyne à votre SD-card utilisant le plugin de Mnemogogo</string>
+<string name="no_cards_step2">À ce portable: choisissez le répertoire de
+    cartes dans le tableau de paramètres (touchez 'Menu' et après touchez 'Paramètres'.</string>
 
 <string name="setting_cat_operation">Fonctionnement</string>
 <string name="setting_cat_appearance">Aspect</string>
 
-             <!-- XXX from here XXX -->
-<string name="setting_card_dir">Card directory</string>
-<string name="setting_card_dir_summary">The location of the files exported from Mnemogogo.</string>
-<string name="cannot_find_card_dirs">(None were found on this device!)</string>
-<string name="setting_cards_to_load">Loading cards</string>
-<string name="setting_cards_to_load_summary">Balance memory and speed when loading card contents.</string>
-<string name="select_trade_off">Select trade off</string>
+<string name="setting_card_dir">Répertoire de cartes</string>
+<string name="setting_card_dir_summary">Le chemin aux fichiers exportés de Mnemogogo.</string>
+<string name="cannot_find_card_dirs">(Aucun n'est trouvé sur cet appareil!)</string>
+<string name="setting_cards_to_load">Chargement des cartes en cours</string>
+<string name="setting_cards_to_load_summary">Compromis entre mémoire et vitesse pendant le chargement des contients de cartes.</string>
+<string name="select_trade_off">Choisissez le compromis</string>
 
-<string name="setting_center">Center card text</string>
-<string name="setting_center_summary">Center question and answer texts.</string>
-<string name="setting_touch_buttons">Onscreen buttons</string>
-<string name="setting_touch_buttons_summary">Display buttons for showing answers and grading.</string>
-<string name="setting_font_size">Card text size</string>
-<string name="setting_font_size_summary">Set the size of text in cards.</string>
-<string name="select_font_size">Select card text size</string>
+<string name="setting_center">Centrer le texte de cartes</string>
+<string name="setting_center_summary">Centrer les textes des questions et des réponses.</string>
+<string name="setting_touch_buttons">Boutons tactiles</string>
+<string name="setting_touch_buttons_summary">Utiliser boutons tactiles pour afficher les réponses et pour noter.</string>
+<string name="setting_font_size">Taille de texte</string>
+<string name="setting_font_size_summary">Choisir la taille de texte de cartes.</string>
+<string name="select_font_size">Choisissez la taille</string>
+<string name="setting_two_grading_rows">Aggrandir les boutons de note</string>
+<string name="setting_two_grading_rows_summary">Afficher les boutons de note en deux rangs.</string>
 
-<string name="loading_card_dir">Loading statistics...</string>
-<string name="loading_cards">Loading card contents...</string>
-<string name="searching_for_card_dirs">Searching for card directories...</string>
+<string name="loading_card_dir">Chargement des statistiques en cours...</string>
+<string name="loading_cards">Chargement des contients de cartes en cours...</string>
+<string name="searching_for_card_dirs">Perquisitionment de répertoires de cartes en cours...</string>
 
 <string-array name="entries_cards_to_load">
-	<item>More loading, less memory</item>
-	<item>Balance loading and memory</item>
-	<item>Less loading, more memory</item>
+	<item>Plus de chargement, moins de mémoire</item>
+	<item>Compromis entre chargement et mémoire</item>
+	<item>Moins de chargement, plus de mémoire</item>
 </string-array>
 
 <string-array name="entries_font_size">
@@ -92,9 +94,9 @@
     <item>Très grand</item>
 </string-array>
 
-<string name="eula_title">License</string>
-<string name="eula_accept">Accept</string>
-<string name="eula_refuse">Refuse</string>
+<string name="eula_title">Contrat de license</string>
+<string name="eula_accept">Acceptez</string>
+<string name="eula_refuse">Refusez</string>
 
 <!-- translators: please do not translate below this line! -->
 

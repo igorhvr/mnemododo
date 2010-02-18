@@ -89,7 +89,7 @@ public class Mnemododo
     /* data (cache on temporary restart) */
 
     Mode mode = Mode.SHOW_QUESTION;
-    protected String html_pre = "<html><body>";
+    protected String html_pre = "<html>";
     protected HexCsvAndroid carddb;
     protected Card cur_card;
     private long thinking_msecs = 0;
@@ -803,6 +803,7 @@ public class Mnemododo
 
         case NO_CARDS:
             html = new StringBuffer(html_pre);
+            html.append("<body>");
 
             html.append("<div style=\"padding: 1ex;\"><p>");
             html.append(getString(R.string.no_cards_main));
@@ -825,6 +826,7 @@ public class Mnemododo
 
         case NO_NEW_CARDS:
             html = new StringBuffer(html_pre);
+            html.append("<body>");
             html.append("<div style=\"padding: 1ex; text-align: center;\"><p>");
             html.append(getString(R.string.no_cards_left));
             html.append("</p></div>");
@@ -982,12 +984,15 @@ public class Mnemododo
             + "     font-size: normal; }"
             + "</style>"
             + "<link rel=\"stylesheet\" href=\"style.css\" type=\"text/css\">"
-            + "</head><body>";
+            + "</head>";
     }
 
     protected String makeCardHtml(Card c, boolean show_answer)
     {
         StringBuffer html = new StringBuffer(html_pre);
+        html.append("<body class=\"");
+        html.append(c.categoryName());
+        html.append("\">");
 
         String question = c.getQuestion();
         String answer = c.getAnswer();
@@ -1001,16 +1006,16 @@ public class Mnemododo
 
         } else if (show_answer) {
             if (!cur_card.getOverlay()) {
-                html.append("<div class=\"q\">");
+                html.append("<div class=\"card\" id=\"q\">");
                 html.append(question);
                 html.append("</div><hr/>");
             }
-            html.append("<div class=\"a\">");
+            html.append("<div class=\"card\" id=\"a\">");
             html.append(answer);
             html.append("</div>");
 
         } else {
-            html.append("<div class=\"q\">");
+            html.append("<div class=\"card\" id=\"q\">");
             html.append(question);
             html.append("</div>");
         }

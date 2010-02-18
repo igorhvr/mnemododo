@@ -35,6 +35,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
 import android.preference.PreferenceManager;
+import android.util.DisplayMetrics;
 import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -55,6 +56,19 @@ public class Mnemododo
     implements OnClickListener
 {       
     enum Mode { SHOW_QUESTION, SHOW_ANSWER, NO_CARDS, NO_NEW_CARDS }
+    
+    static final int BUTTON_POS_BOTTOM = 0;
+    static final int BUTTON_POS_LEFT = 1;
+    static final int BUTTON_POS_RIGHT = 2;
+    
+    static final int[] grading_button_panel_ids =
+        {R.id.grading_buttons_bottom,
+         R.id.grading_buttons_left,
+         R.id.grading_buttons_right};
+    static final int[] show_button_panel_ids =
+        {R.id.show_buttons_bottom,
+         R.id.show_buttons_left,
+         R.id.show_buttons_right};
     
     static final int DIALOG_ABOUT = 0;
     static final int DIALOG_STATS = 1;
@@ -112,11 +126,12 @@ public class Mnemododo
                            R.id.grade3, R.id.grade4, R.id.grade5};
     int[] other_buttons = {R.id.show};
 
-    TableLayout grading_buttons;
-    View show_buttons;
-    View ok_buttons;
+    TableLayout grading_panel;
+    ViewGroup show_panel;
     View hidden_view = null;
-
+    int button_pos = BUTTON_POS_BOTTOM;
+    boolean is_wide_screen = false;
+    
     private Handler handler = new Handler();
     private Animation buttonAnimation;
         private Runnable makeViewVisible = new Runnable() {
@@ -249,8 +264,12 @@ public class Mnemododo
 
         // Setup UI specifics
         webview = (WebView) findViewById(R.id.card_webview);
-        grading_buttons = (TableLayout) findViewById(R.id.grading_buttons);
-        show_buttons = findViewById(R.id.show_buttons);
+        grading_panel = (TableLayout) findViewById(R.id.grading_buttons_bottom);
+        show_panel = (ViewGroup) findViewById(R.id.show_buttons_bottom);
+        
+        DisplayMetrics metrics = new DisplayMetrics();
+        getWindowManager().getDefaultDisplay().getMetrics(metrics);
+        is_wide_screen = metrics.widthPixels > metrics.heightPixels;
 
         for (int butid : grade_buttons) {
             Button button = (Button) findViewById(butid);
@@ -301,6 +320,7 @@ public class Mnemododo
             editor.putString("card_font_size", card_font_size);
             editor.putString("cards_to_load", Integer.toString(cards_to_load));
             editor.putBoolean("two_grading_rows", two_grading_rows);
+            editor.putString("button_pos", Integer.toString(button_pos));
             editor.commit();
         }
 
@@ -308,6 +328,8 @@ public class Mnemododo
         cards_to_load = Integer.parseInt(settings.getString("cards_to_load", "50"));
         touch_buttons = settings.getBoolean("touch_buttons", true);
         boolean two_grading_rows = settings.getBoolean("two_grading_rows", false);
+        int nbutton_pos = Integer.parseInt(settings.getString("button_pos",
+                Integer.toString(BUTTON_POS_BOTTOM)));
 
         boolean ncenter = settings.getBoolean("center", true);
         String ncard_font = settings.getString("card_font", "");
@@ -343,18 +365,18 @@ public class Mnemododo
                 && settings_cards_path != null
                 && !cards_path.equals(settings_cards_path));
 
-        reconfigureGradingButtons(two_grading_rows ? 2 : 1);
+        reconfigureButtons(nbutton_pos, two_grading_rows);
                 
         if (touch_buttons && !will_load_cards) {
-            show_buttons
+            show_panel
                     .setVisibility(nmode == Mode.SHOW_QUESTION ? View.VISIBLE
                             : View.GONE);
-            grading_buttons
+            grading_panel
                     .setVisibility(nmode == Mode.SHOW_ANSWER ? View.VISIBLE
                             : View.GONE);
         } else {
-            show_buttons.setVisibility(View.GONE);
-            grading_buttons.setVisibility(View.GONE);
+            show_panel.setVisibility(View.GONE);
+            grading_panel.setVisibility(View.GONE);
         }
 
         if (will_load_cards) {
@@ -377,12 +399,25 @@ public class Mnemododo
             }
         }
     }
-    
-    protected void reconfigureGradingButtons(int num_rows)
+
+    protected void reconfigureButtons(int nbutton_pos, boolean two_rows)
     {
-        int curr_rows = grading_buttons.getChildCount();
+        int curr_rows = grading_panel.getChildCount();
+        int num_rows;
+        boolean side_buttons = false;
+
+        int curr_button_pos = button_pos;
+        button_pos = nbutton_pos;
         
-        if (curr_rows == num_rows) {
+        if (is_wide_screen) {
+            side_buttons = (nbutton_pos != BUTTON_POS_BOTTOM);
+            num_rows = (side_buttons ? 6 : 1);
+        } else {
+            num_rows = (two_rows ? 2 : 1);
+            nbutton_pos = BUTTON_POS_BOTTOM;
+        }
+
+        if ((curr_rows == num_rows) && (curr_button_pos == nbutton_pos)) {
             return;
         }
         
@@ -392,12 +427,35 @@ public class Mnemododo
             buttons[i] = (Button) findViewById(grade_buttons[i]);
         }
         
+        RotatedButton show_button = (RotatedButton) findViewById(R.id.show);
+        
         // Remove existing rows and buttons
         for (int i = 0; i < curr_rows; ++i) {
-            TableRow row = (TableRow) grading_buttons.getChildAt(i);
+            TableRow row = (TableRow) grading_panel.getChildAt(i);
             row.removeAllViews();
         }
-        grading_buttons.removeAllViews();
+        grading_panel.removeAllViews();
+        grading_panel.setVisibility(View.GONE);
+        show_panel.removeAllViews();
+        show_panel.setVisibility(View.GONE);
+        
+        // Choose the panel
+        grading_panel = (TableLayout) findViewById(grading_button_panel_ids[nbutton_pos]);
+        show_panel = (ViewGroup) findViewById(show_button_panel_ids[nbutton_pos]);
+
+        // Add show button
+        switch (nbutton_pos) {
+        case BUTTON_POS_BOTTOM:
+            show_button.angle = 0;
+            break;
+        case BUTTON_POS_LEFT:
+            show_button.angle = 90;
+            break;
+        case BUTTON_POS_RIGHT:
+            show_button.angle = -90;
+            break;
+        }
+        show_panel.addView(show_button);
         
         // Add new rows
         TableRow rows[] = new TableRow[num_rows];
@@ -409,8 +467,10 @@ public class Mnemododo
                     ViewGroup.LayoutParams.FILL_PARENT,
                     ViewGroup.LayoutParams.WRAP_CONTENT
                 ));
-            
-            grading_buttons.addView(rows[i]);
+            if (side_buttons) {
+                rows[i].setMinimumWidth(60);
+            }
+            grading_panel.addView(rows[i]);
         }
         
         // Add buttons to new rows
@@ -766,12 +826,12 @@ public class Mnemododo
         StringBuffer html;
 
         if (m == Mode.NO_CARDS || m == Mode.NO_NEW_CARDS || !touch_buttons) {
-            show_buttons.setVisibility(View.GONE);
-            grading_buttons.setVisibility(View.GONE);
+            show_panel.setVisibility(View.GONE);
+            grading_panel.setVisibility(View.GONE);
         } else {
-            show_buttons.setVisibility(m == Mode.SHOW_QUESTION ? View.INVISIBLE
+            show_panel.setVisibility(m == Mode.SHOW_QUESTION ? View.INVISIBLE
                     : View.GONE);
-            grading_buttons
+            grading_panel
                     .setVisibility(m == Mode.SHOW_ANSWER ? View.INVISIBLE
                             : View.GONE);
         }
@@ -784,7 +844,7 @@ public class Mnemododo
             setNumLeft(carddb.numScheduled());
             if (cur_card != null) {
                 if (touch_buttons) {
-                    hidden_view = show_buttons;
+                    hidden_view = show_panel;
                 }
                 new LoadCardTask().execute(false, start_thinking);
             }
@@ -795,7 +855,7 @@ public class Mnemododo
             setNumLeft(carddb.numScheduled());
             if (cur_card != null) {
                 if (touch_buttons) {
-                    hidden_view = grading_buttons;
+                    hidden_view = grading_panel;
                 }
                 new LoadCardTask().execute(true, start_thinking);
             }

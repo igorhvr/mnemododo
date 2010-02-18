@@ -54,6 +54,15 @@
             android:title="@string/setting_two_grading_rows"
         />
 
+        <ListPreference
+            android:title="@string/setting_button_pos"
+            android:summary="@string/setting_button_pos_summary"
+            android:key="button_pos"
+            android:dialogTitle="@string/select_button_pos"
+            android:entries="@array/entries_button_pos"
+            android:entryValues="@array/values_button_pos"
+        />
+
     </PreferenceCategory>
 
 

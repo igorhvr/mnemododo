@@ -94,8 +94,17 @@
 <string name="eula_refuse">Refuse</string>
 
 <!-- TODO: new or changed -->
-<string name="setting_two_grading_rows">Bigger grading buttons</string>
-<string name="setting_two_grading_rows_summary">Show the grading buttons over two rows.</string>
+<string name="setting_two_grading_rows">Bigger buttons</string>
+<string name="setting_two_grading_rows_summary">Show two rows of grading buttons in narrow screen mode.</string>
+
+<string name="setting_button_pos">Button position</string>
+<string name="setting_button_pos_summary">The position of the buttons in wide screen mode.</string>
+<string name="select_button_pos">Place the buttons</string>
+<string-array name="entries_button_pos">
+    <item>At bottom</item>
+    <item>At left</item>
+    <item>At right</item>
+</string-array>
 
 <string name="no_cards_step1">At a PC: Export cards from
 Mnemosyne to your SD card using the Mnemogogo plugin.</string>
@@ -112,12 +121,19 @@ Mnemododo Settings screen (press the Menu button, and then choose Settings).</st
     <item>50</item>
     <item>100</item>
 </string-array>
+
 <string-array name="values_font_size">
     <item>x-small</item>
     <item>smaller</item>
     <item>medium</item>
     <item>larger</item>
     <item>x-large</item>
+</string-array>
+
+<string-array name="values_button_pos">
+    <item>0</item>
+    <item>1</item>
+    <item>2</item>
 </string-array>
 
 </resources>

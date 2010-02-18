@@ -9,10 +9,12 @@ package org.tbrk.mnemododo;
 
 public final class R {
     public static final class array {
+        public static final int entries_button_pos=0x7f060002;
         public static final int entries_cards_to_load=0x7f060000;
         public static final int entries_font_size=0x7f060001;
-        public static final int values_cards_to_load=0x7f060002;
-        public static final int values_font_size=0x7f060003;
+        public static final int values_button_pos=0x7f060005;
+        public static final int values_cards_to_load=0x7f060003;
+        public static final int values_font_size=0x7f060004;
     }
     public static final class attr {
     }
@@ -27,41 +29,46 @@ public final class R {
         public static final int about_author_layout=0x7f070003;
         public static final int about_mnemosyne_layout=0x7f070006;
         public static final int about_sm2_layout=0x7f070009;
-        public static final int card_layout=0x7f070010;
-        public static final int card_webview=0x7f070011;
-        public static final int cards_left=0x7f07000f;
-        public static final int cardview_layout=0x7f07000c;
-        public static final int category=0x7f07000e;
-        public static final int days_since_last_repetition=0x7f070026;
-        public static final int days_since_last_repetition_layout=0x7f070025;
-        public static final int days_until_next_repetition=0x7f070028;
-        public static final int days_until_next_repetition_layout=0x7f070027;
-        public static final int easiness=0x7f070020;
-        public static final int easiness_layout=0x7f07001f;
-        public static final int grade=0x7f07001e;
-        public static final int grade0=0x7f070013;
-        public static final int grade1=0x7f070014;
-        public static final int grade2=0x7f070015;
-        public static final int grade3=0x7f070016;
-        public static final int grade4=0x7f070017;
-        public static final int grade5=0x7f070018;
-        public static final int grade_layout=0x7f07001c;
-        public static final int grading_buttons=0x7f070012;
-        public static final int headings=0x7f07000d;
-        public static final int label=0x7f07001d;
+        public static final int buttons_bottom=0x7f070015;
+        public static final int buttons_left=0x7f07000c;
+        public static final int buttons_right=0x7f07000f;
+        public static final int card_webview=0x7f07001f;
+        public static final int cards_left=0x7f070014;
+        public static final int category=0x7f070013;
+        public static final int days_since_last_repetition=0x7f07002b;
+        public static final int days_since_last_repetition_layout=0x7f07002a;
+        public static final int days_until_next_repetition=0x7f07002d;
+        public static final int days_until_next_repetition_layout=0x7f07002c;
+        public static final int easiness=0x7f070025;
+        public static final int easiness_layout=0x7f070024;
+        public static final int grade=0x7f070023;
+        public static final int grade0=0x7f070019;
+        public static final int grade1=0x7f07001a;
+        public static final int grade2=0x7f07001b;
+        public static final int grade3=0x7f07001c;
+        public static final int grade4=0x7f07001d;
+        public static final int grade5=0x7f07001e;
+        public static final int grade_layout=0x7f070021;
+        public static final int grading_buttons_bottom=0x7f070018;
+        public static final int grading_buttons_left=0x7f07000d;
+        public static final int grading_buttons_right=0x7f070010;
+        public static final int headings=0x7f070012;
+        public static final int label=0x7f070022;
         public static final int label_author=0x7f070004;
         public static final int label_mnemosyne=0x7f070007;
         public static final int label_sm2=0x7f07000a;
-        public static final int lapses=0x7f070024;
-        public static final int lapses_layout=0x7f070023;
+        public static final int lapses=0x7f070029;
+        public static final int lapses_layout=0x7f070028;
         public static final int layout_names=0x7f070002;
         public static final int layout_root=0x7f070000;
         public static final int logo=0x7f070001;
-        public static final int repetitions=0x7f070022;
-        public static final int repetitions_layout=0x7f070021;
-        public static final int schedule_table=0x7f07001b;
-        public static final int show=0x7f07001a;
-        public static final int show_buttons=0x7f070019;
+        public static final int repetitions=0x7f070027;
+        public static final int repetitions_layout=0x7f070026;
+        public static final int schedule_table=0x7f070020;
+        public static final int show=0x7f070017;
+        public static final int show_buttons_bottom=0x7f070016;
+        public static final int show_buttons_left=0x7f07000e;
+        public static final int show_buttons_right=0x7f070011;
         public static final int text_author=0x7f070005;
         public static final int text_mnemosyne=0x7f070008;
         public static final int text_sm2=0x7f07000b;
@@ -86,8 +93,8 @@ public final class R {
  translators: please do not translate below this line! 
  translators: please do not translate below this line! 
          */
-        public static final int app_name=0x7f050042;
-        public static final int app_version=0x7f050043;
+        public static final int app_name=0x7f050045;
+        public static final int app_version=0x7f050046;
         public static final int cannot_find_card_dirs=0x7f05002d;
         public static final int card_statistics=0x7f05000b;
         /**  XXX 
@@ -134,8 +141,8 @@ public final class R {
         /**  XXX from here XXX 
          */
         public static final int no_cards_main=0x7f050028;
-        public static final int no_cards_step1=0x7f050040;
-        public static final int no_cards_step2=0x7f050041;
+        public static final int no_cards_step1=0x7f050043;
+        public static final int no_cards_step2=0x7f050044;
         /**  XXX 
          */
         public static final int no_cards_title=0x7f050014;
@@ -151,9 +158,12 @@ public final class R {
          */
         public static final int schedule=0x7f050009;
         public static final int searching_for_card_dirs=0x7f05003a;
+        public static final int select_button_pos=0x7f050042;
         public static final int select_card_dir=0x7f05000c;
         public static final int select_font_size=0x7f050037;
         public static final int select_trade_off=0x7f050030;
+        public static final int setting_button_pos=0x7f050040;
+        public static final int setting_button_pos_summary=0x7f050041;
         public static final int setting_card_dir=0x7f05002b;
         public static final int setting_card_dir_summary=0x7f05002c;
         public static final int setting_cards_to_load=0x7f05002e;

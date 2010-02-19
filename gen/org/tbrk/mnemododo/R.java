@@ -97,9 +97,6 @@ public final class R {
         public static final int about_sm2=0x7f050027;
         public static final int about_sm2_label=0x7f050026;
         /**  translators: please do not translate below this line! 
- translators: please do not translate below this line! 
- translators: please do not translate below this line! 
- translators: please do not translate below this line! 
          */
         public static final int app_name=0x7f050050;
         public static final int app_version=0x7f050051;

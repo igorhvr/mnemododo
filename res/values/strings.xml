@@ -111,7 +111,6 @@ Mnemosyne to your SD card using the Mnemogogo plugin.</string>
 <string name="no_cards_step2">On this phone: choose the exported directory from the
 Mnemododo Settings screen (press the Menu button, and then choose Settings).</string>
 
-<string name="grade_key">Grade</string>
 <string name="setting_keys">Key assignment</string>
 <string name="setting_keys_summary">Assign keys for showing answers and grading.</string>
 <string name="select_keys">Press the key to:</string>

@@ -7,7 +7,7 @@
 <string name="grade3">3</string>
 <string name="grade4">4</string>
 <string name="grade5">5</string>
-<string name="show">Toon anwoord</string>
+<string name="show">Toon antwoord</string>
 <string name="ok">OK</string>
 
 <string name="skip_card">Kaart overslaan</string>
@@ -51,8 +51,11 @@
 
 <string name="no_cards_main">Een geldig kaartenbestand is nog niet geselecteerd.</string>
 
-<string name="no_cards_step1">Exporteer kaarten van Mnemosyne naar uw SD kaart met gebruik van de Mnemogogo plugin.</string>
-<string name="no_cards_step2">Kies het geëxporteerde bestand van het Instellingen scherm.</string>
+<string name="no_cards_step1">Op een PC; exporteer kaarten van Mnemosyne naar
+uw SD kaart met gebruik van de Mnemogogo plugin.</string>
+
+<string name="no_cards_step2">Op deze telefoon; kies het geëxporteerde bestand
+van het Instellingen scherm.</string>
 
 <string name="setting_cat_operation">Functie</string>
 <string name="setting_cat_appearance">Uiterlijk</string>
@@ -60,28 +63,25 @@
 <string name="setting_card_dir">Kaartenbestand</string>
 <string name="setting_card_dir_summary">De plaats van de dossiers geëxporteerd van Mnemogogo.</string>
 <string name="cannot_find_card_dirs">(Geen enkele kaarten gevonden op dit apparaat!)</string>
+
 <string name="setting_cards_to_load">Kaarten opladen</string>
 <string name="setting_cards_to_load_summary">Balanceer geheugen en snelheid terwijl de inhoud van de kaarten wordt geladen.</string>
 <string name="select_trade_off">Kies tussenoplossing</string>
+<string-array name="entries_cards_to_load">
+    <item>Meer opladen, minder geheugen</item>
+    <item>Balans opladen en geheugen</item>
+    <item>Minder opladen, meer geheugen</item>
+</string-array>
 
 <string name="setting_center">Kaart tekst in het midden plaatsen</string>
 <string name="setting_center_summary">Vraag en antwoord in het midden plaatsen.</string>
+
 <string name="setting_touch_buttons">Scherm knopjes</string>
 <string name="setting_touch_buttons_summary">Toon knopjes om antwoorden en cijfers te laten zien.</string>
+
 <string name="setting_font_size">Kaart lettergrootte</string>
 <string name="setting_font_size_summary">Kies de lettergrootte op de kaarten.</string>
 <string name="select_font_size">Kies lettergrootte</string>
-
-<string name="loading_card_dir">Statistieken opladen...</string>
-<string name="loading_cards">Inhoud kaarten opladen...</string>
-<string name="searching_for_card_dirs">Opzoeken naar kaartenbestanden...</string>
-
-<string-array name="entries_cards_to_load">
-	<item>Meer opladen, minder geheugen</item>
-	<item>Balans opladen en geheugen</item>
-	<item>Minder opladen, meer geheugen</item>
-</string-array>
-
 <string-array name="entries_font_size">
     <item>Heel klein</item>
     <item>Klein</item>
@@ -89,6 +89,33 @@
     <item>Groot</item>
     <item>Heel groot</item>
 </string-array>
+
+<string name="setting_two_grading_rows">Grotere knopjes</string>
+<string name="setting_two_grading_rows_summary">Toon twee rijen knopjes in smal scherm tijdens beoordeling.</string>
+
+<string name="setting_button_pos">Positie knopjes</string>
+<string name="setting_button_pos_summary">Plaats van de knopjes in breed beeld.</string>
+<string name="select_button_pos">Plaats de knopjes</string>
+<string-array name="entries_button_pos">
+    <item>Onder</item>
+    <item>Links</item>
+    <item>Rechts</item>
+</string-array>
+
+<string name="setting_keys">Toets opdracht</string>
+<string name="setting_keys_summary">Kies toetsen om antwoorden en beoordelingen te laten zien.</string>
+<string name="select_keys">Druk op de toets om:</string>
+<string name="key_show">Toon het antwoord</string>
+<string name="key_grade0">Beoordeel een kaarte 0</string>
+<string name="key_grade1">Beoordeel een kaarte 1</string>
+<string name="key_grade2">Beoordeel een kaarte 2</string>
+<string name="key_grade3">Beoordeel een kaarte 3</string>
+<string name="key_grade4">Beoordeel een kaarte 4</string>
+<string name="key_grade5">Beoordeel een kaarte 5</string>
+
+<string name="loading_card_dir">Statistieken opladen...</string>
+<string name="loading_cards">Inhoud kaarten opladen...</string>
+<string name="searching_for_card_dirs">Opzoeken naar kaartenbestanden...</string>
 
 <string name="eula_title">Licentie</string>
 <string name="eula_accept">Accepteer</string>

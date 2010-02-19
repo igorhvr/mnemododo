@@ -98,8 +98,8 @@ public final class R {
         public static final int about_sm2_label=0x7f050026;
         /**  translators: please do not translate below this line! 
          */
-        public static final int app_name=0x7f050050;
-        public static final int app_version=0x7f050051;
+        public static final int app_name=0x7f05004f;
+        public static final int app_version=0x7f050050;
         public static final int cannot_find_card_dirs=0x7f05002d;
         public static final int card_statistics=0x7f05000b;
         /**  XXX 
@@ -127,18 +127,17 @@ public final class R {
         public static final int grade3=0x7f050003;
         public static final int grade4=0x7f050004;
         public static final int grade5=0x7f050005;
-        public static final int grade_key=0x7f050045;
         /**  XXX 
          */
         public static final int in_text=0x7f050017;
         public static final int info=0x7f050021;
-        public static final int key_grade0=0x7f05004a;
-        public static final int key_grade1=0x7f05004b;
-        public static final int key_grade2=0x7f05004c;
-        public static final int key_grade3=0x7f05004d;
-        public static final int key_grade4=0x7f05004e;
-        public static final int key_grade5=0x7f05004f;
-        public static final int key_show=0x7f050049;
+        public static final int key_grade0=0x7f050049;
+        public static final int key_grade1=0x7f05004a;
+        public static final int key_grade2=0x7f05004b;
+        public static final int key_grade3=0x7f05004c;
+        public static final int key_grade4=0x7f05004d;
+        public static final int key_grade5=0x7f05004e;
+        public static final int key_show=0x7f050048;
         public static final int lapses=0x7f05001d;
         public static final int loading_card_dir=0x7f050038;
         public static final int loading_cards=0x7f050039;
@@ -174,7 +173,7 @@ public final class R {
         public static final int select_button_pos=0x7f050042;
         public static final int select_card_dir=0x7f05000c;
         public static final int select_font_size=0x7f050037;
-        public static final int select_keys=0x7f050048;
+        public static final int select_keys=0x7f050047;
         public static final int select_trade_off=0x7f050030;
         public static final int setting_button_pos=0x7f050040;
         public static final int setting_button_pos_summary=0x7f050041;
@@ -188,8 +187,8 @@ public final class R {
         public static final int setting_center_summary=0x7f050032;
         public static final int setting_font_size=0x7f050035;
         public static final int setting_font_size_summary=0x7f050036;
-        public static final int setting_keys=0x7f050046;
-        public static final int setting_keys_summary=0x7f050047;
+        public static final int setting_keys=0x7f050045;
+        public static final int setting_keys_summary=0x7f050046;
         public static final int setting_touch_buttons=0x7f050033;
         public static final int setting_touch_buttons_summary=0x7f050034;
         /**  TODO: new or changed 

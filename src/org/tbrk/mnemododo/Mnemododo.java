@@ -1053,7 +1053,7 @@ public class Mnemododo
             + "h3 { margin: 0px; padding: 0px; padding-top: 1.5ex;"
             + "     font-size: normal; }"
             + "</style>"
-            + "<link rel=\"stylesheet\" href=\"style.css\" type=\"text/css\">"
+            + "<link rel=\"stylesheet\" href=\"STYLE.CSS\" type=\"text/css\">"
             + "</head>";
     }
 

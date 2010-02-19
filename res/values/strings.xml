@@ -98,7 +98,7 @@
 <string name="setting_two_grading_rows_summary">Show two rows of grading buttons in narrow screen mode.</string>
 
 <string name="setting_button_pos">Button position</string>
-<string name="setting_button_pos_summary">The position of the buttons in wide screen mode.</string>
+<string name="setting_button_pos_summary">Location of the buttons in wide screen mode.</string>
 <string name="select_button_pos">Place the buttons</string>
 <string-array name="entries_button_pos">
     <item>At bottom</item>
@@ -110,6 +110,19 @@
 Mnemosyne to your SD card using the Mnemogogo plugin.</string>
 <string name="no_cards_step2">On this phone: choose the exported directory from the
 Mnemododo Settings screen (press the Menu button, and then choose Settings).</string>
+
+<string name="grade_key">Grade</string>
+<string name="setting_keys">Key assignment</string>
+<string name="setting_keys_summary">Assign keys for showing answers and grading.</string>
+<string name="select_keys">Press the key to:</string>
+<string name="key_show">Show the answer</string>
+<string name="key_grade0">Grade a card 0</string>
+<string name="key_grade1">Grade a card 1</string>
+<string name="key_grade2">Grade a card 2</string>
+<string name="key_grade3">Grade a card 3</string>
+<string name="key_grade4">Grade a card 4</string>
+<string name="key_grade5">Grade a card 5</string>
+
 
 <!-- translators: please do not translate below this line! -->
 

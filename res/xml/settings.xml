@@ -22,6 +22,12 @@
             android:entryValues="@array/values_cards_to_load"
         />
 
+        <Preference
+            android:title="@string/setting_keys"
+            android:summary="@string/setting_keys_summary"
+            android:key="prefKeys"
+        />
+
     </PreferenceCategory>
 
 	<PreferenceCategory
@@ -39,6 +45,12 @@
 			android:title="@string/setting_touch_buttons"
 		/>
 
+        <CheckBoxPreference
+            android:summary="@string/setting_two_grading_rows_summary"
+            android:key="two_grading_rows"
+            android:title="@string/setting_two_grading_rows"
+        />
+
         <ListPreference
             android:title="@string/setting_font_size"
             android:summary="@string/setting_font_size_summary"
@@ -46,12 +58,6 @@
             android:dialogTitle="@string/select_font_size"
             android:entries="@array/entries_font_size"
             android:entryValues="@array/values_font_size"
-        />
-
-        <CheckBoxPreference
-            android:summary="@string/setting_two_grading_rows_summary"
-            android:key="two_grading_rows"
-            android:title="@string/setting_two_grading_rows"
         />
 
         <ListPreference

@@ -42,6 +42,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.View.OnClickListener;
+import android.view.View.OnKeyListener;
 import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
 import android.webkit.WebSettings;
@@ -53,7 +54,7 @@ import android.widget.TextView;
 
 public class Mnemododo
     extends Activity
-    implements OnClickListener
+    implements OnClickListener, OnKeyListener
 {       
     enum Mode { SHOW_QUESTION, SHOW_ANSWER, NO_CARDS, NO_NEW_CARDS }
     
@@ -264,6 +265,8 @@ public class Mnemododo
 
         // Setup UI specifics
         webview = (WebView) findViewById(R.id.card_webview);
+        webview.setOnKeyListener(this);
+
         grading_panel = (TableLayout) findViewById(R.id.grading_buttons_bottom);
         show_panel = (ViewGroup) findViewById(R.id.show_buttons_bottom);
         
@@ -274,11 +277,13 @@ public class Mnemododo
         for (int butid : grade_buttons) {
             Button button = (Button) findViewById(butid);
             button.setOnClickListener(this);
+            button.setOnKeyListener(this);
         }
 
         for (int butid : other_buttons) {
             Button button = (Button) findViewById(butid);
             button.setOnClickListener(this);
+            button.setOnKeyListener(this);
         }
         
         findViewById(R.id.cards_left).setOnClickListener(this);
@@ -480,17 +485,22 @@ public class Mnemododo
         }
     }
 
-    public boolean onKeyUp(int keyCode, KeyEvent event)
+    public boolean onKey(View v, int keyCode, KeyEvent event)
     {
+        if (event.getAction() != KeyEvent.ACTION_DOWN) {
+            return false;
+        }
+        
         if (keyCode == KeyEvent.KEYCODE_MENU
+                || keyCode == KeyEvent.KEYCODE_HOME
                 || keyCode == KeyEvent.KEYCODE_BACK) {
             return false;
         }
-
+        
         if (keyCode == key[KEY_SHOW_ANSWER]) {
             onClick(findViewById(R.id.show));
 
-        } else if (keyCode >= key[KEY_GRADE0]) {
+        } else if (keyCode == key[KEY_GRADE0]) {
             onClick(findViewById(grade_buttons[0]));
 
         } else if (keyCode == key[KEY_GRADE1]) {

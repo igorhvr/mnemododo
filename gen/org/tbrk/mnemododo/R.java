@@ -35,36 +35,43 @@ public final class R {
         public static final int card_webview=0x7f07001f;
         public static final int cards_left=0x7f070014;
         public static final int category=0x7f070013;
-        public static final int days_since_last_repetition=0x7f07002b;
-        public static final int days_since_last_repetition_layout=0x7f07002a;
-        public static final int days_until_next_repetition=0x7f07002d;
-        public static final int days_until_next_repetition_layout=0x7f07002c;
-        public static final int easiness=0x7f070025;
-        public static final int easiness_layout=0x7f070024;
-        public static final int grade=0x7f070023;
+        public static final int days_since_last_repetition=0x7f070032;
+        public static final int days_since_last_repetition_layout=0x7f070031;
+        public static final int days_until_next_repetition=0x7f070034;
+        public static final int days_until_next_repetition_layout=0x7f070033;
+        public static final int easiness=0x7f07002c;
+        public static final int easiness_layout=0x7f07002b;
+        public static final int grade=0x7f07002a;
         public static final int grade0=0x7f070019;
         public static final int grade1=0x7f07001a;
         public static final int grade2=0x7f07001b;
         public static final int grade3=0x7f07001c;
         public static final int grade4=0x7f07001d;
         public static final int grade5=0x7f07001e;
-        public static final int grade_layout=0x7f070021;
+        public static final int grade_layout=0x7f070028;
         public static final int grading_buttons_bottom=0x7f070018;
         public static final int grading_buttons_left=0x7f07000d;
         public static final int grading_buttons_right=0x7f070010;
         public static final int headings=0x7f070012;
-        public static final int label=0x7f070022;
+        public static final int key_grade0=0x7f070021;
+        public static final int key_grade1=0x7f070022;
+        public static final int key_grade2=0x7f070023;
+        public static final int key_grade3=0x7f070024;
+        public static final int key_grade4=0x7f070025;
+        public static final int key_grade5=0x7f070026;
+        public static final int key_show=0x7f070020;
+        public static final int label=0x7f070029;
         public static final int label_author=0x7f070004;
         public static final int label_mnemosyne=0x7f070007;
         public static final int label_sm2=0x7f07000a;
-        public static final int lapses=0x7f070029;
-        public static final int lapses_layout=0x7f070028;
+        public static final int lapses=0x7f070030;
+        public static final int lapses_layout=0x7f07002f;
         public static final int layout_names=0x7f070002;
         public static final int layout_root=0x7f070000;
         public static final int logo=0x7f070001;
-        public static final int repetitions=0x7f070027;
-        public static final int repetitions_layout=0x7f070026;
-        public static final int schedule_table=0x7f070020;
+        public static final int repetitions=0x7f07002e;
+        public static final int repetitions_layout=0x7f07002d;
+        public static final int schedule_table=0x7f070027;
         public static final int show=0x7f070017;
         public static final int show_buttons_bottom=0x7f070016;
         public static final int show_buttons_left=0x7f07000e;
@@ -76,8 +83,9 @@ public final class R {
     public static final class layout {
         public static final int about=0x7f030000;
         public static final int main=0x7f030001;
-        public static final int schedule=0x7f030002;
-        public static final int stats=0x7f030003;
+        public static final int mapkeys=0x7f030002;
+        public static final int schedule=0x7f030003;
+        public static final int stats=0x7f030004;
     }
     public static final class string {
         public static final int about_author=0x7f050023;
@@ -93,8 +101,8 @@ public final class R {
  translators: please do not translate below this line! 
  translators: please do not translate below this line! 
          */
-        public static final int app_name=0x7f050045;
-        public static final int app_version=0x7f050046;
+        public static final int app_name=0x7f050050;
+        public static final int app_version=0x7f050051;
         public static final int cannot_find_card_dirs=0x7f05002d;
         public static final int card_statistics=0x7f05000b;
         /**  XXX 
@@ -122,10 +130,18 @@ public final class R {
         public static final int grade3=0x7f050003;
         public static final int grade4=0x7f050004;
         public static final int grade5=0x7f050005;
+        public static final int grade_key=0x7f050045;
         /**  XXX 
          */
         public static final int in_text=0x7f050017;
         public static final int info=0x7f050021;
+        public static final int key_grade0=0x7f05004a;
+        public static final int key_grade1=0x7f05004b;
+        public static final int key_grade2=0x7f05004c;
+        public static final int key_grade3=0x7f05004d;
+        public static final int key_grade4=0x7f05004e;
+        public static final int key_grade5=0x7f05004f;
+        public static final int key_show=0x7f050049;
         public static final int lapses=0x7f05001d;
         public static final int loading_card_dir=0x7f050038;
         public static final int loading_cards=0x7f050039;
@@ -161,6 +177,7 @@ public final class R {
         public static final int select_button_pos=0x7f050042;
         public static final int select_card_dir=0x7f05000c;
         public static final int select_font_size=0x7f050037;
+        public static final int select_keys=0x7f050048;
         public static final int select_trade_off=0x7f050030;
         public static final int setting_button_pos=0x7f050040;
         public static final int setting_button_pos_summary=0x7f050041;
@@ -174,6 +191,8 @@ public final class R {
         public static final int setting_center_summary=0x7f050032;
         public static final int setting_font_size=0x7f050035;
         public static final int setting_font_size_summary=0x7f050036;
+        public static final int setting_keys=0x7f050046;
+        public static final int setting_keys_summary=0x7f050047;
         public static final int setting_touch_buttons=0x7f050033;
         public static final int setting_touch_buttons_summary=0x7f050034;
         /**  TODO: new or changed 

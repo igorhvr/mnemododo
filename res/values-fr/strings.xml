@@ -2,7 +2,8 @@
 <resources>
 
 <!--  translators: please do not change the name="..." attributes! -->
-   
+
+<!--
 <string name="grade0">0</string>
 <string name="grade1">1</string>
 <string name="grade2">2</string>
@@ -95,7 +96,8 @@
 </string-array>
 
 <string name="eula_title">Contrat de license</string>
-<string name="eula_accept">Acceptez</string>
-<string name="eula_refuse">Refusez</string>
+<string name="eula_accept">J'accept</string>
+<string name="eula_refuse">Je refuse</string>
 
+-->
 </resources>

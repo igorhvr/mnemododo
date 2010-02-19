@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
 <!--  translators: please do not change the name="..." attributes! -->
-   
+
+<!--   
 <string name="grade0">0</string>
 <string name="grade1">1</string>
 <string name="grade2">2</string>
@@ -12,24 +12,24 @@
 <string name="show">Antwort anzeigen</string>
 <string name="ok">OK</string>
 
-<string name="skip_card">Skip card</string>             <!-- XXX -->
+<string name="skip_card">Skip card</string>
 <string name="schedule">Zeitplan</string>
 <string name="settings">Einstellungen</string>
 <string name="card_statistics">Kart Statistiken</string>
 
-<string name="select_card_dir">Select a card directory</string>             <!-- XXX -->
+<string name="select_card_dir">Select a card directory</string>
 
-<string name="not_enough_memory_to_load">Not enough memory to load cards.</string>             <!-- XXX -->
-<string name="fatal_error">Fatal Error</string>             <!-- XXX -->
-<string name="no_card_loaded_text">Unexpected error: card not loaded.</string>             <!-- XXX -->
-<string name="update_overdue_text">An export from Mnemogogo is overdue!</string>             <!-- XXX -->
-<string name="update_today_text">An export from Mnemogogo is due today.</string>             <!-- XXX -->
-<string name="no_card_dirs">No card directories could be found. Please export from Mnemogogo!</string>             <!-- XXX -->
-<string name="corrupt_card_dir">The exported cards are corrupt.</string>             <!-- XXX -->
+<string name="not_enough_memory_to_load">Not enough memory to load cards.</string>
+<string name="fatal_error">Fatal Error</string>
+<string name="no_card_loaded_text">Unexpected error: card not loaded.</string>
+<string name="update_overdue_text">An export from Mnemogogo is overdue!</string>
+<string name="update_today_text">An export from Mnemogogo is due today.</string>
+<string name="no_card_dirs">No card directories could be found. Please export from Mnemogogo!</string>
+<string name="corrupt_card_dir">The exported cards are corrupt.</string>
 
-<string name="no_cards_title">No cards</string>             <!-- XXX -->
-<string name="no_new_cards_title">No new cards</string>             <!-- XXX -->
-<string name="no_cards_left">There are no new cards to review at this time.</string>             <!-- XXX -->
+<string name="no_cards_title">No cards</string>
+<string name="no_new_cards_title">No new cards</string>
+<string name="no_cards_left">There are no new cards to review at this time.</string>
 
 <string name="in_text">In</string>
 <string name="day_text">tag</string>
@@ -48,10 +48,9 @@
 <string name="about_author">Timothy Bourke</string>
 <string name="about_mnemosyne_label">Mnemosyne:</string>
 <string name="about_mnemosyne">Peter Bienstman</string>
-<string name="about_sm2_label">SM-2 Algorithm:</string>             <!-- XXX -->
+<string name="about_sm2_label">SM-2 Algorithm:</string>
 <string name="about_sm2">Piotr Wozniak</string>
 
-             <!-- XXX from here XXX -->
 <string name="no_cards_main">A valid card directory has not yet been selected.</string>
 <string name="no_cards_step1">Export cards from Mnemosyne to your SD card using the Mnemogogo plugin.</string>
 <string name="no_cards_step2">Choose the exported directory from the Settings screen.</string>
@@ -95,5 +94,5 @@
 <string name="eula_title">License</string>
 <string name="eula_accept">Accept</string>
 <string name="eula_refuse">Refuse</string>
-
+-->
 </resources>

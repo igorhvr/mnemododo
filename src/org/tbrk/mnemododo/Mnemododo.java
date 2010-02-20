@@ -32,6 +32,9 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
+import android.content.pm.PackageManager.NameNotFoundException;
 import android.os.Bundle;
 import android.os.Handler;
 import android.preference.PreferenceManager;
@@ -702,10 +705,20 @@ public class Mnemododo
 
         switch (id) {
         case DIALOG_ABOUT:
+            PackageManager pm = getPackageManager();
+            String version_name = "?.?.?";
+            int version_code = 0;
+            try {
+                PackageInfo pi = pm.getPackageInfo("org.tbrk.mnemododo", 0);
+                version_name = pi.versionName;
+                version_code = pi.versionCode;
+            } catch (NameNotFoundException e) { }
+
             dialog = new Dialog(mContext);
             dialog.setContentView(R.layout.about);
             dialog.setTitle(getString(R.string.app_name) + " "
-                    + getString(R.string.app_version));
+                    + version_name
+                    + " (r" + Integer.toString(version_code) + ")");
             dialog.setCanceledOnTouchOutside(true);
             break;
 

@@ -126,7 +126,6 @@ Mnemododo Settings screen (press the Menu button, and then choose Settings).</st
 <!-- translators: please do not translate below this line! -->
 
 <string name="app_name">Mnemododo</string>
-<string name="app_version">1.0.0</string>
 
 <string-array name="values_cards_to_load">
     <item>25</item>

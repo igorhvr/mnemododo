@@ -97,7 +97,6 @@ public final class R {
         /**  translators: please do not translate below this line! 
          */
         public static final int app_name=0x7f05004f;
-        public static final int app_version=0x7f050050;
         public static final int cannot_find_card_dirs=0x7f05002d;
         public static final int card_statistics=0x7f05000b;
         public static final int corrupt_card_dir=0x7f050013;

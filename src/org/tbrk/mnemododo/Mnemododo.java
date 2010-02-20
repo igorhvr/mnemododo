@@ -1060,8 +1060,16 @@ public class Mnemododo
     protected String makeCardHtml(Card c, boolean show_answer)
     {
         StringBuffer html = new StringBuffer(html_pre);
+        
+        char[] catname = c.categoryName().toCharArray();
         html.append("<body class=\"");
-        html.append(c.categoryName());
+        for (char l : catname) {
+            if (Character.isWhitespace(l)) {
+                html.append('_');
+            } else if (Character.isUnicodeIdentifierPart(l)) {
+                html.append(l);
+            }
+        }
         html.append("\">");
 
         String question = c.getQuestion();

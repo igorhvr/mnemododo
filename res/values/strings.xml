@@ -53,6 +53,8 @@
 
 <string name="no_cards_main">A valid card directory has not yet been selected.</string>
 
+<string name="not_available">This feature is not available.</string>
+
 <string name="setting_cat_operation">Operation</string>
 <string name="setting_cat_appearance">Appearance</string>
 
@@ -121,7 +123,6 @@ Mnemododo Settings screen (press the Menu button, and then choose Settings).</st
 <string name="key_grade3">Grade a card 3</string>
 <string name="key_grade4">Grade a card 4</string>
 <string name="key_grade5">Grade a card 5</string>
-
 
 <!-- translators: please do not translate below this line! -->
 

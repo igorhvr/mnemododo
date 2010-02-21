@@ -51,6 +51,8 @@
 
 <string name="no_cards_main">Een geldig kaartenbestand is nog niet geselecteerd.</string>
 
+<string name="not_available">Dit kenmerk is niet beschikbaar.</string>
+
 <string name="no_cards_step1">Op een PC; exporteer kaarten van Mnemosyne naar
 uw SD kaart met gebruik van de Mnemogogo plugin.</string>
 

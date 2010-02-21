@@ -21,10 +21,12 @@ package org.tbrk.mnemododo;
 import java.util.Vector;
 
 import mnemogogo.mobile.hexcsv.FindCardDirAndroid;
+import mnemogogo.mobile.hexcsv.HexCsvAndroid;
 import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
 import android.graphics.Typeface;
@@ -42,6 +44,7 @@ public class Settings
 {
     protected int key_assign_mode = 0;
     protected Dialog key_assign_dialog = null;
+    protected boolean is_demo = false;
     
     protected static final int key_text_ids[] = {
         R.id.key_show, R.id.key_grade0, R.id.key_grade1,
@@ -78,7 +81,7 @@ public class Settings
             }
 
             list_pref = pref[0];
-            return FindCardDirAndroid.list();
+            return FindCardDirAndroid.list(!is_demo);
         }
 
         public void onPostExecute(Vector<String> result)
@@ -94,7 +97,7 @@ public class Settings
 
             } else {
                 String[] dirs = result.toArray(new String[result.size()]);
-                list_pref.setEntries(dirs);
+                list_pref.setEntries(getCardDirValues(dirs));
                 list_pref.setEntryValues(dirs);
 
                 list_pref.setEnabled(true);
@@ -106,6 +109,9 @@ public class Settings
     public void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
+        
+        Intent intent = getIntent();
+        is_demo = intent.getBooleanExtra("is_demo", false);
 
         addPreferencesFromResource(R.xml.settings);
         setCardDirEntries();
@@ -120,13 +126,29 @@ public class Settings
         
         setResult(RESULT_OK);
     }
+
+    public CharSequence[] getCardDirValues(CharSequence[] entries)
+    {        
+        CharSequence[] values = new CharSequence[entries.length];
+        for (int i=0; i < entries.length; ++i) {
+            String e = entries[i].toString();
+            if (e.startsWith(HexCsvAndroid.demo_prefix)) {
+                values[i] = "demo: "
+                    + e.substring(HexCsvAndroid.demo_prefix.length());
+            } else {
+                values[i] = entries[i];
+            }
+        }
+        
+        return values;
+    }
     
     public void setCardDirEntries()
     {
         ListPreference pref_card_dir = (ListPreference) getPreferenceScreen()
             .findPreference("cards_path");
         CharSequence[] entries = pref_card_dir.getEntries();
-        
+
         if (entries == null) {
             entries = (CharSequence[]) getLastNonConfigurationInstance();
         }
@@ -136,7 +158,7 @@ public class Settings
             new FindCardDirsTask().execute(pref_card_dir);
 
         } else {
-            pref_card_dir.setEntries(entries);
+            pref_card_dir.setEntries(getCardDirValues(entries));
             pref_card_dir.setEntryValues(entries);
             pref_card_dir.setEnabled(true);
         }

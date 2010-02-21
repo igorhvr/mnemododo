@@ -58,7 +58,7 @@ import android.widget.TextView;
 public class Mnemododo
     extends Activity
     implements OnClickListener, OnKeyListener
-{       
+{
     enum Mode { SHOW_QUESTION, SHOW_ANSWER, NO_CARDS, NO_NEW_CARDS }
     
     static final int BUTTON_POS_BOTTOM = 0;
@@ -112,6 +112,8 @@ public class Mnemododo
     protected Card cur_card;
     private long thinking_msecs = 0;
     String cards_path = null;
+    private static final boolean is_demo = false;
+    private static final String demo_path = "/android_asset/demodeck/";
 
     /* Configuration */
     
@@ -170,7 +172,8 @@ public class Mnemododo
             public Boolean doInBackground(String... path)
             {
                     try {
-                            loaddb = new HexCsvAndroid(path[0], LoadStatsTask.this);
+                            loaddb = new HexCsvAndroid(path[0],
+                                                       LoadStatsTask.this);
                             loaddb.cards_to_load = cards_to_load;
 
                     } catch (Exception e) {
@@ -265,7 +268,9 @@ public class Mnemododo
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
-
+        
+        HexCsvAndroid.context = this;
+        
         // Setup UI specifics
         webview = (WebView) findViewById(R.id.card_webview);
         webview.setOnKeyListener(this);
@@ -361,7 +366,9 @@ public class Mnemododo
         key[KEY_GRADE5] = settings.getInt("key_grade5", KeyEvent.KEYCODE_5);
         key[KEY_SHOW_ANSWER] = settings.getInt("key_show_answer", KeyEvent.KEYCODE_9);
 
-        String settings_cards_path = settings.getString("cards_path", null);
+        String settings_cards_path;
+        settings_cards_path = settings.getString("cards_path", demo_path);
+
         if (settings_cards_path != null
                 && !settings_cards_path.endsWith(File.separator)) {
             settings_cards_path = settings_cards_path + File.separator;
@@ -600,6 +607,7 @@ public class Mnemododo
         case MENU_SETTINGS:
             Intent settings_intent = new Intent();
             settings_intent.setClass(this, Settings.class);
+            settings_intent.putExtra("is_demo", is_demo);
             startActivityForResult(settings_intent, REQUEST_SETTINGS);
             return true;
 
@@ -792,7 +800,7 @@ public class Mnemododo
             path = path + File.separator;
         }
 
-        if (!FindCardDirAndroid.isCardDir(new File(path))) {
+        if (!FindCardDirAndroid.isCardDir(path)) {
             cards_path = null;
             cur_card = null;
             setMode(Mode.NO_CARDS);
@@ -1116,7 +1124,6 @@ public class Mnemododo
         }
 
         html.append(html_post);
-
         return html.toString();
     }
 

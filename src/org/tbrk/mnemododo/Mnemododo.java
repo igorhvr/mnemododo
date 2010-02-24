@@ -39,11 +39,13 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.preference.PreferenceManager;
 import android.util.DisplayMetrics;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.view.View.OnClickListener;
 import android.view.View.OnKeyListener;
 import android.view.animation.AlphaAnimation;
@@ -267,6 +269,7 @@ public class Mnemododo
     public void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
+        setFullscreenMode();
         setContentView(R.layout.main);
         
         HexCsvAndroid.context = this;
@@ -307,6 +310,17 @@ public class Mnemododo
         Eula.show(Mnemododo.this);
     }
 
+    public void setFullscreenMode()
+    {
+        SharedPreferences settings = PreferenceManager
+            .getDefaultSharedPreferences(this);
+        Log.i("!!!tim fullscreen=", settings.getBoolean("fullscreen_mode", false) ? "true" : "false"); // XXX
+        if (settings.getBoolean("fullscreen_mode", false)) {
+            getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+                                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        }
+    }
+
     public void loadPrefs(Mnemododo lastDodo)
     {
         boolean quick_restart = false;
@@ -333,6 +347,8 @@ public class Mnemododo
             editor.putString("card_font_size", card_font_size);
             editor.putString("cards_to_load", Integer.toString(cards_to_load));
             editor.putBoolean("two_grading_rows", two_grading_rows);
+            editor.putBoolean("fullscreen_mode", false);
+            editor.putBoolean("show_titlebar", true);
             editor.putString("button_pos", Integer.toString(button_pos));
             editor.commit();
         }
@@ -343,6 +359,7 @@ public class Mnemododo
         boolean two_grading_rows = settings.getBoolean("two_grading_rows", false);
         int nbutton_pos = Integer.parseInt(settings.getString("button_pos",
                 Integer.toString(BUTTON_POS_BOTTOM)));
+        boolean show_titlebar = settings.getBoolean("show_titlebar", true);
 
         boolean ncenter = settings.getBoolean("center", true);
         String ncard_font = settings.getString("card_font", "");
@@ -356,7 +373,8 @@ public class Mnemododo
         card_font = ncard_font;
         card_font_size = ncard_font_size;
         html_pre = getCardHeader();
-        
+
+        // keys
         key = new int[KEY_SHOW_ANSWER + 1];
         key[KEY_GRADE0] = settings.getInt("key_grade0", KeyEvent.KEYCODE_0);
         key[KEY_GRADE1] = settings.getInt("key_grade1", KeyEvent.KEYCODE_1);
@@ -366,6 +384,7 @@ public class Mnemododo
         key[KEY_GRADE5] = settings.getInt("key_grade5", KeyEvent.KEYCODE_5);
         key[KEY_SHOW_ANSWER] = settings.getInt("key_show_answer", KeyEvent.KEYCODE_9);
 
+        // cards_path
         String settings_cards_path;
         settings_cards_path = settings.getString("cards_path", demo_path);
 
@@ -380,8 +399,12 @@ public class Mnemododo
                 && settings_cards_path != null
                 && !cards_path.equals(settings_cards_path));
 
+        // update the layout
         reconfigureButtons(nbutton_pos, two_grading_rows);
-                
+
+        findViewById(R.id.titlebar)
+            .setVisibility(show_titlebar ? View.VISIBLE : View.GONE);
+
         if (touch_buttons && !will_load_cards) {
             show_panel
                     .setVisibility(nmode == Mode.SHOW_QUESTION ? View.VISIBLE

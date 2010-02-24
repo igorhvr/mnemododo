@@ -92,6 +92,15 @@ van het Instellingen scherm.</string>
     <item>Heel groot</item>
 </string-array>
 
+<!-- TODO: - - - - - - - - - - - - - - - - - - -  -->
+<string name="setting_fullscreen_mode">Fullscreen mode</string>
+<string name="setting_fullscreen_mode_summary">The status bar is hidden in fullscreen mode
+(requires restart).</string>
+<string name="setting_show_titlebar">Show titlebar</string>
+<string name="setting_show_titlebar_summary">The title bar displays the category and
+the number of cards to review.</string>
+<!-- - - - - - - - - - - - - - - - - - - - - - - - -->
+
 <string name="setting_two_grading_rows">Grotere knopjes</string>
 <string name="setting_two_grading_rows_summary">Toon twee rijen knopjes in smal scherm tijdens beoordeling.</string>
 

@@ -63,7 +63,7 @@
     </LinearLayout>
   
 	<LinearLayout
-		android:id="@+id/headings"
+		android:id="@+id/titlebar"
         android:orientation="horizontal"	
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
@@ -79,7 +79,8 @@
 	        android:layout_height="wrap_content"
 	        android:layout_weight="1"
 	        android:gravity="left"
-	        android:focusableInTouchMode="true"/>
+	        android:focusableInTouchMode="true"
+	        />
 	        
 		<TextView
 			android:id="@+id/cards_left"
@@ -89,7 +90,8 @@
 	        android:layout_weight="1"
 	        android:minEms="4"
 	        android:gravity="right"
-	        android:focusableInTouchMode="true"/>
+	        android:focusableInTouchMode="true"
+	    />
 	</LinearLayout>
 
     <LinearLayout
@@ -182,7 +184,7 @@
 		android:id="@+id/card_webview"
 		android:layout_width="fill_parent"
 		android:layout_height="fill_parent"
-        android:layout_below="@+id/headings"
+        android:layout_below="@+id/titlebar"
         android:layout_above="@+id/buttons_bottom"
         android:layout_toRightOf="@+id/buttons_left"
         android:layout_toLeftOf="@+id/buttons_right"

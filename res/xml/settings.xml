@@ -69,6 +69,18 @@
             android:entryValues="@array/values_button_pos"
         />
 
+        <CheckBoxPreference
+            android:summary="@string/setting_fullscreen_mode_summary"
+            android:key="fullscreen_mode"
+            android:title="@string/setting_fullscreen_mode"
+        />
+
+        <CheckBoxPreference
+            android:summary="@string/setting_show_titlebar_summary"
+            android:key="show_titlebar"
+            android:title="@string/setting_show_titlebar"
+        />
+
     </PreferenceCategory>
 
 

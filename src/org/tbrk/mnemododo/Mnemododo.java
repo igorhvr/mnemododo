@@ -1098,6 +1098,7 @@ public class Mnemododo
             + "     font-size: normal; }"
             + "</style>"
             + "<link rel=\"stylesheet\" href=\"STYLE.CSS\" type=\"text/css\">"
+            + "<meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\" />"
             + "</head>";
     }
 

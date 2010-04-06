@@ -95,8 +95,9 @@ public final class R {
         public static final int about_sm2=0x7f050027;
         public static final int about_sm2_label=0x7f050026;
         /**  translators: please do not translate below this line! 
+ translators: please do not translate below this line! 
          */
-        public static final int app_name=0x7f050054;
+        public static final int app_name=0x7f050058;
         public static final int cannot_find_card_dirs=0x7f05002e;
         public static final int card_statistics=0x7f05000b;
         public static final int corrupt_card_dir=0x7f050013;
@@ -111,6 +112,7 @@ public final class R {
         public static final int fatal_error=0x7f05000e;
         public static final int grade=0x7f05001e;
         /**   translators: please do not change the name="..." attributes! 
+  translators: please do not change the name="..." attributes! 
          */
         public static final int grade0=0x7f050000;
         public static final int grade1=0x7f050001;
@@ -128,8 +130,15 @@ public final class R {
         public static final int key_grade5=0x7f050053;
         public static final int key_show=0x7f05004d;
         public static final int lapses=0x7f05001d;
+        /** 
+<string name="setting_two_grading_rows">Agrandir les boutons de notation</string>
+<string name="setting_two_grading_rows_summary">Afficher les boutons de notation sur deux lignes.</string>
+ 
+         */
         public static final int loading_card_dir=0x7f05003d;
         public static final int loading_cards=0x7f05003e;
+        public static final int market_description=0x7f050059;
+        public static final int market_promo=0x7f05005a;
         public static final int no_card_dirs=0x7f050012;
         public static final int no_card_loaded_text=0x7f05000f;
         public static final int no_cards_left=0x7f050016;
@@ -167,11 +176,18 @@ public final class R {
         public static final int setting_fullscreen_mode_summary=0x7f05003a;
         public static final int setting_keys=0x7f05004a;
         public static final int setting_keys_summary=0x7f05004b;
+        /**  TODO: translate 
+         */
+        public static final int setting_restrict_search=0x7f050054;
+        public static final int setting_restrict_search_message=0x7f050057;
+        public static final int setting_restrict_search_summary=0x7f050055;
+        public static final int setting_restrict_search_title=0x7f050056;
         public static final int setting_show_titlebar=0x7f05003b;
         public static final int setting_show_titlebar_summary=0x7f05003c;
         public static final int setting_touch_buttons=0x7f050034;
         public static final int setting_touch_buttons_summary=0x7f050035;
         /**  TODO: new or changed 
+ TODO: new or changed 
  - - - - - - - - - - - - - - - - - - - - - - - 
          */
         public static final int setting_two_grading_rows=0x7f050043;

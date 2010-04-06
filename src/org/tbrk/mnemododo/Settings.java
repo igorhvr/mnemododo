@@ -66,9 +66,19 @@ public class Settings
     {
         private ListPreference list_pref = null;
         private ProgressDialog progress_dialog;
+        private String restrict_path[] = null;
 
         public void onPreExecute()
         {
+            SharedPreferences prefs =
+                PreferenceManager.getDefaultSharedPreferences(getBaseContext());
+
+            String path = prefs.getString("restrict_search", null);
+            if (!path.equals("")) {
+                restrict_path = new String[1];
+                restrict_path[0] = path;
+            }
+
             progress_dialog = ProgressDialog.show(Settings.this, "",
                     getString(R.string.searching_for_card_dirs), true);
         }
@@ -81,7 +91,11 @@ public class Settings
             }
 
             list_pref = pref[0];
-            return FindCardDirAndroid.list(!is_demo);
+            if (restrict_path == null) {
+                return FindCardDirAndroid.list(!is_demo);
+            } else {
+                return FindCardDirAndroid.list(!is_demo, restrict_path);
+            }
         }
 
         public void onPostExecute(Vector<String> result)

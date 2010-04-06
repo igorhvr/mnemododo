@@ -12,6 +12,15 @@
 			android:key="cards_path"
             android:dialogTitle="@string/select_card_dir"
 		/>
+		
+		<EditTextPreference
+            android:title="@string/setting_restrict_search"
+            android:summary="@string/setting_restrict_search_summary"
+            android:key="restrict_search"
+            android:defaultValue=""
+            android:dialogTitle="@string/setting_restrict_search_title"
+            android:dialogMessage="@string/setting_restrict_search_message"
+		/>
 
         <ListPreference
             android:title="@string/setting_cards_to_load"

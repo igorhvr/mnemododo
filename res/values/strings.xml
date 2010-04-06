@@ -131,6 +131,12 @@ Mnemododo Settings screen (press the Menu button, and then choose Settings).</st
 <string name="key_grade4">Grade a card 4</string>
 <string name="key_grade5">Grade a card 5</string>
 
+<!-- TODO: translate -->
+<string name="setting_restrict_search">Restrict directory search</string>
+<string name="setting_restrict_search_summary">Only look for card directories under a specific path.</string>
+<string name="setting_restrict_search_title">Enter a path to search for card directories:</string>
+<string name="setting_restrict_search_message">(Leave blank to search the whole phone.)</string>
+
 <!-- translators: please do not translate below this line! -->
 
 <string name="app_name">Mnemododo</string>

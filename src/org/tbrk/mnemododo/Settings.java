@@ -70,13 +70,15 @@ public class Settings
 
         public void onPreExecute()
         {
-            SharedPreferences prefs =
-                PreferenceManager.getDefaultSharedPreferences(getBaseContext());
-
-            String path = prefs.getString("restrict_search", null);
-            if (!path.equals("")) {
-                restrict_path = new String[1];
-                restrict_path[0] = path;
+            if (!is_demo) {
+                SharedPreferences prefs =
+                    PreferenceManager.getDefaultSharedPreferences(getBaseContext());
+    
+                String path = prefs.getString("restrict_search", "").trim();
+                if (!path.equals("")) {
+                    restrict_path = new String[1];
+                    restrict_path[0] = path;
+                }
             }
 
             progress_dialog = ProgressDialog.show(Settings.this, "",
@@ -94,7 +96,7 @@ public class Settings
             if (restrict_path == null) {
                 return FindCardDirAndroid.list(!is_demo);
             } else {
-                return FindCardDirAndroid.list(!is_demo, restrict_path);
+                return FindCardDirAndroid.list(restrict_path);
             }
         }
 
@@ -137,6 +139,9 @@ public class Settings
                 return false;
             }
         });
+        
+        Preference restrict = (Preference) findPreference("restrict_search");
+        restrict.setEnabled(!is_demo);
         
         setResult(RESULT_OK);
     }

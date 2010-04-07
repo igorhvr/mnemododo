@@ -30,6 +30,7 @@
 <string name="no_cards_title">No cards</string>
 <string name="no_new_cards_title">No new cards</string>
 <string name="no_cards_left">There are no new cards to review at this time.</string>
+<string name="learn_ahead">Learn ahead of schedule</string>
 
 <string name="in_text">In</string>
 <string name="day_text">day</string>

@@ -152,7 +152,25 @@ public class Mnemododo
                         }
                 }
         };
+
+    /* Javascript interface */
+    
+    private class Javascript
+    {
+            @SuppressWarnings("unused")
+            public void learnAhead()
+            {
+                final Runnable r = new Runnable() {
+                    public void run() {
+                        carddb.learnAhead();
+                        nextQuestion();
+                    }
+                };
                 
+                handler.post(r);
+            }
+    }
+
     /* Tasks */
         
     private class LoadStatsTask
@@ -211,7 +229,8 @@ public class Mnemododo
             }
     }
         
-    private class LoadCardTask extends ProgressTask<Boolean, String>
+    private class LoadCardTask
+            extends ProgressTask<Boolean, String>
     {
         Card card;
         boolean is_question;
@@ -277,6 +296,8 @@ public class Mnemododo
         // Setup UI specifics
         webview = (WebView) findViewById(R.id.card_webview);
         webview.setOnKeyListener(this);
+        webview.getSettings().setJavaScriptEnabled(true);
+        webview.addJavascriptInterface(new Javascript(), "Mnemododo");
 
         grading_panel = (TableLayout) findViewById(R.id.grading_buttons_bottom);
         show_panel = (ViewGroup) findViewById(R.id.show_buttons_bottom);
@@ -314,7 +335,6 @@ public class Mnemododo
     {
         SharedPreferences settings = PreferenceManager
             .getDefaultSharedPreferences(this);
-        Log.i("!!!tim fullscreen=", settings.getBoolean("fullscreen_mode", false) ? "true" : "false"); // XXX
         if (settings.getBoolean("fullscreen_mode", false)) {
             getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                                  WindowManager.LayoutParams.FLAG_FULLSCREEN);
@@ -944,6 +964,12 @@ public class Mnemododo
             html.append("<div style=\"padding: 1ex; text-align: center;\"><p>");
             html.append(getString(R.string.no_cards_left));
             html.append("</p></div>");
+            if (carddb.canLearnAhead()) {
+                html.append("<input type=\"button\" value=\"");
+                html.append(getString(R.string.learn_ahead));
+                html.append("\" style=\"width: 100%; margin-top: 1em;\"");
+                html.append(" onclick=\"Mnemododo.learnAhead();\" />");
+            }
             html.append(html_post);
 
             setCategory(getString(R.string.no_new_cards_title));
@@ -1001,9 +1027,10 @@ public class Mnemododo
         }
 
         try {
+            carddb.removeFromFutureSchedule(cur_card);
             cur_card.gradeCard(carddb.days_since_start, grade, thinking_msecs,
                     carddb.logfile);
-            carddb.updateFutureSchedule(cur_card);
+            carddb.addToFutureSchedule(cur_card);
             carddb_dirty = true;
             return true;
 

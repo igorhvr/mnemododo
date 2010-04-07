@@ -30,6 +30,7 @@
 <string name="no_cards_title">Aucune carte</string>
 <string name="no_new_cards_title">Aucune nouvelle carte</string>
 <string name="no_cards_left">Il n'y a actuellement pas de nouvelle carte à répéter.</string>
+<string name="learn_ahead">Apprendre en avance</string>
 
 <string name="in_text">Dans</string>
 <string name="day_text">jour</string>
@@ -78,10 +79,9 @@ pour afficher les réponses et noter les cartes</string>
 <string name="setting_font_size">Taille du texte</string>
 <string name="setting_font_size_summary">Choisir la taille du texte des cartes</string>
 <string name="select_font_size">Choisissez la taille</string>
-<string name="setting_two_grading_rows">Agrandir les boutons de
-notation</string>
-<string name="setting_two_grading_rows_summary">Afficher les boutons de
-notation sur deux lignes</string>
+<string name="setting_two_grading_rows">Boutons plus larges</string>
+<string name="setting_two_grading_rows_summary">Montrer deux lignes de
+boutons en mode vertical</string>
 
 <string name="setting_fullscreen_mode">Mode plein écran</string>
 <string name="setting_fullscreen_mode_summary">Cacher la barre d'état
@@ -111,11 +111,6 @@ la catégorie et le nombre de cartes en attente.</string>
 <string name="eula_title">Contrat de licence</string>
 <string name="eula_accept">Accepter</string>
 <string name="eula_refuse">Refuser</string>
-
-<!-- TODO: new or changed -->
-<string name="setting_two_grading_rows">Boutons plus larges</string>
-<string name="setting_two_grading_rows_summary">Montrer deux lignes de
-boutons en mode vertical</string>
 
 <string name="setting_button_pos">Position des boutons</string>
 <string name="setting_button_pos_summary">Position des boutons en mode horizontal</string>

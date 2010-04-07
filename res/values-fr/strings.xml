@@ -2,7 +2,7 @@
 <resources>
 
 <!--  translators: please do not change the name="..." attributes! -->
-   
+
 <string name="grade0">0</string>
 <string name="grade1">1</string>
 <string name="grade2">2</string>
@@ -17,75 +17,87 @@
 <string name="settings">Paramètres</string>
 <string name="card_statistics">Statistiques de cette carte</string>
 
-<string name="select_card_dir">Choisissez un répertoire de cartes</string>
+<string name="select_card_dir">Choisir un répertoire de cartes</string>
 
 <string name="not_enough_memory_to_load">La mémoire actuelle ne suffit pas pour charger les cartes.</string>
 <string name="fatal_error">Erreur fatale</string>
-<string name="no_card_loaded_text">Erreur imprévue: cette carte n'est pas chargée.</string>
-<string name="update_overdue_text">Une exportation de Mnemogogo est nécessaire!</string>
-<string name="update_today_text">Une exportation de Mnemogogo est nécessaire aujourd'hui.</string>
-<string name="no_card_dirs">Aucun répertoire de cartes ne peut être trouvé. Prière de procéder à un export de Mnemogogo!</string>
+<string name="no_card_loaded_text">Erreur imprévue : cette carte n'est pas chargée.</string>
+<string name="update_overdue_text">Une exportation depuis Mnemogogo est nécessaire !</string>
+<string name="update_today_text">Une exportation depuis Mnemogogo est nécessaire aujourd'hui.</string>
+<string name="no_card_dirs">Aucun répertoire de cartes trouvé. Procédez à un export depuis Mnemogogo!</string>
 <string name="corrupt_card_dir">Le répertoire de cartes est endommagé.</string>
 
 <string name="no_cards_title">Aucune carte</string>
 <string name="no_new_cards_title">Aucune nouvelle carte</string>
-<string name="no_cards_left">Il n'y a actuellement aucunes nouvelles cartes à revoir.</string>
+<string name="no_cards_left">Il n'y a actuellement pas de nouvelle carte à répéter.</string>
 
 <string name="in_text">Dans</string>
 <string name="day_text">jour</string>
 <string name="days_text">jours</string>
 
 <string name="statistics">Statistiques</string>
-<string name="easiness">Facilité:</string>
-<string name="repetitions">Répétitions:</string>
-<string name="lapses">Essais:</string>
-<string name="grade">Note:</string>
-<string name="days_since_last_repetition">Jours depuis la dernière répétition:</string>
-<string name="days_until_next_repetition">Jours jusqu'à la prochaine répétition:</string>
+<string name="easiness">Facilité :</string>
+<string name="repetitions">Répétitions :</string>
+<string name="lapses">Essais :</string>
+<string name="grade">Note :</string>
+<string name="days_since_last_repetition">Jours depuis la dernière répétition :</string>
+<string name="days_until_next_repetition">Jours jusqu'à la prochaine répétition :</string>
 
 <string name="info">À propos</string>
-<string name="about_author_label">Auteur:</string>
+<string name="about_author_label">Auteur :</string>
 <string name="about_author">Timothy Bourke</string>
-<string name="about_mnemosyne_label">Mnemosyne:</string>
+<string name="about_mnemosyne_label">Mnemosyne :</string>
 <string name="about_mnemosyne">Peter Bienstman</string>
-<string name="about_sm2_label">Algorithme de SM-2:</string>
+<string name="about_sm2_label">Algorithme de SM-2 :</string>
 <string name="about_sm2">Piotr Wozniak</string>
 
 <string name="no_cards_main">Aucun répertoire de cartes n'est choisi.</string>
-<string name="no_cards_step1">Depuis un PC: exporter des cartes de Mnemosyne sur votre carte SD via le plugin de Mnemogogo</string>
-<string name="no_cards_step2">Sur ce smartphone: choisir le répertoire de
+<string name="no_cards_step1">Sur un PC, exporter des cartes de Mnemosyne
+vers la carte SD via le greffon Mnemogogo.</string>
+<string name="no_cards_step2">Sur ce smartphone, choisir le répertoire de
     cartes dans les paramètres de Mnemogogo (choisir 'Menu' puis 'Paramètres').</string>
+
+<string name="not_available">Cette fonctionnalité n'est pas disponible.</string>
 
 <string name="setting_cat_operation">Fonctionnement</string>
 <string name="setting_cat_appearance">Apparence</string>
 
 <string name="setting_card_dir">Répertoire de cartes</string>
-<string name="setting_card_dir_summary">Le chemin vers les fichiers exportés depuis Mnemogogo.</string>
-<string name="cannot_find_card_dirs">(Aucun répertoire trouvé sur cet appareil!)</string>
+<string name="setting_card_dir_summary">Chemin vers les fichiers exportés depuis Mnemogogo</string>
+<string name="cannot_find_card_dirs">(Aucun répertoire trouvé sur cet appareil !)</string>
 <string name="setting_cards_to_load">Chargement des cartes en cours</string>
-<string name="setting_cards_to_load_summary">Rapport entre utilisation mémoire et temps de chargement des cartes.</string>
-<string name="select_trade_off">Choisissez le rapport</string>
+<string name="setting_cards_to_load_summary">Rapport entre utilisation
+mémoire et temps de chargement des cartes</string>
+<string name="select_trade_off">Choisir le rapport</string>
 
 <string name="setting_center">Centrer le texte sur les cartes</string>
-<string name="setting_center_summary">Centrer les textes des questions et réponses.</string>
+<string name="setting_center_summary">Centrer les textes des questions et réponses</string>
 <string name="setting_touch_buttons">Boutons tactiles</string>
-<string name="setting_touch_buttons_summary">Utiliser les boutons tactiles pour afficher les réponses et pour noter.</string>
+<string name="setting_touch_buttons_summary">Utiliser les boutons tactiles
+pour afficher les réponses et noter les cartes</string>
 <string name="setting_font_size">Taille du texte</string>
-<string name="setting_font_size_summary">Choisir la taille du texte des cartes.</string>
+<string name="setting_font_size_summary">Choisir la taille du texte des cartes</string>
 <string name="select_font_size">Choisissez la taille</string>
-<!--
-<string name="setting_two_grading_rows">Agrandir les boutons de notation</string>
-<string name="setting_two_grading_rows_summary">Afficher les boutons de notation sur deux lignes.</string>
- -->
+<string name="setting_two_grading_rows">Agrandir les boutons de
+notation</string>
+<string name="setting_two_grading_rows_summary">Afficher les boutons de
+notation sur deux lignes</string>
+
+<string name="setting_fullscreen_mode">Mode plein écran</string>
+<string name="setting_fullscreen_mode_summary">Cacher la barre d'état
+en mode plein écran (nécessite un redémarrage).</string>
+<string name="setting_show_titlebar">Montrer la barre de titre</string>
+<string name="setting_show_titlebar_summary">La barre de titre affiche
+la catégorie et le nombre de cartes en attente.</string>
 
 <string name="loading_card_dir">Chargement des statistiques en cours...</string>
 <string name="loading_cards">Chargement des cartes en cours...</string>
 <string name="searching_for_card_dirs">Recherche de répertoires en cours...</string>
 
 <string-array name="entries_cards_to_load">
-	<item>Optimisation de l'utilisation mémoire</item>
-	<item>Compromis entre temps de chargement et utilisation mémoire</item>
-	<item>Optimisation du temps de chargement</item>
+    <item>Utilise peu de mémoire, chargement plus lent</item>
+    <item>Compromis entre temps de chargement et utilisation mémoire</item>
+    <item>Charge rapidement, utilise plus de mémoire</item>
 </string-array>
 
 <string-array name="entries_font_size">
@@ -96,69 +108,64 @@
     <item>Très grand</item>
 </string-array>
 
-<string name="eula_title">Contrat de license</string>
+<string name="eula_title">Contrat de licence</string>
 <string name="eula_accept">Accepter</string>
 <string name="eula_refuse">Refuser</string>
 
 <!-- TODO: new or changed -->
+<string name="setting_two_grading_rows">Boutons plus larges</string>
+<string name="setting_two_grading_rows_summary">Montrer deux lignes de
+boutons en mode vertical</string>
 
-<string name="setting_two_grading_rows">Bigger buttons</string>
-
-<string name="setting_two_grading_rows_summary">Show two rows of grading buttons in narrow screen mode.</string>
-
-<string name="setting_button_pos">Button position</string>
-
-<string name="setting_button_pos_summary">Location of the buttons in wide screen mode.</string>
-
-<string name="select_button_pos">Place the buttons</string>
+<string name="setting_button_pos">Position des boutons</string>
+<string name="setting_button_pos_summary">Position des boutons en mode horizontal</string>
+<string name="select_button_pos">Placer les bouton</string>
 
 <string-array name="entries_button_pos">
-    <item>At bottom</item>
-    <item>At left</item>
-    <item>At right</item>
+    <item>En bas</item>
+    <item>À gauche</item>
+    <item>À droite</item>
 </string-array>
 
-<string name="setting_keys">Key assignment</string>
-
-<string name="setting_keys_summary">Assign keys for showing answers and grading.</string>
-
-<string name="select_keys">Press the key to:</string>
-
-<string name="key_show">Show the answer</string>
-
-<string name="key_grade0">Grade a card 0</string>
-
-<string name="key_grade1">Grade a card 1</string>
-
-<string name="key_grade2">Grade a card 2</string>
-
-<string name="key_grade3">Grade a card 3</string>
-
-<string name="key_grade4">Grade a card 4</string>
-
-<string name="key_grade5">Grade a card 5</string>
+<string name="setting_keys">Touches</string>
+<string name="setting_keys_summary">Choisir les touches pour montrer la
+réponse et noter</string>
+<string name="select_keys">Appuyez sur la touche que vous souhaitez
+utiliser pour</string>
+<string name="key_show">Montrer la réponse</string>
+<string name="key_grade0">Attribuer la note 0</string>
+<string name="key_grade1">Attribuer la note 1</string>
+<string name="key_grade2">Attribuer la note 2</string>
+<string name="key_grade3">Attribuer la note 3</string>
+<string name="key_grade4">Attribuer la note 4</string>
+<string name="key_grade5">Attribuer la note 5</string>
 
 <string name="market_description">
-Mnemododo allows spaced-repetition flash cards from Mnemosyne to be reviewed
-on a mobile phone.
+Mnemosyne est un programme de "flashcards" (cartes avec une question
+d'un côté et la réponse au dos),
+qui pose plus souvent les questions dont on oublie la réponse.
+Mnemododo permet de répéter ces cartes sur un téléphone mobile.
 
-Both Mnemosyne and the Mnemogogo plugin must be installed on your PC.
-
-Cards cannot be edited on your phone and sound is not supported.
-
-There is support for HTML markup (including LaTeX) and graphics (including
-maps).
+À la fois Mnemosyne et son greffon Mnemogogo doivent être installés
+sur votre ordinateur.
+Les cartes ne peuvent pas être modifiées sur le téléphone et il n'y
+a pas de son.
+Mnemododo supporte le langage  HTML (y compris LaTeX) et les images
+(y compris les cartes).
 </string>
 
 <string name="market_promo">
-Use with Mnemosyne on your PC or Mac for spaced-repetition learning on
-the go!
+À utiliser avec Mnemosyne sur votre Mac ou PC, pour répéter vos cartes
+n'importe où !
 </string>
 
-<string name="setting_restrict_search">Restrict directory search</string>
-<string name="setting_restrict_search_summary">Only look for card directories under a specific path.</string>
-<string name="setting_restrict_search_title">Enter a path to search for card directories:</string>
-<string name="setting_restrict_search_message">(Leave blank to search the whole phone.)</string>
+<string name="setting_restrict_search">Répertoire des cartes</string>
+<string name="setting_restrict_search_summary">Chercher des répertoires
+de cartes uniquement dans ce dossier et sous-dossiers.</string>
+<string name="setting_restrict_search_title">Entrez un chemin où chercher
+les répertoires de cartes :</string>
+<string name="setting_restrict_search_message">(Laisser vide pour chercher
+sur tout le téléphone.)</string>
 
 <!-- translators: please do not translate below this line! -->
 

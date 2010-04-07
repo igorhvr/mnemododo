@@ -3,6 +3,8 @@
   (thanks to Mirjam Bourke).
 * Localization for French
   (thanks to Patrick Jayet and Jean-Baptiste Rouquier).
+* Add a learn ahead feature.
+  (thanks to Jean-Baptiste Rouquier for the request).
 
 20100212 0.9.0
 * Much more polished testing release.

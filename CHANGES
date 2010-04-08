@@ -3,6 +3,8 @@
   (thanks to Mirjam Bourke).
 * Localization for French
   (thanks to Patrick Jayet and Jean-Baptiste Rouquier).
+* Add a preference for restricting the search for card directories.
+  (thanks to Jean-Baptiste Rouquier for the suggestion).
 * Add a learn ahead feature.
   (thanks to Jean-Baptiste Rouquier for the request).
 

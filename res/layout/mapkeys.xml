@@ -79,5 +79,14 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
     />
+    <TextView
+        android:id="@+id/key_replay_sounds"
+        android:text="@string/key_replay_sounds"
+        android:textStyle="bold"
+        android:paddingTop="4dp"
+        android:paddingLeft="20dp"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+    />
 
 </LinearLayout>

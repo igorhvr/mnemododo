@@ -39,7 +39,6 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.preference.PreferenceManager;
 import android.util.DisplayMetrics;
-import android.util.Log;
 import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -95,6 +94,7 @@ public class Mnemododo
     protected static final int KEY_GRADE4 = 4;
     protected static final int KEY_GRADE5 = 5;
     protected static final int KEY_SHOW_ANSWER = 6;
+    protected static final int KEY_REPLAY_SOUNDS = 7;
     
     protected static final String html_post = "</body></html>";
 
@@ -105,7 +105,7 @@ public class Mnemododo
     final int make_visible_delay = 400;
     final int make_visible_fade_delay = 400;
     boolean num_left_color_changed = false;
-
+    
     /* data (cache on temporary restart) */
 
     Mode mode = Mode.SHOW_QUESTION;
@@ -140,6 +140,8 @@ public class Mnemododo
     int button_pos = BUTTON_POS_BOTTOM;
     boolean is_wide_screen = false;
     
+    SoundPlayer sound_player = new SoundPlayer();
+    
     private Handler handler = new Handler();
     private Animation buttonAnimation;
         private Runnable makeViewVisible = new Runnable() {
@@ -168,6 +170,18 @@ public class Mnemododo
                 };
                 
                 handler.post(r);
+            }
+            
+            @SuppressWarnings("unused")
+            public void replayQuestionSounds()
+            {
+                queueQuestionSounds();
+            }
+            
+            @SuppressWarnings("unused")
+            public void replayAnswerSounds()
+            {
+                queueAnswerSounds();
             }
     }
 
@@ -395,7 +409,7 @@ public class Mnemododo
         html_pre = getCardHeader();
 
         // keys
-        key = new int[KEY_SHOW_ANSWER + 1];
+        key = new int[KEY_REPLAY_SOUNDS + 1];
         key[KEY_GRADE0] = settings.getInt("key_grade0", KeyEvent.KEYCODE_0);
         key[KEY_GRADE1] = settings.getInt("key_grade1", KeyEvent.KEYCODE_1);
         key[KEY_GRADE2] = settings.getInt("key_grade2", KeyEvent.KEYCODE_2);
@@ -403,6 +417,7 @@ public class Mnemododo
         key[KEY_GRADE4] = settings.getInt("key_grade4", KeyEvent.KEYCODE_4);
         key[KEY_GRADE5] = settings.getInt("key_grade5", KeyEvent.KEYCODE_5);
         key[KEY_SHOW_ANSWER] = settings.getInt("key_show_answer", KeyEvent.KEYCODE_9);
+        key[KEY_REPLAY_SOUNDS] = settings.getInt("key_replay_sounds", KeyEvent.KEYCODE_7);
 
         // cards_path
         String settings_cards_path;
@@ -571,6 +586,10 @@ public class Mnemododo
         } else if (keyCode == key[KEY_GRADE5]) {
             onClick(findViewById(grade_buttons[5]));
 
+        } else if (keyCode == key[KEY_REPLAY_SOUNDS]) {
+            queueQuestionSounds();
+            queueAnswerSounds();
+
         } else {
             return false;
         }
@@ -676,6 +695,7 @@ public class Mnemododo
     public void onPause()
     {
         super.onPause();
+        sound_player.release();
         pauseThinking();
         saveCards();
     }
@@ -851,6 +871,7 @@ public class Mnemododo
         }
 
         cards_path = path;
+        sound_player.setBasePath(cards_path);
 
         saveCards();
         if (carddb != null) {
@@ -987,6 +1008,7 @@ public class Mnemododo
 
         case SHOW_QUESTION:
             if (click_id == R.id.show) {
+                queueAnswerSounds();
                 setMode(Mode.SHOW_ANSWER);
 
             } else if (click_id == R.id.cards_left) {
@@ -1062,6 +1084,7 @@ public class Mnemododo
         }
 
         try {
+            queueQuestionSounds();
             setMode(Mode.SHOW_QUESTION);
 
         } catch (Exception e) {
@@ -1146,6 +1169,15 @@ public class Mnemododo
 
         String question = c.getQuestion();
         String answer = c.getAnswer();
+        
+        String replay_function = null;
+        if (show_answer) {
+            if (c.getAnswerSounds().length > 0) {
+                replay_function = "Mnemododo.replayAnswerSounds()";
+            }
+        } else if (c.getQuestionSounds().length > 0) {
+            replay_function = "Mnemododo.replayQuestionSounds()";
+        }
 
         if (center) {
             html.append("<div style=\"text-align: center;\">");
@@ -1170,6 +1202,14 @@ public class Mnemododo
             html.append("</div>");
         }
 
+        if (replay_function != null) {
+            html.append("<input type=\"button\" value=\"");
+            html.append(getString(R.string.replay_sounds));
+            html.append("\" style=\"margin: 1em;\" onclick=\"");
+            html.append(replay_function);
+            html.append(";\" />");
+        }
+
         if (center) {
             html.append("</div>");
         }
@@ -1177,5 +1217,18 @@ public class Mnemododo
         html.append(html_post);
         return html.toString();
     }
+    
+    protected void queueQuestionSounds()
+    {
+        if (cur_card != null) {
+            sound_player.queue(cur_card.getQuestionSounds());
+        }
+    }
 
+    protected void queueAnswerSounds()
+    {
+        if (cur_card != null) {
+            sound_player.queue(cur_card.getAnswerSounds());
+        }
+    }
 }

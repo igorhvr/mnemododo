@@ -31,6 +31,7 @@
 <string name="no_new_cards_title">Aucune nouvelle carte</string>
 <string name="no_cards_left">Il n'y a actuellement pas de nouvelle carte à répéter.</string>
 <string name="learn_ahead">Apprendre en avance</string>
+<string name="replay_sounds">Rejouer les sons</string>
 
 <string name="in_text">Dans</string>
 <string name="day_text">jour</string>
@@ -134,6 +135,7 @@ utiliser pour</string>
 <string name="key_grade3">Attribuer la note 3</string>
 <string name="key_grade4">Attribuer la note 4</string>
 <string name="key_grade5">Attribuer la note 5</string>
+<string name="key_replay_sounds">Rejouer les sons</string>
 
 <string name="market_description">
 Mnemosyne est un programme de "flashcards" (cartes avec une question

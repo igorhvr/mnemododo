@@ -31,6 +31,7 @@
 <string name="no_new_cards_title">No new cards</string>
 <string name="no_cards_left">There are no new cards to review at this time.</string>
 <string name="learn_ahead">Learn ahead of schedule</string>
+<string name="replay_sounds">Replay sounds</string>
 
 <string name="in_text">In</string>
 <string name="day_text">day</string>
@@ -131,6 +132,7 @@ Mnemododo Settings screen (press the Menu button, and then choose Settings).</st
 <string name="key_grade3">Grade a card 3</string>
 <string name="key_grade4">Grade a card 4</string>
 <string name="key_grade5">Grade a card 5</string>
+<string name="key_replay_sounds">Replay sounds</string>
 
 <!-- TODO: translate -->
 <string name="setting_restrict_search">Restrict directory search</string>

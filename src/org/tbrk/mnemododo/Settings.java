@@ -49,12 +49,12 @@ public class Settings
     protected static final int key_text_ids[] = {
         R.id.key_show, R.id.key_grade0, R.id.key_grade1,
         R.id.key_grade2, R.id.key_grade3, R.id.key_grade4,
-        R.id.key_grade5
+        R.id.key_grade5, R.id.key_replay_sounds
     };
     protected static final String key_pref_names[] = {
         "key_show_answer", "key_grade0", "key_grade1",
         "key_grade2", "key_grade3", "key_grade4",
-        "key_grade5"
+        "key_grade5", "key_replay_sounds"
     };
 
     protected int[] keys_assigned = new int[key_text_ids.length];

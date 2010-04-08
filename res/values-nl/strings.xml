@@ -29,6 +29,7 @@
 <string name="no_new_cards_title">Geen nieuwe kaarten</string>
 <string name="no_cards_left">Er zijn op dit moment geen nieuwe kaarten te bekijken.</string>
 <string name="learn_ahead">Leer vooruit op schema</string>
+<string name="replay_sounds">Herhaal geluiden</string>
 
 <string name="in_text">Over</string>
 <string name="day_text">dag</string>
@@ -124,6 +125,7 @@ the number of cards to review.</string>
 <string name="key_grade3">Beoordeel een kaarte 3</string>
 <string name="key_grade4">Beoordeel een kaarte 4</string>
 <string name="key_grade5">Beoordeel een kaarte 5</string>
+<string name="key_replay_sounds">Herhaal geluiden</string>
 
 <string name="loading_card_dir">Statistieken opladen...</string>
 <string name="loading_cards">Inhoud kaarten opladen...</string>

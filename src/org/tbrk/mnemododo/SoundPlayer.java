@@ -5,6 +5,8 @@ import java.io.IOException;
 import java.util.LinkedList;
 import java.util.Queue;
 
+import android.content.Context;
+import android.content.res.AssetFileDescriptor;
 import android.media.MediaPlayer;
 
 public class SoundPlayer
@@ -12,6 +14,12 @@ public class SoundPlayer
     private String base_path = "";
     private Queue<String> to_play = new LinkedList<String>();
     private MediaPlayer mp = null;
+    private Context context = null;
+    
+    public SoundPlayer(Context context)
+    {
+        this.context = context;
+    }
     
     public void setBasePath(String path)
     {
@@ -21,6 +29,9 @@ public class SoundPlayer
     public void queue(String[] sounds)
     {
         for (String sound : sounds) {
+            // add a brief gap between sounds
+                to_play.add(null);
+
             File f = new File(base_path, sound);
             to_play.add(f.getAbsolutePath());
         }
@@ -51,6 +62,9 @@ public class SoundPlayer
         
         if (mp == null) {
             mp = new MediaPlayer();
+            if (mp == null) {
+                return;
+            }
             
             mp.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
                 public void onCompletion(MediaPlayer mp)
@@ -75,7 +89,22 @@ public class SoundPlayer
         }
         
         try {
-            mp.setDataSource(to_play.remove());
+            String file = to_play.remove();
+            if (file == null) {
+                AssetFileDescriptor afd =
+                    context.getResources().openRawResourceFd(R.raw.silence);
+                if (afd == null) {
+                    startPlaying();
+                    return;
+                }
+                mp.setDataSource(afd.getFileDescriptor(),
+                        afd.getStartOffset(), afd.getLength());
+                afd.close();
+
+            } else {
+                mp.setDataSource(file);
+            }
+
             mp.prepare();
             mp.start();
 
@@ -85,6 +114,7 @@ public class SoundPlayer
         } catch (IllegalStateException e) {
             return;
         } catch (IOException e) {
+            startPlaying();
             return;
         }
     }

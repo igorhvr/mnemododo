@@ -140,7 +140,7 @@ public class Mnemododo
     int button_pos = BUTTON_POS_BOTTOM;
     boolean is_wide_screen = false;
     
-    SoundPlayer sound_player = new SoundPlayer();
+    SoundPlayer sound_player = new SoundPlayer(Mnemododo.this);
     
     private Handler handler = new Handler();
     private Animation buttonAnimation;
@@ -171,7 +171,7 @@ public class Mnemododo
                 
                 handler.post(r);
             }
-            
+
             @SuppressWarnings("unused")
             public void replayQuestionSounds()
             {
@@ -588,7 +588,9 @@ public class Mnemododo
 
         } else if (keyCode == key[KEY_REPLAY_SOUNDS]) {
             queueQuestionSounds();
-            queueAnswerSounds();
+            if (mode == Mode.SHOW_ANSWER) {
+                queueAnswerSounds();
+            }
 
         } else {
             return false;
@@ -1084,6 +1086,7 @@ public class Mnemododo
         }
 
         try {
+            sound_player.clear();
             queueQuestionSounds();
             setMode(Mode.SHOW_QUESTION);
 
@@ -1152,6 +1155,15 @@ public class Mnemododo
             + "</head>";
     }
 
+    protected void addReplayButton(StringBuffer html, String function)
+    {
+        html.append("<input type=\"button\" value=\"");
+        html.append(getString(R.string.replay_sounds));
+        html.append("\" style=\"margin: 1em;\" onclick=\"Mnemododo.");
+        html.append(function);
+        html.append(";\" />");
+    }
+
     protected String makeCardHtml(Card c, boolean show_answer)
     {
         StringBuffer html = new StringBuffer(html_pre);
@@ -1170,15 +1182,9 @@ public class Mnemododo
         String question = c.getQuestion();
         String answer = c.getAnswer();
         
-        String replay_function = null;
-        if (show_answer) {
-            if (c.getAnswerSounds().length > 0) {
-                replay_function = "Mnemododo.replayAnswerSounds()";
-            }
-        } else if (c.getQuestionSounds().length > 0) {
-            replay_function = "Mnemododo.replayQuestionSounds()";
-        }
-
+        boolean question_replay = (c.getQuestionSounds().length > 0);
+        boolean answer_replay = (c.getAnswerSounds().length > 0);
+        
         if (center) {
             html.append("<div style=\"text-align: center;\">");
         }
@@ -1190,24 +1196,28 @@ public class Mnemododo
             if (!cur_card.getOverlay()) {
                 html.append("<div class=\"card\" id=\"q\">");
                 html.append(question);
-                html.append("</div><hr/>");
+                html.append("</div>");
+                if (question_replay) {
+                    this.addReplayButton(html, "replayQuestionSounds()");
+                }
+                html.append("<hr/>");
             }
             html.append("<div class=\"card\" id=\"a\">");
             html.append(answer);
             html.append("</div>");
+            
+            if (answer_replay) {
+                this.addReplayButton(html, "replayAnswerSounds()");
+            }
 
         } else {
             html.append("<div class=\"card\" id=\"q\">");
             html.append(question);
             html.append("</div>");
-        }
 
-        if (replay_function != null) {
-            html.append("<input type=\"button\" value=\"");
-            html.append(getString(R.string.replay_sounds));
-            html.append("\" style=\"margin: 1em;\" onclick=\"");
-            html.append(replay_function);
-            html.append(";\" />");
+            if (question_replay) {
+                this.addReplayButton(html, "replayQuestionSounds()");
+            }
         }
 
         if (center) {

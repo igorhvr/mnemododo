@@ -138,20 +138,19 @@ utiliser pour</string>
 <string name="key_replay_sounds">Rejouer les sons</string>
 
 <string name="market_description">
-Mnemosyne est un programme de "flashcards" (cartes avec une question
-d'un côté et la réponse au dos),
-qui pose plus souvent les questions dont on oublie la réponse.
-Mnemododo permet de répéter ces cartes sur un téléphone mobile.
+Mnemododo permet de répéter les cartes mémoires ("flashcards")
+de Mnemosyne sur un téléphone mobile.
 
-À la fois Mnemosyne et son greffon Mnemogogo doivent être installés
-sur votre ordinateur.
-Les cartes ne peuvent pas être modifiées sur le téléphone.
-Mnemododo supporte le langage HTML (y compris LaTeX), les images
-(y compris les cartes), et son.
+À la fois Mnemosyne et son greffon Mnemogogo doivent
+être installés sur votre ordinateur.
+
+Les cartes ne peuvent pas être modifiées sur
+le téléphone, mais Mnemododo supporte le HTML, les images,
+et le son.
 </string>
 
 <string name="market_promo">
-À utiliser avec Mnemosyne sur votre Mac ou PC, pour répéter vos cartes
+À utiliser avec Mnemosyne sur Mac ou PC, pour répéter vos cartes
 n'importe où !
 </string>
 

@@ -101,7 +101,7 @@ public final class R {
         /**  translators: please do not translate below this line! 
  translators: please do not translate below this line! 
          */
-        public static final int app_name=0x7f06005b;
+        public static final int app_name=0x7f06005d;
         public static final int cannot_find_card_dirs=0x7f060030;
         public static final int card_statistics=0x7f06000b;
         public static final int corrupt_card_dir=0x7f060013;
@@ -138,8 +138,8 @@ public final class R {
         public static final int learn_ahead=0x7f060017;
         public static final int loading_card_dir=0x7f06003f;
         public static final int loading_cards=0x7f060040;
-        public static final int market_description=0x7f06005c;
-        public static final int market_promo=0x7f06005d;
+        public static final int market_description=0x7f060057;
+        public static final int market_promo=0x7f060058;
         public static final int no_card_dirs=0x7f060012;
         public static final int no_card_loaded_text=0x7f06000f;
         public static final int no_cards_left=0x7f060016;
@@ -172,24 +172,21 @@ public final class R {
         public static final int setting_center_summary=0x7f060035;
         public static final int setting_font_size=0x7f060038;
         public static final int setting_font_size_summary=0x7f060039;
-        /**  TODO: - - - - - - - - - - - - - - - - - - -  
-         */
         public static final int setting_fullscreen_mode=0x7f06003b;
         public static final int setting_fullscreen_mode_summary=0x7f06003c;
         public static final int setting_keys=0x7f06004c;
         public static final int setting_keys_summary=0x7f06004d;
         /**  TODO: translate 
          */
-        public static final int setting_restrict_search=0x7f060057;
-        public static final int setting_restrict_search_message=0x7f06005a;
-        public static final int setting_restrict_search_summary=0x7f060058;
-        public static final int setting_restrict_search_title=0x7f060059;
+        public static final int setting_restrict_search=0x7f060059;
+        public static final int setting_restrict_search_message=0x7f06005c;
+        public static final int setting_restrict_search_summary=0x7f06005a;
+        public static final int setting_restrict_search_title=0x7f06005b;
         public static final int setting_show_titlebar=0x7f06003d;
         public static final int setting_show_titlebar_summary=0x7f06003e;
         public static final int setting_touch_buttons=0x7f060036;
         public static final int setting_touch_buttons_summary=0x7f060037;
         /**  TODO: new or changed 
- - - - - - - - - - - - - - - - - - - - - - - - 
          */
         public static final int setting_two_grading_rows=0x7f060045;
         public static final int setting_two_grading_rows_summary=0x7f060046;

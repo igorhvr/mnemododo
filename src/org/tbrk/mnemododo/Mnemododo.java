@@ -587,7 +587,9 @@ public class Mnemododo
             onClick(findViewById(grade_buttons[5]));
 
         } else if (keyCode == key[KEY_REPLAY_SOUNDS]) {
-            queueQuestionSounds();
+            if ((cur_card != null) && (!cur_card.getOverlay())) {
+                queueQuestionSounds();
+            }
             if (mode == Mode.SHOW_ANSWER) {
                 queueAnswerSounds();
             }
@@ -1182,8 +1184,8 @@ public class Mnemododo
         String question = c.getQuestion();
         String answer = c.getAnswer();
         
-        boolean question_replay = (c.getQuestionSounds().length > 0);
-        boolean answer_replay = (c.getAnswerSounds().length > 0);
+        boolean question_replay = c.hasQuestionSounds();
+        boolean answer_replay = c.hasAnswerSounds();
         
         if (center) {
             html.append("<div style=\"text-align: center;\">");

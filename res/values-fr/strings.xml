@@ -145,10 +145,9 @@ Mnemododo permet de répéter ces cartes sur un téléphone mobile.
 
 À la fois Mnemosyne et son greffon Mnemogogo doivent être installés
 sur votre ordinateur.
-Les cartes ne peuvent pas être modifiées sur le téléphone et il n'y
-a pas de son.
-Mnemododo supporte le langage  HTML (y compris LaTeX) et les images
-(y compris les cartes).
+Les cartes ne peuvent pas être modifiées sur le téléphone.
+Mnemododo supporte le langage HTML (y compris LaTeX), les images
+(y compris les cartes), et son.
 </string>
 
 <string name="market_promo">

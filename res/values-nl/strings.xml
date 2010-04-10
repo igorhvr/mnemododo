@@ -22,7 +22,8 @@
 <string name="no_card_loaded_text">Onverwachte fout: kaart niet opgeladen.</string>
 <string name="update_overdue_text">Een export van Mnemogogo is te laat.</string>
 <string name="update_today_text">Een export van Mnemogogo wordt vandaag verwacht.</string>
-<string name="no_card_dirs">Geen kaartenbestand gevonden. Exporteer alstublieft van Mnemogogo!</string>
+<string name="no_card_dirs">Geen kaartenbestand gevonden.
+Exporteer alstublieft van Mnemogogo!</string>
 <string name="corrupt_card_dir">De geëxporteerden kaarten zijn beschadigd.</string>
 
 <string name="no_cards_title">Geen kaarten</string>
@@ -65,11 +66,13 @@ van het Instellingen scherm.</string>
 <string name="setting_cat_appearance">Uiterlijk</string>
 
 <string name="setting_card_dir">Kaartenbestand</string>
-<string name="setting_card_dir_summary">De plaats van de dossiers geëxporteerd van Mnemogogo.</string>
+<string name="setting_card_dir_summary">De plaats van de dossiers geëxporteerd
+van Mnemogogo.</string>
 <string name="cannot_find_card_dirs">(Geen enkele kaarten gevonden op dit apparaat!)</string>
 
 <string name="setting_cards_to_load">Kaarten opladen</string>
-<string name="setting_cards_to_load_summary">Balanceer geheugen en snelheid terwijl de inhoud van de kaarten wordt geladen.</string>
+<string name="setting_cards_to_load_summary">Balanceer geheugen en snelheid terwijl
+de inhoud van de kaarten wordt geladen.</string>
 <string name="select_trade_off">Kies tussenoplossing</string>
 <string-array name="entries_cards_to_load">
     <item>Meer opladen, minder geheugen</item>
@@ -77,11 +80,20 @@ van het Instellingen scherm.</string>
     <item>Minder opladen, meer geheugen</item>
 </string-array>
 
+<string name="setting_restrict_search">Beperk bestanden doorzoeken</string>
+<string name="setting_restrict_search_summary">Alleen zoeken naar
+kaarten bestanden onder een specifiek pad.</string>
+<string name="setting_restrict_search_title">Voer een pad in om naar
+kaarten bestanden te zoeken:</string>
+<string name="setting_restrict_search_message">(Blanco laten om in
+de hele telefoon te zoeken.)</string>
+
 <string name="setting_center">Kaart tekst in het midden plaatsen</string>
 <string name="setting_center_summary">Vraag en antwoord in het midden plaatsen.</string>
 
 <string name="setting_touch_buttons">Scherm knopjes</string>
-<string name="setting_touch_buttons_summary">Toon knopjes om antwoorden en cijfers te laten zien.</string>
+<string name="setting_touch_buttons_summary">Toon knopjes om antwoorden en cijfers
+te laten zien.</string>
 
 <string name="setting_font_size">Kaart lettergrootte</string>
 <string name="setting_font_size_summary">Kies de lettergrootte op de kaarten.</string>
@@ -94,17 +106,16 @@ van het Instellingen scherm.</string>
     <item>Heel groot</item>
 </string-array>
 
-<!-- TODO: - - - - - - - - - - - - - - - - - - -  -->
-<string name="setting_fullscreen_mode">Fullscreen mode</string>
-<string name="setting_fullscreen_mode_summary">The status bar is hidden in fullscreen mode
-(requires restart).</string>
-<string name="setting_show_titlebar">Show titlebar</string>
-<string name="setting_show_titlebar_summary">The title bar displays the category and
-the number of cards to review.</string>
-<!-- - - - - - - - - - - - - - - - - - - - - - - - -->
+<string name="setting_fullscreen_mode">Volledig scherm instelling</string>
+<string name="setting_fullscreen_mode_summary">De statusbalk is verborgen
+in het volledige scherm (er moet opnieuw opgestart worden).</string>
+<string name="setting_show_titlebar">Titel balk tonen</string>
+<string name="setting_show_titlebar_summary">De titel balk toont de
+categorie and het aantal kaarten te herzien.</string>
 
 <string name="setting_two_grading_rows">Grotere knopjes</string>
-<string name="setting_two_grading_rows_summary">Toon twee rijen knopjes in smal scherm tijdens beoordeling.</string>
+<string name="setting_two_grading_rows_summary">Toon twee rijen knopjes in
+smal scherm tijdens beoordeling.</string>
 
 <string name="setting_button_pos">Positie knopjes</string>
 <string name="setting_button_pos_summary">Plaats van de knopjes in breed beeld.</string>
@@ -116,7 +127,8 @@ the number of cards to review.</string>
 </string-array>
 
 <string name="setting_keys">Toets opdracht</string>
-<string name="setting_keys_summary">Kies toetsen om antwoorden en beoordelingen te laten zien.</string>
+<string name="setting_keys_summary">Kies toetsen om antwoorden en beoordelingen
+te laten zien.</string>
 <string name="select_keys">Druk op de toets om:</string>
 <string name="key_show">Toon het antwoord</string>
 <string name="key_grade0">Beoordeel een kaarte 0</string>
@@ -134,5 +146,22 @@ the number of cards to review.</string>
 <string name="eula_title">Licentie</string>
 <string name="eula_accept">Accepteer</string>
 <string name="eula_refuse">Weiger</string>
+
+<string name="market_description">
+Mnemododo staat toe om met gespreide herhaling de geheugenkaartjes van
+Mnemosyne te herzien op een mobiele telefoon.
+
+Zowel Mnemosyne en de Mnemogogo plugin moeten worden geinstalleerd op
+uw computer.
+
+Kaarten kunnen niet worden gewijzigd op uw telefoon.
+
+Er is een ondersteuning voor HTML markup (inclusief LaTex),
+grafische kunst (inclusief kaarten) en geluid.
+</string>
+
+<string name="market_promo">
+Gebruik met Mnemosyne op uw PC of Mac voor gespreide herhaling onderweg!
+</string>
 
 </resources>

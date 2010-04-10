@@ -998,6 +998,7 @@ public class Mnemododo
             html.append(html_post);
 
             setCategory(getString(R.string.no_new_cards_title));
+            setNumLeft(carddb.numScheduled());
             webview.loadDataWithBaseURL("", html.toString(), "text/html",
                     "UTF-8", "");
             break;
@@ -1015,8 +1016,6 @@ public class Mnemododo
                 queueAnswerSounds();
                 setMode(Mode.SHOW_ANSWER);
 
-            } else if (click_id == R.id.cards_left) {
-                showDialog(DIALOG_SCHEDULE);
             } else if (click_id == R.id.category) {
                 showDialog(DIALOG_STATS);
             }
@@ -1034,9 +1033,9 @@ public class Mnemododo
             if (grade < grade_buttons.length) {
                 doGrade(grade);
                 nextQuestion();
-            } else if (click_id == R.id.cards_left) {
-                showDialog(DIALOG_SCHEDULE);
-            } else if (click_id == R.id.category) {
+            }
+
+            if (click_id == R.id.category) {
                 showDialog(DIALOG_STATS);
             }
             break;
@@ -1044,6 +1043,11 @@ public class Mnemododo
         default:
             break;
         }
+
+        if (click_id == R.id.cards_left) {
+            showDialog(DIALOG_SCHEDULE);
+        }
+
     }
 
     protected boolean doGrade(int grade)

@@ -137,7 +137,11 @@ public final class R {
         public static final int learn_ahead=0x7f060017;
         public static final int loading_card_dir=0x7f06003f;
         public static final int loading_cards=0x7f060040;
+        /**  maximum 325 characters 
+         */
         public static final int market_description=0x7f060057;
+        /**  maximum 80 characters 
+         */
         public static final int market_promo=0x7f060058;
         public static final int no_card_dirs=0x7f060012;
         public static final int no_card_loaded_text=0x7f06000f;

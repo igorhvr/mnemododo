@@ -47,8 +47,10 @@ public class SoundPlayer
     public void queue(String[] sounds)
     {
         for (String sound : sounds) {
-            // add a brief gap between sounds
-            to_play.add(null);
+            if (!to_play.isEmpty()) {
+                // add a brief gap between sounds
+                to_play.add(null);
+            }
 
             File f = new File(base_path, sound);
             to_play.add(f.getAbsolutePath());

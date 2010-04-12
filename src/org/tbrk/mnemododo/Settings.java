@@ -61,18 +61,18 @@ public class Settings
     
     protected static final int DIALOG_KEY_ASSIGN = 0;
     
-    private class FindCardDirsTask extends
-            UserTask<ListPreference, Integer, Vector<String>>
+    private class FindCardDirsTask
+        extends UserTask<ListPreference, Integer, Vector<String>>
     {
         private ListPreference list_pref = null;
         private ProgressDialog progress_dialog;
         private String restrict_path[] = null;
-
+        
         public void onPreExecute()
         {
             if (!is_demo) {
                 SharedPreferences prefs =
-                    PreferenceManager.getDefaultSharedPreferences(getBaseContext());
+                    PreferenceManager.getDefaultSharedPreferences(Settings.this);
     
                 String path = prefs.getString("restrict_search", "").trim();
                 if (!path.equals("")) {
@@ -93,10 +93,14 @@ public class Settings
             }
 
             list_pref = pref[0];
-            if (restrict_path == null) {
-                return FindCardDirAndroid.list(!is_demo);
-            } else {
-                return FindCardDirAndroid.list(restrict_path);
+            try {
+                if (restrict_path == null) {
+                    return FindCardDirAndroid.list(!is_demo);
+                } else {
+                    return FindCardDirAndroid.list(restrict_path);
+                }
+            } catch (Exception e) {
+                return new Vector<String>();
             }
         }
 
@@ -130,7 +134,6 @@ public class Settings
         is_demo = intent.getBooleanExtra("is_demo", false);
 
         addPreferencesFromResource(R.xml.settings);
-        setCardDirEntries();
 
         Preference prefKeys = (Preference) findPreference("prefKeys");
         prefKeys.setOnPreferenceClickListener(new OnPreferenceClickListener() {
@@ -277,7 +280,7 @@ public class Settings
     public void finishAssignKeys()
     {
         SharedPreferences prefs =
-            PreferenceManager.getDefaultSharedPreferences(getBaseContext());
+            PreferenceManager.getDefaultSharedPreferences(this);
         Editor prefsEdit = prefs.edit();
         
         for (int i = 0; i < key_pref_names.length; ++i) {

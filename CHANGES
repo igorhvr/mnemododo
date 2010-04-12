@@ -1,3 +1,7 @@
+20100412 1.1.1
+* Catch exceptions in FindCardDir.
+* Don't use getBaseContext().
+
 20100410 1.1.0
 * Localization for Dutch
   (thanks to Mirjam Bourke).

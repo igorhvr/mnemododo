@@ -92,5 +92,16 @@
 
     </PreferenceCategory>
 
+    <PreferenceCategory
+       android:title="@string/setting_cat_misc">
+
+        <CheckBoxPreference
+            android:key="auto_play"
+            android:title="@string/setting_auto_play"
+            android:summary="@string/setting_auto_play_summary"
+            android:defaultValue="true"
+        />
+
+    </PreferenceCategory>
 
 </PreferenceScreen>

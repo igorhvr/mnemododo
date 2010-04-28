@@ -63,6 +63,7 @@ vers la carte SD via le greffon Mnemogogo.</string>
 
 <string name="setting_cat_operation">Fonctionnement</string>
 <string name="setting_cat_appearance">Apparence</string>
+<string name="setting_cat_misc">Divers</string>
 
 <string name="setting_card_dir">Répertoire de cartes</string>
 <string name="setting_card_dir_summary">Chemin vers les fichiers exportés depuis Mnemogogo</string>
@@ -83,6 +84,8 @@ pour afficher les réponses et noter les cartes</string>
 <string name="setting_two_grading_rows">Boutons plus larges</string>
 <string name="setting_two_grading_rows_summary">Montrer deux lignes de
 boutons en mode vertical</string>
+<string name="setting_auto_play">Jouer automatiquement des sons</string>
+<string name="setting_auto_play_summary">Jouer des sons dès qu'une carte est montrée</string>
 
 <string name="setting_fullscreen_mode">Mode plein écran</string>
 <string name="setting_fullscreen_mode_summary">Cacher la barre d'état

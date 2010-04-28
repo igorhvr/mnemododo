@@ -1,3 +1,6 @@
+201005__ 1.1._
+* Allow automatic sound playing to be disabled.
+
 20100412 1.1.1
 * Catch exceptions in FindCardDir.
 * Don't use getBaseContext().

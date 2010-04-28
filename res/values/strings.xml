@@ -59,6 +59,7 @@
 
 <string name="setting_cat_operation">Operation</string>
 <string name="setting_cat_appearance">Appearance</string>
+<string name="setting_cat_misc">Miscellaneous</string>
 
 <string name="setting_card_dir">Card directory</string>
 <string name="setting_card_dir_summary">The location of the files exported from Mnemogogo.</string>
@@ -104,9 +105,11 @@ the number of cards to review.</string>
 <string name="eula_accept">Accept</string>
 <string name="eula_refuse">Refuse</string>
 
-<!-- TODO: new or changed -->
 <string name="setting_two_grading_rows">Bigger buttons</string>
 <string name="setting_two_grading_rows_summary">Show two rows of grading buttons in narrow screen mode.</string>
+
+<string name="setting_auto_play">Play sounds automatically</string>
+<string name="setting_auto_play_summary">Play any sounds as soon as a card is shown.</string>
 
 <string name="setting_button_pos">Button position</string>
 <string name="setting_button_pos_summary">Location of the buttons in wide screen mode.</string>
@@ -153,11 +156,11 @@ Use with Mnemosyne on your PC or Mac for spaced-repetition learning on
 the go!
 </string>
 
-<!-- TODO: translate -->
 <string name="setting_restrict_search">Restrict directory search</string>
 <string name="setting_restrict_search_summary">Only look for card directories under a specific path.</string>
 <string name="setting_restrict_search_title">Enter a path to search for card directories:</string>
 <string name="setting_restrict_search_message">(Leave blank to search the whole phone.)</string>
+
 
 <!-- translators: please do not translate below this line! -->
 

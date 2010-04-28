@@ -64,6 +64,7 @@ van het Instellingen scherm.</string>
 
 <string name="setting_cat_operation">Functie</string>
 <string name="setting_cat_appearance">Uiterlijk</string>
+<string name="setting_cat_misc">Diversen</string>
 
 <string name="setting_card_dir">Kaartenbestand</string>
 <string name="setting_card_dir_summary">De plaats van de dossiers geëxporteerd
@@ -116,6 +117,9 @@ categorie and het aantal kaarten te herzien.</string>
 <string name="setting_two_grading_rows">Grotere knopjes</string>
 <string name="setting_two_grading_rows_summary">Toon twee rijen knopjes in
 smal scherm tijdens beoordeling.</string>
+
+<string name="setting_auto_play">Automatisch geluiden afspelen</string>
+<string name="setting_auto_play_summary">Speel geluiden zodra een kaart getoond werd.</string>
 
 <string name="setting_button_pos">Positie knopjes</string>
 <string name="setting_button_pos_summary">Plaats van de knopjes in breed beeld.</string>

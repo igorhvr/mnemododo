@@ -114,6 +114,7 @@ public class Mnemododo
     protected Card cur_card;
     private long thinking_msecs = 0;
     String cards_path = null;
+    private boolean auto_play = true;
     private static final boolean is_demo = false;
     private static final String demo_path = "/android_asset/demodeck/";
 
@@ -367,6 +368,7 @@ public class Mnemododo
             carddb = lastDodo.carddb;
             cur_card = lastDodo.cur_card;
             thinking_msecs = lastDodo.thinking_msecs;
+            auto_play = lastDodo.auto_play;
             quick_restart = true;
         }
         
@@ -383,6 +385,7 @@ public class Mnemododo
             editor.putBoolean("two_grading_rows", two_grading_rows);
             editor.putBoolean("fullscreen_mode", false);
             editor.putBoolean("show_titlebar", true);
+            editor.putBoolean("auto_play", auto_play);
             editor.putString("button_pos", Integer.toString(button_pos));
             editor.commit();
         }
@@ -390,6 +393,7 @@ public class Mnemododo
         // load prefs
         cards_to_load = Integer.parseInt(settings.getString("cards_to_load", "50"));
         touch_buttons = settings.getBoolean("touch_buttons", true);
+        auto_play = settings.getBoolean("auto_play", true);
         boolean two_grading_rows = settings.getBoolean("two_grading_rows", false);
         int nbutton_pos = Integer.parseInt(settings.getString("button_pos",
                 Integer.toString(BUTTON_POS_BOTTOM)));
@@ -1013,7 +1017,9 @@ public class Mnemododo
 
         case SHOW_QUESTION:
             if (click_id == R.id.show) {
-                queueAnswerSounds();
+                if (auto_play) {
+                    queueAnswerSounds();
+                }
                 setMode(Mode.SHOW_ANSWER);
 
             } else if (click_id == R.id.category) {
@@ -1093,7 +1099,9 @@ public class Mnemododo
 
         try {
             sound_player.clear();
-            queueQuestionSounds();
+            if (auto_play) {
+                queueQuestionSounds();
+            }
             setMode(Mode.SHOW_QUESTION);
 
         } catch (Exception e) {

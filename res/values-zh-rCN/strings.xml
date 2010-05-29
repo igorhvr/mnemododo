@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+<!--  translators: please do not change the name="..." attributes! -->
+   
+<string name="grade0">0</string>
+<string name="grade1">1</string>
+<string name="grade2">2</string>
+<string name="grade3">3</string>
+<string name="grade4">4</string>
+<string name="grade5">5</string>
+<string name="show">显示答案</string>
+<string name="ok">确定</string>
+
+<string name="skip_card">跳过卡片</string>
+<string name="schedule">时间表</string>
+<string name="settings">设置</string>
+<string name="card_statistics">卡片统计</string>
+
+<string name="select_card_dir">选择一个卡片目录</string>
+
+<string name="not_enough_memory_to_load">没有足够的内存来加载卡片。</string>
+<string name="fatal_error">致命性错误</string>
+<string name="no_card_loaded_text">意外的错误: 卡片未加载。</string>
+<string name="update_overdue_text">一个从Mnemogogo的数据导出延迟！</string>
+<string name="update_today_text">今天应该有一个Mnemogogo的数据导出。</string>
+<string name="no_card_dirs">未找到卡片目录。请从Mnemogogo导出！</string>
+<string name="corrupt_card_dir">导出的卡片是损坏的。</string>
+
+<string name="no_cards_title">无卡片</string>
+<string name="no_new_cards_title">无新卡片</string>
+<string name="no_cards_left">此时没有新的卡片以供查看。</string>
+<string name="learn_ahead">在时间表之前学习</string>
+<string name="replay_sounds">重放声音</string>
+
+<string name="in_text">在</string>
+<string name="day_text">天</string>
+<string name="days_text">天</string>
+
+<string name="statistics">统计</string>
+<string name="easiness">容易:</string>
+<string name="repetitions">重复:</string>
+<string name="lapses">失误:</string>
+<string name="grade">等级:</string>
+<string name="days_since_last_repetition">距离上次重复的天数:</string>
+<string name="days_until_next_repetition">距离下次重复的天数:</string>
+
+<string name="info">信息</string>
+<string name="about_author_label">作者:</string>
+<string name="about_author">Timothy Bourke</string>
+<string name="about_mnemosyne_label">Mnemosyne:</string>
+<string name="about_mnemosyne">Peter Bienstman</string>
+<string name="about_sm2_label">SM-2 算法:</string>
+<string name="about_sm2">Piotr Wozniak</string>
+
+<string name="no_cards_main">未选择一个有效的卡片目录。</string>
+
+<string name="not_available">此功能不可用。</string>
+
+<string name="setting_cat_operation">操作</string>
+<string name="setting_cat_appearance">外观</string>
+<string name="setting_cat_misc">杂项</string>
+
+<string name="setting_card_dir">卡片目录</string>
+<string name="setting_card_dir_summary">从Mnemogogo导出文件的位置。</string>
+<string name="cannot_find_card_dirs">(未在本设备中找到！)</string>
+<string name="setting_cards_to_load">正在加载卡片</string>
+<string name="setting_cards_to_load_summary">加载卡片内容中平衡内存占用和速度。</string>
+<string name="select_trade_off">选择折中</string>
+
+<string name="setting_center">卡片文字居中</string>
+<string name="setting_center_summary">将问题和答案文字居中显示。</string>
+<string name="setting_touch_buttons">显示屏幕按钮</string>
+<string name="setting_touch_buttons_summary">在屏幕上显示查看答案和分级的按钮。</string>
+<string name="setting_font_size">卡片文字大小</string>
+<string name="setting_font_size_summary">设置卡片上文字的大小。</string>
+<string name="select_font_size">选择卡片文字大小</string>
+
+<string name="setting_fullscreen_mode">全屏模式</string>
+<string name="setting_fullscreen_mode_summary">状态栏将会在全屏模式下被隐藏起来(需重启软件)。</string>
+<string name="setting_show_titlebar">显示状态栏</string>
+<string name="setting_show_titlebar_summary">标题栏显示类别和看过的卡片数目。</string>
+
+<string name="loading_card_dir">统计数据加载中...</string>
+<string name="loading_cards">卡片内容加载中...</string>
+<string name="searching_for_card_dirs">正在卡片目录中搜索...</string>
+
+<string-array name="entries_cards_to_load">
+	<item>加载慢，占内存少</item>
+	<item>速度和内存占用平衡</item>
+	<item>加载快，占内存多</item>
+</string-array>
+
+<string-array name="entries_font_size">
+    <item>很小</item>
+    <item>小</item>
+    <item>中等</item>
+    <item>大</item>
+    <item>很大</item>
+</string-array>
+
+<string name="eula_title">许可协议</string>
+<string name="eula_accept">接受</string>
+<string name="eula_refuse">拒绝</string>
+
+<string name="setting_two_grading_rows">显示大按钮</string>
+<string name="setting_two_grading_rows_summary">按钮显示两行为窄屏模式。</string>
+
+<string name="setting_auto_play">自动播放声音</string>
+<string name="setting_auto_play_summary">当卡片显示时尽可能快的播放任何声音。</string>
+
+<string name="setting_button_pos">按钮选项</string>
+<string name="setting_button_pos_summary">按钮显示位置为宽屏模式。</string>
+<string name="select_button_pos">放置按钮</string>
+<string-array name="entries_button_pos">
+    <item>底部</item>
+    <item>左侧</item>
+    <item>右侧</item>
+</string-array>
+
+<string name="no_cards_step1">在电脑上: 使用Mnemogogo插件导出Mnemosyne数据到您的SD卡上。</string>
+<string name="no_cards_step2">在手机上: 从Mnemododo设置(按下Menu按钮，选择设置)中选择导出的目录。</string>
+
+<string name="setting_keys">键盘分配</string>
+<string name="setting_keys_summary">未显示答案和分级分配按键。</string>
+<string name="select_keys">按下任意键以:</string>
+<string name="key_show">显示答案</string>
+<string name="key_grade0">0 级卡片</string>
+<string name="key_grade1">1 级卡片</string>
+<string name="key_grade2">2 级卡片</string>
+<string name="key_grade3">3 级卡片</string>
+<string name="key_grade4">4 级卡片</string>
+<string name="key_grade5">5 级卡片</string>
+<string name="key_replay_sounds">重放声音</string>
+
+<!-- maximum 325 characters -->
+<string name="market_description">
+Mnemododo允许间隔重复的从Mnemosyne展现卡片在一台手机上查看。
+
+Mnemosyne和Mnemogogo插件都必须在您的PC上安装。
+
+卡片无法在您的手机上标记也不支持声音。
+
+目前支持HTML标记(包括LaTeX)，图形(包括地图)，以及声音
+</string>
+
+<!-- maximum 80 characters -->
+<string name="market_promo">
+在PC或Mac上配合使用Mnemosyne继续学习！
+</string>
+
+<string name="setting_restrict_search">限制搜索目录</string>
+<string name="setting_restrict_search_summary">仅在指定路径下搜索卡片目录。</string>
+<string name="setting_restrict_search_title">输入搜索卡片目录的路径:</string>
+<string name="setting_restrict_search_message">(为空则搜索全部路径。)</string>
+
+<!-- translators: please do not translate below this line! -->
+
+<string name="app_name">Mnemododo</string>
+
+<string-array name="values_cards_to_load">
+    <item>25</item>
+    <item>50</item>
+    <item>100</item>
+</string-array>
+
+<string-array name="values_font_size">
+    <item>x-small</item>
+    <item>smaller</item>
+    <item>medium</item>
+    <item>larger</item>
+    <item>x-large</item>
+</string-array>
+
+<string-array name="values_button_pos">
+    <item>0</item>
+    <item>1</item>
+    <item>2</item>
+</string-array>
+
+</resources>

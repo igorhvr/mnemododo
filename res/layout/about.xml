@@ -8,21 +8,26 @@
   	android:padding="5dp"
   	android:gravity="center_horizontal"
   >
-	<ImageView
-		android:id="@+id/logo"
-		android:layout_width="wrap_content"
-		android:layout_height="wrap_content"
-		android:src="@drawable/icon128"
-		android:paddingBottom="10dp"
-	/>
+    <ScrollView
+        android:id="@+id/credit_scroll"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
 
-	  <LinearLayout
+	<LinearLayout
 	  	xmlns:android="http://schemas.android.com/apk/res/android"
 	  	android:id="@+id/layout_names"
 	  	android:orientation="vertical"
 	  	android:layout_width="wrap_content"
-	  	android:layout_height="wrap_content"
-	  >
+	  	android:layout_height="wrap_content">
+
+	    <ImageView
+	        android:id="@+id/logo"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_gravity="center_horizontal"
+	        android:src="@drawable/icon128"
+	        android:paddingBottom="10dp"/>
+
 		  <LinearLayout
 			xmlns:android="http://schemas.android.com/apk/res/android"
 			android:id="@+id/about_author_layout"
@@ -101,7 +106,128 @@
 				android:gravity="left"
 			/>
 		</LinearLayout>
-	
-	</LinearLayout>
 
+        <TableLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:stretchColumns="1">
+
+            <TableRow
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:id="@+id/translations"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textStyle="bold"
+                    android:paddingBottom="1dp"
+                    android:text="@string/about_translations"/>
+            </TableRow>
+
+            <TableRow
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:id="@+id/trans_fr1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"                    
+                    android:text="Français"/>
+                <TextView
+                    android:id="@+id/trans_credit_fr1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Patrick Jayet"/>
+            </TableRow>
+
+            <TableRow
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:id="@+id/trans_fr2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:text=""/>
+                <TextView
+                    android:id="@+id/trans_credit_fr2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Jean-Baptiste Rouquier"/>
+            </TableRow>
+
+            <TableRow
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:id="@+id/trans_hr"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:text="Hrvatski"/>
+                <TextView
+                    android:id="@+id/trans_credit_hr"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Jovica Popovic"/>
+            </TableRow>
+
+            <TableRow
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:id="@+id/trans_nl"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:text="Nederlands"/>
+                <TextView
+                    android:id="@+id/trans_credit_nl"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Mirjam Bourke"/>
+            </TableRow>
+
+            <TableRow
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:id="@+id/trans_zh"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:text="安智网汉化"/>
+                <TextView
+                    android:id="@+id/trans_credit_zh"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="http://goapk.com"/>
+            </TableRow>
+            
+            <TableRow
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:id="@+id/trans_zh"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:text="安智網中文化"/>
+                <TextView
+                    android:id="@+id/trans_credit_zh"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="http://goapk.com"/>
+            </TableRow>
+            
+        </TableLayout>
+	</LinearLayout>
+    </ScrollView>
+    
 </LinearLayout>

@@ -52,6 +52,7 @@
 <string name="about_mnemosyne">Peter Bienstman</string>
 <string name="about_sm2_label">Algorithme de SM-2 :</string>
 <string name="about_sm2">Piotr Wozniak</string>
+<string name="about_translations">Traduction :</string>
 
 <string name="no_cards_main">Aucun répertoire de cartes n\'est choisi.</string>
 <string name="no_cards_step1">Sur un PC, exporter des cartes de Mnemosyne

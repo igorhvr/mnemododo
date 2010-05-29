@@ -52,6 +52,7 @@
 <string name="about_mnemosyne">Peter Bienstman</string>
 <string name="about_sm2_label">SM-2 Algoritam:</string>
 <string name="about_sm2">Piotr Wozniak</string>
+<string name="about_translations">Prijevod:</string>
 
 <string name="no_cards_main">Ispravan direktorij sa karicama jos nije odabran.</string>
 

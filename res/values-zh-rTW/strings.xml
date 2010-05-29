@@ -52,6 +52,7 @@
 <string name="about_mnemosyne">Peter Bienstman</string>
 <string name="about_sm2_label">SM-2 算法:</string>
 <string name="about_sm2">Piotr Wozniak</string>
+<string name="about_translations">翻譯:</string>
 
 <string name="no_cards_main">未選取一個有效的卡片目錄。</string>
 

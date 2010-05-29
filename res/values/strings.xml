@@ -2,7 +2,7 @@
 <resources>
 
 <!--  translators: please do not change the name="..." attributes! -->
-   
+
 <string name="grade0">0</string>
 <string name="grade1">1</string>
 <string name="grade2">2</string>
@@ -52,6 +52,7 @@
 <string name="about_mnemosyne">Peter Bienstman</string>
 <string name="about_sm2_label">SM-2 Algorithm:</string>
 <string name="about_sm2">Piotr Wozniak</string>
+<string name="about_translations">Translation:</string>
 
 <string name="no_cards_main">A valid card directory has not yet been selected.</string>
 
@@ -156,6 +157,24 @@ Use with Mnemosyne on your PC or Mac for spaced-repetition learning on the go!
 <string name="setting_restrict_search_title">Enter a path to search for card directories:</string>
 <string name="setting_restrict_search_message">(Leave blank to search the whole phone.)</string>
 
+<!-- new: needed for NL, FR, HR, ZH(simp.), ZH(trad.) -->
+
+<string name="grade0_short_help">Forgotten completely.</string>
+<string name="grade1_short_help">Forgotten.</string>
+<string name="grade2_short_help">Very tricky.</string>
+<string name="grade3_short_help">A bit tricky.</string>
+<string name="grade4_short_help">Remembered.</string>
+<string name="grade5_short_help">Too easy.</string>
+
+<string name="grade01_help">You have forgotten this card completely.</string>
+<string name="grade2_help">Barely correct answer. The interval was way too long.</string>
+<string name="grade3_help">Correct answer, but with much effort. The interval was probably too long.</string>
+<string name="grade4_help">Correct answer, with some effort. The interval was probably just right.</string>
+<string name="grade5_help">Correct answer, but without any difficulties. The interval was probably too short.</string>
+
+<string name="grade0_new_help">You don't remember this card yet.</string>
+<string name="grade1_new_help">Like '0', but it's getting more familiar. Show it less often.</string>
+<string name="grade2345_new_help">You've memorised this card now and will probably remember it for a few days.</string>
 
 <!-- translators: please do not translate below this line! -->
 

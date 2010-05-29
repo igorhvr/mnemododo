@@ -798,7 +798,7 @@ public class Mnemododo
             dialog.setTitle(getString(R.string.app_name) + " "
                     + version_name
                     + " (r" + Integer.toString(version_code) + ")");
-            dialog.setCanceledOnTouchOutside(true);
+            dialog.setCanceledOnTouchOutside(true);            
             break;
 
         case DIALOG_STATS:

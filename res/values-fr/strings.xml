@@ -21,15 +21,15 @@
 
 <string name="not_enough_memory_to_load">La mémoire actuelle ne suffit pas pour charger les cartes.</string>
 <string name="fatal_error">Erreur fatale</string>
-<string name="no_card_loaded_text">Erreur imprévue : cette carte n'est pas chargée.</string>
+<string name="no_card_loaded_text">Erreur imprévue : cette carte n\'est pas chargée.</string>
 <string name="update_overdue_text">Une exportation depuis Mnemogogo est nécessaire !</string>
-<string name="update_today_text">Une exportation depuis Mnemogogo est nécessaire aujourd'hui.</string>
+<string name="update_today_text">Une exportation depuis Mnemogogo est nécessaire aujourd\'hui.</string>
 <string name="no_card_dirs">Aucun répertoire de cartes trouvé. Procédez à un export depuis Mnemogogo!</string>
 <string name="corrupt_card_dir">Le répertoire de cartes est endommagé.</string>
 
 <string name="no_cards_title">Aucune carte</string>
 <string name="no_new_cards_title">Aucune nouvelle carte</string>
-<string name="no_cards_left">Il n'y a actuellement pas de nouvelle carte à répéter.</string>
+<string name="no_cards_left">Il n\'y a actuellement pas de nouvelle carte à répéter.</string>
 <string name="learn_ahead">Apprendre en avance</string>
 <string name="replay_sounds">Rejouer les sons</string>
 
@@ -43,7 +43,7 @@
 <string name="lapses">Essais :</string>
 <string name="grade">Note :</string>
 <string name="days_since_last_repetition">Jours depuis la dernière répétition :</string>
-<string name="days_until_next_repetition">Jours jusqu'à la prochaine répétition :</string>
+<string name="days_until_next_repetition">Jours jusqu\'à la prochaine répétition :</string>
 
 <string name="info">À propos</string>
 <string name="about_author_label">Auteur :</string>
@@ -53,13 +53,13 @@
 <string name="about_sm2_label">Algorithme de SM-2 :</string>
 <string name="about_sm2">Piotr Wozniak</string>
 
-<string name="no_cards_main">Aucun répertoire de cartes n'est choisi.</string>
+<string name="no_cards_main">Aucun répertoire de cartes n\'est choisi.</string>
 <string name="no_cards_step1">Sur un PC, exporter des cartes de Mnemosyne
 vers la carte SD via le greffon Mnemogogo.</string>
 <string name="no_cards_step2">Sur ce smartphone, choisir le répertoire de
-    cartes dans les paramètres de Mnemogogo (choisir 'Menu' puis 'Paramètres').</string>
+    cartes dans les paramètres de Mnemogogo (choisir \'Menu\' puis \'Paramètres\').</string>
 
-<string name="not_available">Cette fonctionnalité n'est pas disponible.</string>
+<string name="not_available">Cette fonctionnalité n\'est pas disponible.</string>
 
 <string name="setting_cat_operation">Fonctionnement</string>
 <string name="setting_cat_appearance">Apparence</string>
@@ -85,10 +85,10 @@ pour afficher les réponses et noter les cartes</string>
 <string name="setting_two_grading_rows_summary">Montrer deux lignes de
 boutons en mode vertical</string>
 <string name="setting_auto_play">Jouer automatiquement des sons</string>
-<string name="setting_auto_play_summary">Jouer des sons dès qu'une carte est montrée</string>
+<string name="setting_auto_play_summary">Jouer des sons dès qu\'une carte est montrée</string>
 
 <string name="setting_fullscreen_mode">Mode plein écran</string>
-<string name="setting_fullscreen_mode_summary">Cacher la barre d'état
+<string name="setting_fullscreen_mode_summary">Cacher la barre d\'état
 en mode plein écran (nécessite un redémarrage).</string>
 <string name="setting_show_titlebar">Montrer la barre de titre</string>
 <string name="setting_show_titlebar_summary">La barre de titre affiche
@@ -141,20 +141,15 @@ utiliser pour</string>
 <string name="key_replay_sounds">Rejouer les sons</string>
 
 <string name="market_description">
-Mnemododo permet de répéter les cartes mémoires ("flashcards")
-de Mnemosyne sur un téléphone mobile.
+Mnemododo permet de répéter les cartes mémoires ("flashcards") de Mnemosyne sur un téléphone mobile.
 
-À la fois Mnemosyne et son greffon Mnemogogo doivent
-être installés sur votre ordinateur.
+À la fois Mnemosyne et son greffon Mnemogogo doivent être installés sur votre ordinateur.
 
-Les cartes ne peuvent pas être modifiées sur
-le téléphone, mais Mnemododo supporte le HTML, les images,
-et le son.
+Les cartes ne peuvent pas être modifiées sur le téléphone, mais Mnemododo supporte le HTML, les images, et le son.
 </string>
 
 <string name="market_promo">
-À utiliser avec Mnemosyne sur Mac ou PC, pour répéter vos cartes
-n'importe où !
+À utiliser avec Mnemosyne sur Mac ou PC, pour répéter vos cartes n\'importe où !
 </string>
 
 <string name="setting_restrict_search">Répertoire des cartes</string>

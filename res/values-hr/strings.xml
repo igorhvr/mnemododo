@@ -1,0 +1,180 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+<!--  translators: please do not change the name="..." attributes! -->
+   
+<string name="grade0">0</string>
+<string name="grade1">1</string>
+<string name="grade2">2</string>
+<string name="grade3">3</string>
+<string name="grade4">4</string>
+<string name="grade5">5</string>
+<string name="show">Pokaži odgovor</string>
+<string name="ok">U redu</string>
+
+<string name="skip_card">Preskoči karticu</string>
+<string name="schedule">Raspored</string>
+<string name="settings">Postavke</string>
+<string name="card_statistics">Statistika kartica</string>
+
+<string name="select_card_dir">Odaberi direktorij sa karticama</string>
+
+<string name="not_enough_memory_to_load">Nedovoljno memorije za učitati kartice.</string>
+<string name="fatal_error">Fatalna Greška</string>
+<string name="no_card_loaded_text">Neočekivana greška: kartica nije učitana.</string>
+<string name="update_overdue_text">Trebate napraviti eksport iz Mnemogogo plugina!</string>
+<string name="update_today_text">Danas bi trebali napraviti eksport iz Mnemogogo plugina.</string>
+<string name="no_card_dirs">Ne mogu naći direktorije sa karticama. Eksportirajte ih iz Mnemogogo plugina!</string>
+<string name="corrupt_card_dir">Eksportirane kartice su neispravne.</string>
+
+<string name="no_cards_title">Nema kartice</string>
+<string name="no_new_cards_title">Nema novih kartica</string>
+<string name="no_cards_left">Trenutno nema novih kartica za pregled.</string>
+<string name="learn_ahead">Uči unaprijed</string>
+<string name="replay_sounds">Ponovi zvuk</string>
+
+<string name="in_text">Ulaz</string>
+<string name="day_text">dan</string>
+<string name="days_text">dana</string>
+
+<string name="statistics">Statistika</string>
+<string name="easiness">Lakoća:</string>
+<string name="repetitions">Ponavljanja:</string>
+<string name="lapses">Zaborava:</string>
+<string name="grade">Ocjena:</string>
+<string name="days_since_last_repetition">Dana od zadnjeg ponavljanja:</string>
+<string name="days_until_next_repetition">Dana do slijedećeg ponavljanja:</string>
+
+<string name="info">Info</string>
+<string name="about_author_label">Autor:</string>
+<string name="about_author">Timothy Bourke</string>
+<string name="about_mnemosyne_label">Mnemosyne:</string>
+<string name="about_mnemosyne">Peter Bienstman</string>
+<string name="about_sm2_label">SM-2 Algoritam:</string>
+<string name="about_sm2">Piotr Wozniak</string>
+
+<string name="no_cards_main">Ispravan direktorij sa karicama jos nije odabran.</string>
+
+<string name="not_available">Ova mogućnost nije raspoloživa.</string>
+
+<string name="setting_cat_operation">Akcija</string>
+<string name="setting_cat_appearance">Izgled</string>
+<string name="setting_cat_misc">Razno</string>
+
+<string name="setting_card_dir">Direktorij sa karticama</string>
+<string name="setting_card_dir_summary">Lokacija datoteka eksportanih iz Mnemogogo plugina.</string>
+<string name="cannot_find_card_dirs">(Nijedan pronadjen na ovom uređaju!)</string>
+<string name="setting_cards_to_load">Učitavanje kartica</string>
+<string name="setting_cards_to_load_summary">Odnos memorije i brzine pri učitavanju sadržaja kartica.</string>
+<string name="select_trade_off">Odaberi kompromis</string>
+
+<string name="setting_center">Centriraj tekst kartice</string>
+<string name="setting_center_summary">Centriraj tekst pitanja i odgovora.</string>
+<string name="setting_touch_buttons">Ekranske tipke</string>
+<string name="setting_touch_buttons_summary">Prikazi tipke za prikaz odgovora i ocjenjivanje.</string>
+<string name="setting_font_size">Veličina teksta karticesize</string>
+<string name="setting_font_size_summary">Postavi veličinu teksta kartica.</string>
+<string name="select_font_size">Odaberi veličinu teksta kartica</string>
+
+<string name="setting_fullscreen_mode">Prikaz na cijelom zaslonu</string>
+<string name="setting_fullscreen_mode_summary">Traka statusa je skrivena u prikazu na cijelom zaslonu (zahtjeva restart).</string>
+<string name="setting_show_titlebar">Prikaži naslovnu traku</string>
+<string name="setting_show_titlebar_summary">Naslovna traka prikazuje kategoriju i broj kartica za pregled.</string>
+
+<string name="loading_card_dir">Učitavam statistiku...</string>
+<string name="loading_cards">Učitavam sadržaj kartica...</string>
+<string name="searching_for_card_dirs">Tražim direktorije sa karticama...</string>
+
+<string-array name="entries_cards_to_load">
+	<item>Više učitavanja, manje memorije</item>
+	<item>Balansirano učitavanje i memorija</item>
+	<item>Manje učitavanja, više memorije</item>
+</string-array>
+
+<string-array name="entries_font_size">
+    <item>Jako mala</item>
+    <item>Mala</item>
+    <item>Normalna</item>
+    <item>Velika</item>
+    <item>Jako velika</item>
+</string-array>
+
+<string name="eula_title">Licenca</string>
+<string name="eula_accept">Prihvati</string>
+<string name="eula_refuse">Odustani</string>
+
+<string name="setting_two_grading_rows">Veće tipke</string>
+<string name="setting_two_grading_rows_summary">Prikaži dva reda tipki za ocjenjivanje u načinu uskog zaslona.</string>
+
+<string name="setting_auto_play">Automatski pokreni zvukove</string>
+<string name="setting_auto_play_summary">Pokreni zvukove čim je kartica prikazana.</string>
+
+<string name="setting_button_pos">Pozicija tipke</string>
+<string name="setting_button_pos_summary">Položaj tipki u načinu širokog zaslona.</string>
+<string name="select_button_pos">Postavi tipke</string>
+<string-array name="entries_button_pos">
+    <item>Na dnu</item>
+    <item>Lijevo</item>
+    <item>Desno</item>
+</string-array>
+
+<string name="no_cards_step1">Na računalu: Eksportirajte kartice iz Mnemosynea na SD karticu pomoću Mnemogogo plugina.</string>
+<string name="no_cards_step2">Na telefonu: Odaberite eksportirani direktorij u Mnemododo postavkama (pritisnite Menu tipku, pa odaberite Settings).</string>
+
+<string name="setting_keys">Pridružene tipke</string>
+<string name="setting_keys_summary">Pridruži tipke za prikaz odgovora i ocjenjivanje.</string>
+<string name="select_keys">Pritisnite tipku za:</string>
+<string name="key_show">Prikaz odgovora</string>
+<string name="key_grade0">Ocjenu kartice sa 0</string>
+<string name="key_grade1">Ocjenu kartice sa 1</string>
+<string name="key_grade2">Ocjenu kartice sa 2</string>
+<string name="key_grade3">Ocjenu kartice sa 3</string>
+<string name="key_grade4">Ocjenu kartice sa 4</string>
+<string name="key_grade5">Ocjenu kartice sa 5</string>
+<string name="key_replay_sounds">Ponavljanje zvukova</string>
+
+<!-- maximum 325 characters -->
+<string name="market_description">
+Mnemododo omogućuje pregleda kartica sa odgođenim ponavljanjem (spaced-repetition) iz Mnemosyne programa na vasem mobilnom telefonu.
+
+Mnemosyne i Mnemogogo plugin moraju biti instalirani na vašem računalu. Kartice se ne mogu uređivati na telefonu.
+
+Uključena je podrška za HTML oznake (uključujući LaTeX), grafiku (uključujući karte), i zvuk.
+</string>
+
+<!-- maximum 80 characters -->
+<string name="market_promo">
+Koristite sa Mnemosyneom na vašem PCu ili Macu za učenje sa odgođenim ponavljanjem u pokretu!
+</string>
+
+<string name="setting_restrict_search">Ograniči pretraživanje direktorija</string>
+<string name="setting_restrict_search_summary">Traži kartice samo u određenim putanjama.</string>
+<string name="setting_restrict_search_title">Unesite putanju za traženje direktorija sa karticama:</string>
+<string name="setting_restrict_search_message">(Ostavite prazno za pretraživanje kompletnog telefona.)</string>
+
+
+<!-- translators: please do not translate below this line! -->
+
+<string name="app_name">Mnemododo</string>
+
+<string-array name="values_cards_to_load">
+    <item>25</item>
+    <item>50</item>
+    <item>100</item>
+</string-array>
+
+<string-array name="values_font_size">
+    <item>x-small</item>
+    <item>smaller</item>
+    <item>medium</item>
+    <item>larger</item>
+    <item>x-large</item>
+</string-array>
+
+<string-array name="values_button_pos">
+    <item>0</item>
+    <item>1</item>
+    <item>2</item>
+</string-array>
+
+</resources>

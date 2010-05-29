@@ -139,21 +139,16 @@ Mnemododo Settings screen (press the Menu button, and then choose Settings).</st
 
 <!-- maximum 325 characters -->
 <string name="market_description">
-Mnemododo allows spaced-repetition flash cards from Mnemosyne to be reviewed
-on a mobile phone.
+Mnemododo allows spaced-repetition flash cards from Mnemosyne to be reviewed on a mobile phone.
 
-Both Mnemosyne and the Mnemogogo plugin must be installed on your PC.
+Both Mnemosyne and the Mnemogogo plugin must be installed on your PC. Cards cannot be edited on your phone.
 
-Cards cannot be edited on your phone and sound is not supported.
-
-There is support for HTML markup (including LaTeX), graphics (including
-maps), and sound.
+There is support for HTML markup (including LaTeX), graphics (including maps), and sound.
 </string>
 
 <!-- maximum 80 characters -->
 <string name="market_promo">
-Use with Mnemosyne on your PC or Mac for spaced-repetition learning on
-the go!
+Use with Mnemosyne on your PC or Mac for spaced-repetition learning on the go!
 </string>
 
 <string name="setting_restrict_search">Restrict directory search</string>

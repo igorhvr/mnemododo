@@ -99,6 +99,9 @@ public final class R {
         public static final int about_sm2=0x7f060029;
         public static final int about_sm2_label=0x7f060028;
         /**  translators: please do not translate below this line! 
+ translators: please do not translate below this line! 
+ translators: please do not translate below this line! 
+ translators: please do not translate below this line! 
          */
         public static final int app_name=0x7f060060;
         public static final int cannot_find_card_dirs=0x7f060031;
@@ -115,6 +118,9 @@ public final class R {
         public static final int fatal_error=0x7f06000e;
         public static final int grade=0x7f060020;
         /**   translators: please do not change the name="..." attributes! 
+  translators: please do not change the name="..." attributes! 
+  translators: please do not change the name="..." attributes! 
+  translators: please do not change the name="..." attributes! 
   translators: please do not change the name="..." attributes! 
          */
         public static final int grade0=0x7f060000;
@@ -138,9 +144,15 @@ public final class R {
         public static final int loading_card_dir=0x7f060040;
         public static final int loading_cards=0x7f060041;
         /**  maximum 325 characters 
+ maximum 325 characters 
+ maximum 325 characters 
+ maximum 325 characters 
          */
         public static final int market_description=0x7f06005a;
         /**  maximum 80 characters 
+ maximum 80 characters 
+ maximum 80 characters 
+ maximum 80 characters 
          */
         public static final int market_promo=0x7f06005b;
         public static final int no_card_dirs=0x7f060012;

@@ -102,8 +102,8 @@ public class Mnemododo
     boolean carddb_dirty = false;
     private Date thinking_from;
 
-    final int make_visible_delay = 400;
-    final int make_visible_fade_delay = 400;
+    final int make_visible_delay = 300;
+    final int make_visible_fade_delay = 50;
     boolean num_left_color_changed = false;
     
     /* data (cache on temporary restart) */

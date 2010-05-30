@@ -112,9 +112,6 @@ public final class R {
         public static final int about_sm2_label=0x7f060028;
         public static final int about_translations=0x7f06002a;
         /**  translators: please do not translate below this line! 
- translators: please do not translate below this line! 
- translators: please do not translate below this line! 
- translators: please do not translate below this line! 
          */
         public static final int app_name=0x7f06006f;
         public static final int cannot_find_card_dirs=0x7f060032;

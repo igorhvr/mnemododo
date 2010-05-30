@@ -153,29 +153,4 @@ Koristite sa Mnemosyneom na vašem PCu ili Macu za učenje sa odgođenim ponavlj
 <string name="setting_restrict_search_title">Unesite putanju za traženje direktorija sa karticama:</string>
 <string name="setting_restrict_search_message">(Ostavite prazno za pretraživanje kompletnog telefona.)</string>
 
-
-<!-- translators: please do not translate below this line! -->
-
-<string name="app_name">Mnemododo</string>
-
-<string-array name="values_cards_to_load">
-    <item>25</item>
-    <item>50</item>
-    <item>100</item>
-</string-array>
-
-<string-array name="values_font_size">
-    <item>x-small</item>
-    <item>smaller</item>
-    <item>medium</item>
-    <item>larger</item>
-    <item>x-large</item>
-</string-array>
-
-<string-array name="values_button_pos">
-    <item>0</item>
-    <item>1</item>
-    <item>2</item>
-</string-array>
-
 </resources>

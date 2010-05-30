@@ -1,0 +1,6 @@
+logging=0
+grade_0_items_at_once=10
+database=default
+start_days=14661
+start_date=2010-02-21
+last_day=-7

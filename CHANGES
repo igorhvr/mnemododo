@@ -1,5 +1,15 @@
-201005__ 1.1._
+20100530 1.1.2
 * Allow automatic sound playing to be disabled.
+* Croatian translation.
+  (thanks to Jovica Popovic)
+* Chinese translation: simplified and traditional.
+  (thanks to http://goapk.com)
+* Fix to table font sizes and centering.
+  (thanks to Matt Kimsal for bug report)
+* Adjust speed of button fading.
+  (thanks to Jean-Baptiste Rouquier for testing and feedback.)
+* Fix apostrophes in French translation.
+  (thanks to Jean-Baptiste Rouquier for report.)
 
 20100412 1.1.1
 * Catch exceptions in FindCardDir.

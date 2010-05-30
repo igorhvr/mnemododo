@@ -1152,6 +1152,11 @@ public class Mnemododo
 
     protected String getCardHeader()
     {
+        String tablecss = "";
+        if (center) {
+            tablecss = "margin-left: auto; margin-right: auto; ";
+        }
+        
         return
             "<html><head>"
             + "<style>"
@@ -1163,6 +1168,8 @@ public class Mnemododo
             + "     background-color: black; border: 0px }"
             + "h3 { margin: 0px; padding: 0px; padding-top: 1.5ex;"
             + "     font-size: normal; }"
+            + "table { " + tablecss + "}"
+            + "tr { font-size: " + card_font_size + "; }"
             + "</style>"
             + "<link rel=\"stylesheet\" href=\"STYLE.CSS\" type=\"text/css\">"
             + "<meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\" />"

@@ -20,6 +20,8 @@ package org.tbrk.mnemododo;
 
 import java.util.Vector;
 
+import org.tbrk.mnemododo.usa.R;
+
 import mnemogogo.mobile.hexcsv.FindCardDirAndroid;
 import mnemogogo.mobile.hexcsv.HexCsvAndroid;
 import android.app.Dialog;

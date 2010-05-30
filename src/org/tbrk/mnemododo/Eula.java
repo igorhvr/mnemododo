@@ -26,6 +26,8 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.io.Closeable;
 
+import org.tbrk.mnemododo.usa.R;
+
 /**
  * Displays an EULA ("End User License Agreement") that the user has to accept before
  * using the application. Your application should call {@link Eula#show(android.app.Activity)}

@@ -23,6 +23,8 @@ import java.io.IOException;
 import java.util.LinkedList;
 import java.util.Queue;
 
+import org.tbrk.mnemododo.usa.R;
+
 import android.content.Context;
 import android.content.res.AssetFileDescriptor;
 import android.media.MediaPlayer;

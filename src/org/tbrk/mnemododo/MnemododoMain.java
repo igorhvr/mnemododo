@@ -21,6 +21,9 @@ package org.tbrk.mnemododo;
 import java.io.File;
 import java.io.IOException;
 import java.util.Date;
+
+import org.tbrk.mnemododo.usa.R;
+
 import mnemogogo.mobile.hexcsv.Card;
 import mnemogogo.mobile.hexcsv.HexCsvAndroid;
 import mnemogogo.mobile.hexcsv.FindCardDirAndroid;
@@ -56,7 +59,7 @@ import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
 
-abstract class MnemododoMain
+public abstract class MnemododoMain
     extends Activity
     implements OnClickListener, OnKeyListener
 {

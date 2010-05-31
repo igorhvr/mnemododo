@@ -121,6 +121,7 @@ public abstract class MnemododoMain
 
     protected boolean is_demo = false;
     protected String demo_path = "/android_asset/demodeck/";
+    protected String demo_imgson_path_override = null;
 
     /* Configuration */
     
@@ -289,8 +290,14 @@ public abstract class MnemododoMain
         {
             setCategory(cur_card.categoryName());
             
-            webview.loadDataWithBaseURL("file://" + cards_path, html,
-                    "text/html", "UTF-8", "");
+            if (demo_imgson_path_override != null) {
+                webview.loadDataWithBaseURL("file://" +
+                        demo_imgson_path_override, html,
+                        "text/html", "UTF-8", "");
+            } else {
+                webview.loadDataWithBaseURL("file://" + cards_path, html,
+                        "text/html", "UTF-8", "");
+            }
 
             if (start_thinking && (cur_card != null)) {
                 startThinking();
@@ -887,7 +894,12 @@ public abstract class MnemododoMain
         }
 
         cards_path = path;
-        sound_player.setBasePath(cards_path);
+
+        if (demo_imgson_path_override != null) {
+            sound_player.setBasePath(demo_imgson_path_override);
+        } else {
+            sound_player.setBasePath(cards_path);
+        }
 
         saveCards();
         if (carddb != null) {

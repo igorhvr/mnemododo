@@ -119,6 +119,7 @@ abstract class MnemododoMain
     protected boolean is_demo = false;
     protected String demo_path = "/android_asset/demodeck/";
     protected String demo_imgson_path_override = null;
+    protected String package_name = "org.tbrk.mnemododo";
 
     /* Configuration */
     
@@ -800,7 +801,7 @@ abstract class MnemododoMain
             String version_name = "?.?.?";
             int version_code = 0;
             try {
-                PackageInfo pi = pm.getPackageInfo("org.tbrk.mnemododo", 0);
+                PackageInfo pi = pm.getPackageInfo(package_name, 0);
                 version_name = pi.versionName;
                 version_code = pi.versionCode;
             } catch (NameNotFoundException e) { }

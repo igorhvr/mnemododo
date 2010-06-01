@@ -909,7 +909,8 @@ abstract class MnemododoMain
             .setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
                 public void onClick(DialogInterface dialog, int id) {
                     carddb.writeCategorySkips(new StringBuffer(cards_path));
-                    // TODO: reschedule cards
+                    carddb.rebuildQueue();
+                    nextQuestion();
                 }
             });
             

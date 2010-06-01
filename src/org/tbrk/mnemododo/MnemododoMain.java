@@ -78,12 +78,14 @@ abstract class MnemododoMain
     static final int DIALOG_ABOUT = 0;
     static final int DIALOG_STATS = 1;
     static final int DIALOG_SCHEDULE = 2;
+    static final int DIALOG_CATEGORIES = 3;
 
     protected static final int MENU_SKIP = 0;
     protected static final int MENU_STATISTICS = 1;
     protected static final int MENU_SCHEDULE = 2;
     protected static final int MENU_SETTINGS = 3;
     protected static final int MENU_ABOUT = 4;
+    protected static final int MENU_CATEGORIES = 5;
 
     protected static final int REQUEST_SETTINGS = 100;
 
@@ -632,6 +634,7 @@ abstract class MnemododoMain
         MenuItem skip = menu.findItem(MENU_SKIP);
         MenuItem stats = menu.findItem(MENU_STATISTICS);
         MenuItem sched = menu.findItem(MENU_SCHEDULE);
+        MenuItem cats = menu.findItem(MENU_CATEGORIES);
 
         boolean show_card_buttons = (mode == Mode.SHOW_ANSWER
                 || mode == Mode.SHOW_QUESTION);
@@ -648,6 +651,9 @@ abstract class MnemododoMain
         sched.setVisible(show_db_buttons);
         sched.setEnabled(show_db_buttons);
 
+        cats.setVisible(show_db_buttons);
+        cats.setEnabled(show_db_buttons);
+        
         return super.onPrepareOptionsMenu(menu);
     }
 
@@ -661,6 +667,9 @@ abstract class MnemododoMain
 
         menu.add(0, MENU_SCHEDULE, 0, getString(R.string.schedule))
                 .setIcon(R.drawable.icon_schedule);
+
+        menu.add(0, MENU_CATEGORIES, 0, getString(R.string.categories)).setIcon(
+                android.R.drawable.ic_menu_info_details); // TODO: fix this
 
         menu.add(0, MENU_SETTINGS, 0, getString(R.string.settings)).setIcon(
                 android.R.drawable.ic_menu_preferences);
@@ -685,6 +694,10 @@ abstract class MnemododoMain
 
         case MENU_SCHEDULE:
             showDialog(DIALOG_SCHEDULE);
+            return true;
+
+        case MENU_CATEGORIES:
+            showDialog(DIALOG_CATEGORIES);
             return true;
 
         case MENU_SETTINGS:
@@ -873,6 +886,35 @@ abstract class MnemododoMain
             });
             dialog.setCanceledOnTouchOutside(true);
             break;
+
+        case DIALOG_CATEGORIES:
+            int num_categories = carddb.numCategories();
+            CharSequence[] items = new CharSequence[num_categories];
+            boolean[] checked = new boolean[num_categories];
+            
+            for (int i=0; i < num_categories; ++i) {
+                items[i] = carddb.getCategory(i);
+                checked[i] = !carddb.skipCategory(i);
+            }
+
+            AlertDialog.Builder builder = new AlertDialog.Builder(this);
+            builder
+            .setTitle(getString(R.string.activate_categories))
+            .setMultiChoiceItems(items, checked, new DialogInterface.OnMultiChoiceClickListener() {
+                public void onClick(DialogInterface dialog, int item, boolean value) {
+                    carddb.setSkipCategory(item, !value);
+                }
+            })
+            .setCancelable(false)
+            .setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialog, int id) {
+                    carddb.writeCategorySkips(new StringBuffer(cards_path));
+                    // TODO: reschedule cards
+                }
+            });
+            
+            dialog = (Dialog)builder.create();
+            break;
         }
 
         return dialog;
@@ -880,6 +922,8 @@ abstract class MnemododoMain
 
     public void setCardDir(String path)
     {
+        removeDialog(DIALOG_CATEGORIES);
+
         if (!path.endsWith(File.separator)) {
             path = path + File.separator;
         }

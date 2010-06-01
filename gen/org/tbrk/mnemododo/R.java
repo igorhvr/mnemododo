@@ -111,11 +111,15 @@ public final class R {
         public static final int about_sm2=0x7f060029;
         public static final int about_sm2_label=0x7f060028;
         public static final int about_translations=0x7f06002a;
+        public static final int activate_categories=0x7f060070;
         /**  translators: please do not translate below this line! 
          */
-        public static final int app_name=0x7f06006f;
+        public static final int app_name=0x7f060071;
         public static final int cannot_find_card_dirs=0x7f060032;
         public static final int card_statistics=0x7f06000b;
+        /**  new: activate categories 
+         */
+        public static final int categories=0x7f06006f;
         public static final int corrupt_card_dir=0x7f060013;
         public static final int day_text=0x7f06001a;
         public static final int days_since_last_repetition=0x7f060021;

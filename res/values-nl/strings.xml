@@ -14,6 +14,8 @@
 <string name="schedule">Rooster</string>
 <string name="settings">Instellingen</string>
 <string name="card_statistics">Kaart Statistieken</string>
+<string name="categories">Categorieën</string>
+<string name="activate_categories">Activeer categorieën</string>
 
 <string name="select_card_dir">Selecteer kaartenbestand</string>
 

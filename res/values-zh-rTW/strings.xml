@@ -16,6 +16,8 @@
 <string name="schedule">時間表</string>
 <string name="settings">設定</string>
 <string name="card_statistics">卡片統計</string>
+<string name="categories">分類</string>
+<string name="activate_categories">啟動分類</string>
 
 <string name="select_card_dir">選取一個卡片目錄</string>
 

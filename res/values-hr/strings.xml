@@ -16,6 +16,9 @@
 <string name="schedule">Raspored</string>
 <string name="settings">Postavke</string>
 <string name="card_statistics">Statistika kartica</string>
+<!--  TODO: -->
+<string name="categories">Categories</string>
+<string name="activate_categories">Activate categories</string>
 
 <string name="select_card_dir">Odaberi direktorij sa karticama</string>
 

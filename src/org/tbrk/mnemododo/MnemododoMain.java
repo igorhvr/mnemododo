@@ -65,7 +65,7 @@ abstract class MnemododoMain
     static final int BUTTON_POS_BOTTOM = 0;
     static final int BUTTON_POS_LEFT = 1;
     static final int BUTTON_POS_RIGHT = 2;
-    
+
     static final int[] grading_button_panel_ids =
         {R.id.grading_buttons_bottom,
          R.id.grading_buttons_left,
@@ -659,8 +659,8 @@ abstract class MnemododoMain
 
     public boolean onCreateOptionsMenu(Menu menu)
     {
-        menu.add(0, MENU_SKIP, 0, getString(R.string.skip_card)).setIcon(
-                R.drawable.icon_skip);
+        menu.add(0, MENU_SKIP, 0, getString(R.string.skip_card))
+                .setIcon(R.drawable.icon_skip);
 
         menu.add(0, MENU_STATISTICS, 0, getString(R.string.statistics))
                 .setIcon(R.drawable.icon_stats);
@@ -668,14 +668,14 @@ abstract class MnemododoMain
         menu.add(0, MENU_SCHEDULE, 0, getString(R.string.schedule))
                 .setIcon(R.drawable.icon_schedule);
 
-        menu.add(0, MENU_CATEGORIES, 0, getString(R.string.categories)).setIcon(
-                android.R.drawable.ic_menu_info_details); // TODO: fix this
+        menu.add(0, MENU_CATEGORIES, 0, getString(R.string.categories))
+                .setIcon(R.drawable.icon_categories); // TODO: fix this
 
-        menu.add(0, MENU_SETTINGS, 0, getString(R.string.settings)).setIcon(
-                android.R.drawable.ic_menu_preferences);
+        menu.add(0, MENU_SETTINGS, 0, getString(R.string.settings))
+                .setIcon(android.R.drawable.ic_menu_preferences);
 
-        menu.add(0, MENU_ABOUT, 0, getString(R.string.info)).setIcon(
-                android.R.drawable.ic_menu_info_details);
+        menu.add(0, MENU_ABOUT, 0, getString(R.string.info))
+                .setIcon(android.R.drawable.ic_menu_info_details);
 
         return super.onCreateOptionsMenu(menu);
     }

@@ -16,6 +16,8 @@
 <string name="schedule">Schedule</string>
 <string name="settings">Settings</string>
 <string name="card_statistics">Card Statistics</string>
+<string name="categories">Categories</string>
+<string name="activate_categories">Activate categories</string>
 
 <string name="select_card_dir">Select a card directory</string>
 
@@ -175,10 +177,6 @@ Use with Mnemosyne on your PC or Mac for spaced-repetition learning on the go!
 <string name="grade0_new_help">You don't remember this card yet.</string>
 <string name="grade1_new_help">Like '0', but it's getting more familiar. Show it less often.</string>
 <string name="grade2345_new_help">You've memorised this card now and will probably remember it for a few days.</string>
-
-<!-- new: activate categories -->
-<string name="categories">Categories</string>
-<string name="activate_categories">Activate categories</string>
 
 <!-- translators: please do not translate below this line! -->
 

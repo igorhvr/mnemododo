@@ -16,6 +16,8 @@
 <string name="schedule">Planification</string>
 <string name="settings">Paramètres</string>
 <string name="card_statistics">Statistiques de cette carte</string>
+<string name="categories">Catégories</string>
+<string name="activate_categories">Activer les catégories</string>
 
 <string name="select_card_dir">Choisir un répertoire de cartes</string>
 

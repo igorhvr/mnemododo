@@ -118,8 +118,6 @@ public final class R {
         public static final int app_name=0x7f060071;
         public static final int cannot_find_card_dirs=0x7f060034;
         public static final int card_statistics=0x7f06000b;
-        /**   TODO: 
-         */
         public static final int categories=0x7f06000c;
         public static final int corrupt_card_dir=0x7f060015;
         public static final int day_text=0x7f06001c;

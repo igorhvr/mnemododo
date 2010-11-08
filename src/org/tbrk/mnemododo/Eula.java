@@ -25,6 +25,7 @@ import java.io.IOException;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.io.Closeable;
+import java.util.Locale;
 
 /**
  * Displays an EULA ("End User License Agreement") that the user has to accept before
@@ -56,13 +57,17 @@ class Eula {
      * @param activity The Activity to finish if the user rejects the EULA.
      * @return Whether the user has agreed already.
      */
-    static boolean show(final Activity activity) {
+    static boolean show(final Activity activity)
+    {
         final SharedPreferences preferences = activity.getSharedPreferences(PREFERENCES_EULA,
                 Activity.MODE_PRIVATE);
-        if (!preferences.getBoolean(PREFERENCE_EULA_ACCEPTED, false)) {
+
+        if (!preferences.getBoolean(PREFERENCE_EULA_ACCEPTED, false))
+        {
             final AlertDialog.Builder builder = new AlertDialog.Builder(activity);
             builder.setTitle(R.string.eula_title);
             builder.setCancelable(true);
+            
             builder.setPositiveButton(R.string.eula_accept, new DialogInterface.OnClickListener() {
                 public void onClick(DialogInterface dialog, int which) {
                     accept(preferences);
@@ -71,20 +76,34 @@ class Eula {
                     }
                 }
             });
+
             builder.setNegativeButton(R.string.eula_refuse, new DialogInterface.OnClickListener() {
                 public void onClick(DialogInterface dialog, int which) {
                     refuse(activity);
                 }
             });
+
             builder.setOnCancelListener(new DialogInterface.OnCancelListener() {
                 public void onCancel(DialogInterface dialog) {
                     refuse(activity);
                 }
             });
-            builder.setMessage(readEula(activity));
+            
+            String lang = Locale.getDefault().getLanguage();
+            String country = Locale.getDefault().getCountry();
+            CharSequence lang_msg;
+
+            lang_msg = readEula(activity, "", ASSET_EULA + "-" + lang);
+            if (lang_msg == "") {
+                lang_msg = readEula(activity, "",
+                        ASSET_EULA + "-" + lang + "-" + country);
+            }
+
+            builder.setMessage(readEula(activity, lang_msg, ASSET_EULA));
             builder.create().show();
             return false;
         }
+        
         return true;
     }
 
@@ -96,18 +115,27 @@ class Eula {
         activity.finish();
     }
 
-    private static CharSequence readEula(Activity activity) {
+    private static CharSequence
+    readEula(Activity activity, CharSequence pre, String fname)
+    {
         BufferedReader in = null;
+
         try {
-            in = new BufferedReader(new InputStreamReader(activity.getAssets().open(ASSET_EULA)));
+            in = new BufferedReader(
+                    new InputStreamReader(activity.getAssets().open(fname)));
             String line;
-            StringBuilder buffer = new StringBuilder();
-            while ((line = in.readLine()) != null) buffer.append(line).append('\n');
+            StringBuilder buffer = new StringBuilder(pre);
+
+            while ((line = in.readLine()) != null)
+                buffer.append(line).append('\n');
             return buffer;
+
         } catch (IOException e) {
             return "";
+
         } finally {
             closeStream(in);
+
         }
     }
 

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
 <!--  translators: please do not change the name="..." attributes! -->
 
-<!--   
 <string name="grade0">0</string>
 <string name="grade1">1</string>
 <string name="grade2">2</string>
@@ -12,88 +12,210 @@
 <string name="show">Antwort anzeigen</string>
 <string name="ok">OK</string>
 
-<string name="skip_card">Skip card</string>
+<string name="skip_card">Karte überspringen</string>
 <string name="schedule">Zeitplan</string>
 <string name="settings">Einstellungen</string>
-<string name="card_statistics">Kart Statistiken</string>
+<string name="card_statistics">Statistiken</string>
+<string name="categories">Kategorien</string>
+<string name="activate_categories">Kategorien aktivieren</string>
 
-<string name="select_card_dir">Select a card directory</string>
+<string name="select_card_dir">Ein Kartenverzeichnis auswählen</string>
 
-<string name="not_enough_memory_to_load">Not enough memory to load cards.</string>
-<string name="fatal_error">Fatal Error</string>
-<string name="no_card_loaded_text">Unexpected error: card not loaded.</string>
-<string name="update_overdue_text">An export from Mnemogogo is overdue!</string>
-<string name="update_today_text">An export from Mnemogogo is due today.</string>
-<string name="no_card_dirs">No card directories could be found. Please export from Mnemogogo!</string>
-<string name="corrupt_card_dir">The exported cards are corrupt.</string>
+<string name="not_enough_memory_to_load">Nicht genug Speicher, um Karten
+zu laden</string>
+<string name="fatal_error">Schwerer Fehler</string>
+<string name="no_card_loaded_text">Karten konnten nicht geladen
+werden</string>
+<string name="update_overdue_text">Ein Export der Karten von Mnemogogo
+ist überfällig!</string>
+<string name="update_today_text">Ein Export der Karten von Mnemogogo
+ist heute fällig.</string>
+<string name="no_card_dirs">Es wurde kein Kartenordner gefunden. Bitte
+exportieren Sie einen von Mnemogogo!</string>
+<string name="corrupt_card_dir">Die exportierten Karten sind
+beschädigt.</string>
 
-<string name="no_cards_title">No cards</string>
-<string name="no_new_cards_title">No new cards</string>
-<string name="no_cards_left">There are no new cards to review at this time.</string>
-<string name="learn_ahead">Ohne Rücksicht auf den Zeitplan weiterlernen</string>
+<string name="no_cards_title">Keine Karten vorhanden</string>
+<string name="no_new_cards_title">Keine neuen Karten vorhanden</string>
+<string name="no_cards_left">Es gibt zur Zeit keine neuen Karten, die
+gelernt werden müssen.</string>
+<string name="learn_ahead">Ohne Rücksicht auf den Zeitplan
+weiterlernen</string>
+<string name="replay_sounds">Sounds wiederholen</string>
 
 <string name="in_text">In</string>
-<string name="day_text">tag</string>
-<string name="days_text">tagen</string>
+<string name="day_text">Tag</string>
+<string name="days_text">Tagen</string>
 
 <string name="statistics">Statistiken</string>
-<string name="easiness">Leichtigkeit:</string>
+<string name="easiness">Schwierigkeit:</string>
 <string name="repetitions">Wiederholungen:</string>
 <string name="lapses">Fehler:</string>
 <string name="grade">Bewertung:</string>
-<string name="days_since_last_repetition">Tage seit der letzten Wiederholung:</string>
-<string name="days_until_next_repetition">Tage bis zur nächsten Wiederholung:</string>
+<string name="days_since_last_repetition">Tage seit der letzten
+Wiederholung:</string>
+<string name="days_until_next_repetition">Tage bis zur nächsten
+Wiederholung:</string>
 
 <string name="info">Über</string>
 <string name="about_author_label">Autor:</string>
 <string name="about_author">Timothy Bourke</string>
 <string name="about_mnemosyne_label">Mnemosyne:</string>
 <string name="about_mnemosyne">Peter Bienstman</string>
-<string name="about_sm2_label">SM-2 Algorithm:</string>
+<string name="about_sm2_label">SM-2 Algorithmus:</string>
 <string name="about_sm2">Piotr Wozniak</string>
+<string name="about_translations">Übersetzung:</string>
 
-<string name="no_cards_main">A valid card directory has not yet been selected.</string>
-<string name="no_cards_step1">Export cards from Mnemosyne to your SD card using the Mnemogogo plugin.</string>
-<string name="no_cards_step2">Choose the exported directory from the Settings screen.</string>
+<string name="no_cards_main">Es wurde noch kein gültiges
+Kartenverzeichnis ausgewählt.</string>
+
+<string name="not_available">Dieses Feature ist nicht verfügbar.</string>
 
 <string name="setting_cat_operation">Operation</string>
-<string name="setting_cat_appearance">Appearance</string>
+<string name="setting_cat_appearance">Erscheinungsbild</string>
+<string name="setting_cat_misc">Sonstiges</string>
 
-<string name="setting_card_dir">Card directory</string>
-<string name="setting_card_dir_summary">The location of the files exported from Mnemogogo.</string>
-<string name="cannot_find_card_dirs">(None were found on this device!)</string>
-<string name="setting_cards_to_load">Loading cards</string>
-<string name="setting_cards_to_load_summary">Balance memory and speed when loading card contents.</string>
-<string name="select_trade_off">Select trade off</string>
+<string name="setting_card_dir">Kartenordner</string>
+<string name="setting_card_dir_summary">Der Speicherort der Daten,
+die von Mnemogogo exportiert wurden.</string>
+<string name="cannot_find_card_dirs">(Auf diesem Gerät wurden keine
+Lernkarten gefunden!)</string>
+<string name="setting_cards_to_load">Verhältnis laden/speichern
+angeben</string>
+<string name="setting_cards_to_load_summary">Speicher und Geschwindigkeit
+bestimmen, wenn Karten geladen werden</string>
+<string name="select_trade_off">Kompromiss auswählen</string>
 
-<string name="setting_center">Center card text</string>
-<string name="setting_center_summary">Center question and answer texts.</string>
-<string name="setting_touch_buttons">Onscreen buttons</string>
-<string name="setting_touch_buttons_summary">Display buttons for showing answers and grading.</string>
-<string name="setting_font_size">Card text size</string>
-<string name="setting_font_size_summary">Set the size of text in cards.</string>
-<string name="select_font_size">Select card text size</string>
+<string name="setting_center">Kartentext zentrieren</string>
+<string name="setting_center_summary">Fragen und Antworten in der Mitte
+platzieren</string>
+<string name="setting_touch_buttons">Bildschirmtasten</string>
+<string name="setting_touch_buttons_summary">Tasten für Antwort und
+Bewertung anzeigen</string>
+<string name="setting_font_size">Schriftgröße ändern</string>
+<string name="setting_font_size_summary">Schriftgröße auf den Karten
+einstellen</string>
+<string name="select_font_size">Schriftgröße auf den Karten</string>
 
-<string name="loading_card_dir">Loading statistics...</string>
-<string name="loading_cards">Loading card contents...</string>
-<string name="searching_for_card_dirs">Searching for card directories...</string>
+<string name="setting_fullscreen_mode">Vollbild</string>
+<string name="setting_fullscreen_mode_summary">Die Statusleiste ist im
+Vollbildmodus verborgen
+(erfordert Neustart).</string>
+<string name="setting_show_titlebar">Titelleiste anzeigen</string>
+<string name="setting_show_titlebar_summary">Die Titelleiste zeigt die
+Anzahl der Karten und die Kategorie an.</string>
+
+<string name="loading_card_dir">Lade Statistiken...</string>
+<string name="loading_cards">Lade Karteninhalte...</string>
+<string name="searching_for_card_dirs">Suche nach
+Kartenordnern...</string>
 
 <string-array name="entries_cards_to_load">
-	<item>More loading, less memory</item>
-	<item>Balance loading and memory</item>
-	<item>Less loading, more memory</item>
+	<item>Mehr laden, weniger speichern</item>
+	<item>Gleich viel laden und speichern</item>
+	<item>Weniger laden, mehr speichern</item>
 </string-array>
 
 <string-array name="entries_font_size">
-    <item>Very small</item>
-    <item>Small</item>
+    <item>Sehr klein</item>
+    <item>Klein</item>
     <item>Normal</item>
-    <item>Large</item>
-    <item>Very large</item>
+    <item>Groß</item>
+    <item>Sehr groß</item>
 </string-array>
 
-<string name="eula_title">License</string>
-<string name="eula_accept">Accept</string>
-<string name="eula_refuse">Refuse</string>
--->
+<string name="eula_title">Lizenz</string>
+<string name="eula_accept">Annehmen</string>
+<string name="eula_refuse">Nicht annehmen</string>
+
+<string name="setting_two_grading_rows">Größere Tasten</string>
+<string name="setting_two_grading_rows_summary">Zeige zwei
+Tastenreihen</string>
+
+<string name="setting_auto_play">Spiele Töne automatisch</string>
+<string name="setting_auto_play_summary">Ton sofort abspielen, nachdem
+die Karte gezeigt wurde</string>
+
+<string name="setting_button_pos">Position der Buttons</string>
+<string name="setting_button_pos_summary">Position der Buttons im
+Breitbildmodus</string>
+<string name="select_button_pos">Platziere die Buttons</string>
+<string-array name="entries_button_pos">
+    <item>Unten</item>
+    <item>Links</item>
+    <item>Rechts</item>
+</string-array>
+
+<string name="no_cards_step1">Am PC: Exportiere Karten von Mnemosyne
+auf die SD-Karte mit dem Mnemogogo-Plugin.</string>
+<string name="no_cards_step2">Auf diesem Gerät: Wähle das exportierte
+Verzeichnis über das Mnemododo-Einstellungsmenü aus (klicke auf "Menü",
+dann auf "Einstellungen").</string>
+
+<string name="setting_keys">Tasten bestimmen</string>
+<string name="setting_keys_summary">Shortkeys einrichten für Antworten
+und Bewertungen</string>
+<string name="select_keys">Taste drücken für::</string>
+<string name="key_show">Antwort anzeigen</string>
+<string name="key_grade0">Bewertung 0</string>
+<string name="key_grade1">Bewertung 1</string>
+<string name="key_grade2">Bewertung 2</string>
+<string name="key_grade3">Bewertung 3</string>
+<string name="key_grade4">Bewertung 4</string>
+<string name="key_grade5">Bewertung 5</string>
+<string name="key_replay_sounds">Sounds wiederholen</string>
+
+<!-- maximum 325 characters -->
+<string name="market_description">
+Mit Mnemododo kann man Flash-Karteikarten von Mnemosyne auf dem
+Mobiltelefon lernen.
+
+Sowohl Mnemosyne als auch das Mnemogogo-Plugin müssen auf dem PC
+installiert sein. Karteikarten können auf dem Telefon nicht bearbeitet
+werden.
+
+HTML, LaTeX, Bilder (inkl. Karten) und Sounds werden unterstützt.
+
+</string>
+
+<!-- maximum 80 characters -->
+<string name="market_promo">
+Benutze Mnemosyne auf dem PC oder Mac für Karteikarten lernen unterwegs!
+</string>
+
+<string name="setting_restrict_search">Suche einschränken</string>
+<string name="setting_restrict_search_summary">Für Karten nur in einem
+speziellen Ordner nachschauen.</string>
+<string name="setting_restrict_search_title">Einen Pfad eingeben, um
+nach Karten zu schauen:</string>
+<string name="setting_restrict_search_message">(Freilassen, um das ganze
+Telefon zu durchsuchen.)</string>
+
+<!-- new: needed for NL, FR, HR, ZH(simp.), ZH(trad.) -->
+
+<string name="grade0_short_help">Komplett vergessen.</string>
+<string name="grade1_short_help">Vergessen.</string>
+<string name="grade2_short_help">Sehr schwierig.</string>
+<string name="grade3_short_help">Ziemlich schwierig.</string>
+<string name="grade4_short_help">Richtig erinnert.</string>
+<string name="grade5_short_help">Zu leicht.</string>
+
+<string name="grade01_help">Du hast diese Karte komplett
+vergessen.</string>
+<string name="grade2_help">Du hast kaum noch die richtige Antwort
+gewusst. Das Wiederholungsintervall war viel zu lang.</string>
+<string name="grade3_help">Korrekte Antwort, aber mit viel
+Anstrengung. Das Intervall war zu lang.</string>
+<string name="grade4_help">Korrekte Antwort, mit ein wenig
+Anstrengung. Das Wiederholungsintervall war genau richtig.</string>
+<string name="grade5_help">Korrekte Antwort, ohne Schwierigkeiten. Das
+Wiederholungsintervall war wahrscheinlich zu kurz.</string>
+
+<string name="grade0_new_help">Du kannst dich an diese Karte gar nicht
+erinnern.</string>
+<string name="grade1_new_help">Wie "0", aber es kommt dir eher bekannt
+vor. Zeige diese Karte nicht ganz so oft.</string>
+<string name="grade2345_new_help">Du hast diese Karte gelernt und wirst
+sie wohl für ein paar Tage behalten können.</string>
+
 </resources>

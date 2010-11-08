@@ -30,68 +30,70 @@ public final class R {
         public static final int about_author_layout=0x7f080004;
         public static final int about_mnemosyne_layout=0x7f080007;
         public static final int about_sm2_layout=0x7f08000a;
-        public static final int buttons_bottom=0x7f080021;
-        public static final int buttons_left=0x7f080018;
-        public static final int buttons_right=0x7f08001b;
-        public static final int card_webview=0x7f08002b;
-        public static final int cards_left=0x7f080020;
-        public static final int category=0x7f08001f;
+        public static final int buttons_bottom=0x7f080023;
+        public static final int buttons_left=0x7f08001a;
+        public static final int buttons_right=0x7f08001d;
+        public static final int card_webview=0x7f08002d;
+        public static final int cards_left=0x7f080022;
+        public static final int category=0x7f080021;
         public static final int credit_scroll=0x7f080001;
-        public static final int days_since_last_repetition=0x7f08003f;
-        public static final int days_since_last_repetition_layout=0x7f08003e;
-        public static final int days_until_next_repetition=0x7f080041;
-        public static final int days_until_next_repetition_layout=0x7f080040;
-        public static final int easiness=0x7f080039;
-        public static final int easiness_layout=0x7f080038;
-        public static final int grade=0x7f080037;
-        public static final int grade0=0x7f080025;
-        public static final int grade1=0x7f080026;
-        public static final int grade2=0x7f080027;
-        public static final int grade3=0x7f080028;
-        public static final int grade4=0x7f080029;
-        public static final int grade5=0x7f08002a;
-        public static final int grade_layout=0x7f080035;
-        public static final int grading_buttons_bottom=0x7f080024;
-        public static final int grading_buttons_left=0x7f080019;
-        public static final int grading_buttons_right=0x7f08001c;
-        public static final int key_grade0=0x7f08002d;
-        public static final int key_grade1=0x7f08002e;
-        public static final int key_grade2=0x7f08002f;
-        public static final int key_grade3=0x7f080030;
-        public static final int key_grade4=0x7f080031;
-        public static final int key_grade5=0x7f080032;
-        public static final int key_replay_sounds=0x7f080033;
-        public static final int key_show=0x7f08002c;
-        public static final int label=0x7f080036;
+        public static final int days_since_last_repetition=0x7f080041;
+        public static final int days_since_last_repetition_layout=0x7f080040;
+        public static final int days_until_next_repetition=0x7f080043;
+        public static final int days_until_next_repetition_layout=0x7f080042;
+        public static final int easiness=0x7f08003b;
+        public static final int easiness_layout=0x7f08003a;
+        public static final int grade=0x7f080039;
+        public static final int grade0=0x7f080027;
+        public static final int grade1=0x7f080028;
+        public static final int grade2=0x7f080029;
+        public static final int grade3=0x7f08002a;
+        public static final int grade4=0x7f08002b;
+        public static final int grade5=0x7f08002c;
+        public static final int grade_layout=0x7f080037;
+        public static final int grading_buttons_bottom=0x7f080026;
+        public static final int grading_buttons_left=0x7f08001b;
+        public static final int grading_buttons_right=0x7f08001e;
+        public static final int key_grade0=0x7f08002f;
+        public static final int key_grade1=0x7f080030;
+        public static final int key_grade2=0x7f080031;
+        public static final int key_grade3=0x7f080032;
+        public static final int key_grade4=0x7f080033;
+        public static final int key_grade5=0x7f080034;
+        public static final int key_replay_sounds=0x7f080035;
+        public static final int key_show=0x7f08002e;
+        public static final int label=0x7f080038;
         public static final int label_author=0x7f080005;
         public static final int label_mnemosyne=0x7f080008;
         public static final int label_sm2=0x7f08000b;
-        public static final int lapses=0x7f08003d;
-        public static final int lapses_layout=0x7f08003c;
+        public static final int lapses=0x7f08003f;
+        public static final int lapses_layout=0x7f08003e;
         public static final int layout_names=0x7f080002;
         public static final int layout_root=0x7f080000;
         public static final int logo=0x7f080003;
-        public static final int repetitions=0x7f08003b;
-        public static final int repetitions_layout=0x7f08003a;
-        public static final int schedule_table=0x7f080034;
-        public static final int show=0x7f080023;
-        public static final int show_buttons_bottom=0x7f080022;
-        public static final int show_buttons_left=0x7f08001a;
-        public static final int show_buttons_right=0x7f08001d;
+        public static final int repetitions=0x7f08003d;
+        public static final int repetitions_layout=0x7f08003c;
+        public static final int schedule_table=0x7f080036;
+        public static final int show=0x7f080025;
+        public static final int show_buttons_bottom=0x7f080024;
+        public static final int show_buttons_left=0x7f08001c;
+        public static final int show_buttons_right=0x7f08001f;
         public static final int text_author=0x7f080006;
         public static final int text_mnemosyne=0x7f080009;
         public static final int text_sm2=0x7f08000c;
-        public static final int titlebar=0x7f08001e;
+        public static final int titlebar=0x7f080020;
+        public static final int trans_credit_de=0x7f080013;
         public static final int trans_credit_fr1=0x7f08000f;
         public static final int trans_credit_fr2=0x7f080011;
-        public static final int trans_credit_hr=0x7f080013;
-        public static final int trans_credit_nl=0x7f080015;
-        public static final int trans_credit_zh=0x7f080017;
+        public static final int trans_credit_hr=0x7f080015;
+        public static final int trans_credit_nl=0x7f080017;
+        public static final int trans_credit_zh=0x7f080019;
+        public static final int trans_de=0x7f080012;
         public static final int trans_fr1=0x7f08000e;
         public static final int trans_fr2=0x7f080010;
-        public static final int trans_hr=0x7f080012;
-        public static final int trans_nl=0x7f080014;
-        public static final int trans_zh=0x7f080016;
+        public static final int trans_hr=0x7f080014;
+        public static final int trans_nl=0x7f080016;
+        public static final int trans_zh=0x7f080018;
         public static final int translations=0x7f08000d;
     }
     public static final class layout {
@@ -135,11 +137,13 @@ public final class R {
   translators: please do not change the name="..." attributes! 
   translators: please do not change the name="..." attributes! 
   translators: please do not change the name="..." attributes! 
+  translators: please do not change the name="..." attributes! 
          */
         public static final int grade0=0x7f060000;
         public static final int grade01_help=0x7f060069;
         public static final int grade0_new_help=0x7f06006e;
         /**  new: needed for NL, FR, HR, ZH(simp.), ZH(trad.) 
+ new: needed for NL, FR, HR, ZH(simp.), ZH(trad.) 
          */
         public static final int grade0_short_help=0x7f060063;
         public static final int grade1=0x7f060001;
@@ -176,9 +180,11 @@ public final class R {
  maximum 325 characters 
  maximum 325 characters 
  maximum 325 characters 
+ maximum 325 characters 
          */
         public static final int market_description=0x7f06005d;
         /**  maximum 80 characters 
+ maximum 80 characters 
  maximum 80 characters 
  maximum 80 characters 
  maximum 80 characters 

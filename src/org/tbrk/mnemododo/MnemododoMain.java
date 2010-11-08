@@ -669,7 +669,7 @@ abstract class MnemododoMain
                 .setIcon(R.drawable.icon_schedule);
 
         menu.add(0, MENU_CATEGORIES, 0, getString(R.string.categories))
-                .setIcon(R.drawable.icon_categories); // TODO: fix this
+                .setIcon(R.drawable.icon_categories);
 
         menu.add(0, MENU_SETTINGS, 0, getString(R.string.settings))
                 .setIcon(android.R.drawable.ic_menu_preferences);

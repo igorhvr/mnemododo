@@ -174,9 +174,9 @@ Use with Mnemosyne on your PC or Mac for spaced-repetition learning on the go!
 <string name="grade4_help">Correct answer, with some effort. The interval was probably just right.</string>
 <string name="grade5_help">Correct answer, but without any difficulties. The interval was probably too short.</string>
 
-<string name="grade0_new_help">You don't remember this card yet.</string>
-<string name="grade1_new_help">Like '0', but it's getting more familiar. Show it less often.</string>
-<string name="grade2345_new_help">You've memorised this card now and will probably remember it for a few days.</string>
+<string name="grade0_new_help">You don\'t remember this card yet.</string>
+<string name="grade1_new_help">Like \'0\', but it\'s getting more familiar. Show it less often.</string>
+<string name="grade2345_new_help">You\'ve memorised this card now and will probably remember it for a few days.</string>
 
 <!-- translators: please do not translate below this line! -->
 

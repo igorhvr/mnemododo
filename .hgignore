@@ -1,4 +1,10 @@
 ^bin/classes\.dex$
-^bin/mnemododo\.apk$
-^bin/resources\.ap_$
+^bin/.*\.apk$
+^bin/.*\.ap_$
 ^mnemogogo-android-[0-9]+\.[0-9]+\.[0-9]+\.jar$
+^local.properties$
+^libs/mnemododo.keystore$
+^libs/mnemogogo-android.jar$
+^libs/export$
+^libs/sdcard.iso$
+^libs/sdcard.iso.lock$

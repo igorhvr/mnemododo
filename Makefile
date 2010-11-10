@@ -66,6 +66,23 @@ libs/mnemogogo-android.jar:
 listkeys:
 	keytool -list -keystore libs/mnemododo.keystore
 
+# Translations
+
+set-en:
+	$(ADB) -e shell \
+	    'setprop persist.sys.language en;setprop persist.sys.country US;stop;sleep 5;start'
+set-fr:
+	$(ADB) -e shell \
+	    'setprop persist.sys.language fr;setprop persist.sys.country FR;stop;sleep 5;start'
+set-nl:
+	$(ADB) -e shell \
+	    'setprop persist.sys.language nl;setprop persist.sys.country NL;stop;sleep 5;start'
+set-de:
+	$(ADB) -e shell \
+	    'setprop persist.sys.language de;setprop persist.sys.country DE;stop;sleep 5;start'
+
+# Clean
+
 clean:
 	-@$(RM) bin/Mnemododo.ap_
 	-@$(RM) bin/Mnemododo-debug-unaligned.apk

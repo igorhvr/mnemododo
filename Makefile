@@ -5,13 +5,14 @@ EXPORTDIR=libs/export
 ANT=/usr/bin/ant
 RM=rm
 LN=ln -s
-SDCARD=libs/sdcard.iso
+ETAGS=etags
 
 ANDROIDSDK=/opt/android-sdk-linux_x86
 EMULATOR=$(ANDROIDSDK)/tools/emulator
 ADB=$(ANDROIDSDK)/tools/adb
 LOGCAT_LEVEL=d
 MKSDCARD=$(ANDROIDSDK)/tools/mksdcard
+SDCARD=libs/sdcard.iso
 
 # run: android list
 AVD=blah1.5
@@ -65,6 +66,11 @@ libs/mnemogogo-android.jar:
 
 listkeys:
 	keytool -list -keystore libs/mnemododo.keystore
+
+tags:
+	$(ETAGS) -f tags \
+	    src/org/tbrk/mnemododo/*.java \
+	    $(MNEMOGOGO)/mobile/hexcsv/*.java
 
 # Translations
 

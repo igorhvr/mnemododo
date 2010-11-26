@@ -56,6 +56,14 @@ bin/Mnemododo-release.apk: setup
 
 setup: libs/mnemogogo-android.jar
 
+mountsdcard: sdcard
+	mkdir -p libs/sdcard
+	sudo mount -t vfat -o loop,shortname=mixed $(SDCARD) libs/sdcard
+
+umountsdcard:
+	sudo umount libs/sdcard
+	rmdir libs/sdcard
+
 sdcard:
 	if [ ! -e $(SDCARD) ]; then \
 	    $(MKSDCARD) 512MB $(SDCARD); \

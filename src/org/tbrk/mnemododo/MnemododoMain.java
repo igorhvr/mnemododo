@@ -150,45 +150,45 @@ abstract class MnemododoMain
     
     private Handler handler = new Handler();
     private Animation buttonAnimation;
-        private Runnable makeViewVisible = new Runnable() {
-                public void run() {
-                        if (hidden_view != null) {
-                                hidden_view.setVisibility(View.VISIBLE);
-                                if (buttonAnimation != null) {
-                                        hidden_view.startAnimation(buttonAnimation);
-                                }
-                        }
+    private Runnable makeViewVisible = new Runnable() {
+        public void run() {
+            if (hidden_view != null) {
+                hidden_view.setVisibility(View.VISIBLE);
+                if (buttonAnimation != null) {
+                    hidden_view.startAnimation(buttonAnimation);
                 }
-        };
+            }
+        }
+    };
 
     /* Javascript interface */
     
     private class Javascript
     {
-            @SuppressWarnings("unused")
-            public void learnAhead()
-            {
-                final Runnable r = new Runnable() {
-                    public void run() {
-                        carddb.learnAhead();
-                        nextQuestion();
-                    }
-                };
-                
-                handler.post(r);
-            }
-
-            @SuppressWarnings("unused")
-            public void replayQuestionSounds()
-            {
-                queueQuestionSounds();
-            }
+        @SuppressWarnings("unused")
+        public void learnAhead()
+        {
+            final Runnable r = new Runnable() {
+                public void run() {
+                    carddb.learnAhead();
+                    nextQuestion();
+                }
+            };
             
-            @SuppressWarnings("unused")
-            public void replayAnswerSounds()
-            {
-                queueAnswerSounds();
-            }
+            handler.post(r);
+        }
+
+        @SuppressWarnings("unused")
+        public void replayQuestionSounds()
+        {
+            queueQuestionSounds();
+        }
+        
+        @SuppressWarnings("unused")
+        public void replayAnswerSounds()
+        {
+            queueAnswerSounds();
+        }
     }
 
     /* Tasks */
@@ -196,57 +196,58 @@ abstract class MnemododoMain
     private class LoadStatsTask
             extends ProgressTask<String, Boolean>
     {
-            protected HexCsvAndroid loaddb;
-            protected String error_msg;
+        protected HexCsvAndroid loaddb;
+        protected String error_msg;
 
-            protected String getMessage()
-            {
-                    return getString(R.string.loading_card_dir);
-            }
+        protected String getMessage()
+        {
+            return getString(R.string.loading_card_dir);
+        }
 
-            protected Context getContext()
-            {
-                    return MnemododoMain.this;
-            }
+        protected Context getContext()
+        {
+            return MnemododoMain.this;
+        }
 
-            public Boolean doInBackground(String... path)
-            {
-                    try {
-                            loaddb = new HexCsvAndroid(path[0],
-                                                       LoadStatsTask.this);
-                            loaddb.cards_to_load = cards_to_load;
-
-                    } catch (Exception e) {
-                            error_msg = getString(R.string.corrupt_card_dir) + "\n\n("
-                                            + e.toString() + ")";
-                            stopOperation();
-                            return false;
-
-                    } catch (OutOfMemoryError e) {
-                            error_msg = getString(R.string.not_enough_memory_to_load);
-                            stopOperation();
-                            return false;
-                    }
-
-                    stopOperation();
-                    return true;
-            }
-
-            public void onPostExecute(Boolean result)
-            {
-                    if (result) {
-                            carddb = loaddb;
-                            carddb_dirty = false;
+        public Boolean doInBackground(String... path)
+        {
             try {
-                carddb.backupCards(new StringBuffer(cards_path), null);
-            } catch (IOException e) { }
-                            nextQuestion();
-                    } else {
-                            carddb = null;
-                            setMode(Mode.NO_CARDS);
-                            showFatal(error_msg, false);
-                    }
+                loaddb = new HexCsvAndroid(path[0],
+                                           LoadStatsTask.this);
+                loaddb.cards_to_load = cards_to_load;
+
+            } catch (Exception e) {
+                error_msg = getString(R.string.corrupt_card_dir) + "\n\n("
+                                + e.toString() + ")";
+                stopOperation();
+                return false;
+
+            } catch (OutOfMemoryError e) {
+                error_msg = getString(R.string.not_enough_memory_to_load);
+                stopOperation();
+                return false;
             }
+
+            stopOperation();
+            return true;
+        }
+
+        public void onPostExecute(Boolean result)
+        {
+            if (result) {
+                carddb = loaddb;
+                carddb_dirty = false;
+                try {
+                    carddb.backupCards(new StringBuffer(cards_path), null);
+                } catch (IOException e) { }
+                nextQuestion();
+
+            } else {
+                carddb = null;
+                setMode(Mode.NO_CARDS);
+                showFatal(error_msg, false);
+            }
+        }
     }
         
     private class LoadCardTask

@@ -8,14 +8,17 @@ LN=ln -s
 ETAGS=etags
 
 ANDROIDSDK=/opt/android-sdk-linux_x86
+
 EMULATOR=$(ANDROIDSDK)/tools/emulator
+EMU_OPTIONS=#-noskin
+
 ADB=$(ANDROIDSDK)/tools/adb
 LOGCAT_LEVEL=d
 MKSDCARD=$(ANDROIDSDK)/tools/mksdcard
 SDCARD=libs/sdcard.iso
 
 # run: android list
-AVD=blah1.5
+AVD?=blah1.5
 
 .PHONY: clean cleanall listkeys sdcard debug release
 
@@ -31,7 +34,7 @@ release: setup
 
 emulator: sdcard
 	$(EMULATOR) -avd $(AVD) -sdcard $(SDCARD) \
-	    -no-boot-anim -logcat $(LOGCAT_LEVEL)
+	    -no-boot-anim -logcat $(LOGCAT_LEVEL) $(EMU_OPTIONS)
 
 push:
 	$(ADB) push $(EXPORTDIR) /sdcard/cards

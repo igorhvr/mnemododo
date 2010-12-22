@@ -1,6 +1,15 @@
+#
+# Other useful Android tools:
+#	ddms
+#	hierarchyviewer
+#	traceview / dmtracedump
+#		
+#		... (to /sdcard/output.trace) ...
+#
 
 MNEMOGOGO=$(HOME)/.mnemosyne/plugins/mnemogogo
 EXPORTDIR=libs/export
+TMPDIR=$(HOME)/tmp
 
 ANT=/usr/bin/ant
 RM=rm
@@ -41,6 +50,18 @@ push:
 
 pull:
 	$(ADB) pull /sdcard/cards $(EXPORTDIR)
+
+analyze:
+	@echo "---layoutopt"
+	@$(ANDROIDSDK)/tools/layoutopt res/layout
+
+traceview:
+	@echo "Inside app:"
+	@echo "\tandroid.os.Debug.startMethodTracing(\"mnemododo\");"
+	@echo "\t..."
+	@echo "\tandroid.os.Debug.stopMethodTracing();"
+	$(ADB) pull /sdcard/mnemododo.trace $(TMPDIR)
+	$(ANDROIDSDK)/tools/traceview $(TMPDIR)/mnemododo
 
 install-release: bin/Mnemododo-release.apk
 	$(ADB) install bin/Mnemododo-release.apk

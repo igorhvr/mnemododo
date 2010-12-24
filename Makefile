@@ -27,7 +27,7 @@ MKSDCARD=$(ANDROIDSDK)/tools/mksdcard
 SDCARD=libs/sdcard.iso
 
 # run: android list
-AVD?=blah1.5
+AVD?=basic1.6
 
 .PHONY: clean cleanall listkeys sdcard debug release
 
@@ -62,6 +62,12 @@ traceview:
 	@echo "\tandroid.os.Debug.stopMethodTracing();"
 	$(ADB) pull /sdcard/mnemododo.trace $(TMPDIR)
 	$(ANDROIDSDK)/tools/traceview $(TMPDIR)/mnemododo
+
+jdb:
+	@echo "Start the app..."
+	sleep 5
+	adb forward tcp:8000 jdwp:`adb jdwp | tail -1`
+	jdb -attach localhost:8000
 
 install-release: bin/Mnemododo-release.apk
 	$(ADB) install bin/Mnemododo-release.apk

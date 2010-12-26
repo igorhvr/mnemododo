@@ -5,7 +5,7 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:orientation="horizontal"
-    >
+    style="@style/Standard" >
 
     <LinearLayout
         android:id="@+id/buttons_left"
@@ -14,181 +14,179 @@
         android:layout_height="fill_parent"
         android:layout_alignParentTop="true"
         android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
-        >
-		<TableLayout
-		    android:id="@+id/grading_buttons_left"
-		    android:layout_width="60sp"
-		    android:layout_height="fill_parent"
-		    android:layout_weight="1"
-            android:gravity="center"
-		    android:visibility="gone"/>
-        <LinearLayout
-            android:id="@+id/show_buttons_left"
-            android:orientation="vertical"
-            android:layout_width="60sp"
-            android:layout_height="fill_parent"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:visibility="gone"
-            />
-    </LinearLayout>
+        android:layout_alignParentLeft="true" >
 
-    <LinearLayout
-        android:id="@+id/buttons_right"
-        android:orientation="horizontal"    
-        android:layout_width="wrap_content"
-        android:layout_height="fill_parent"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"
-        >
-	    <TableLayout
-	        android:id="@+id/grading_buttons_right"
-	        android:layout_width="60sp"
-	        android:layout_height="fill_parent"
-	        android:layout_weight="1"
-	        android:gravity="center"
-	        android:visibility="gone"/>
+	<TableLayout
+	    android:id="@+id/grading_buttons_left"
+	    android:layout_width="60sp"
+	    android:layout_height="fill_parent"
+	    android:layout_weight="1"
+	    android:gravity="center"
+	    android:visibility="gone" />
 
-        <LinearLayout
-            android:id="@+id/show_buttons_right"
-            android:orientation="vertical"
-            android:layout_width="60sp"
-            android:layout_height="fill_parent"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:visibility="gone"
-            />
-    </LinearLayout>
-  
 	<LinearLayout
-		android:id="@+id/titlebar"
-        android:orientation="horizontal"	
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_toRightOf="@+id/buttons_left"
-        android:layout_toLeftOf="@+id/buttons_right"
-        >
-	
-		<TextView
-			android:id="@+id/category"
-	        android:textSize="9pt"
-	        android:layout_width="fill_parent"
-	        android:layout_height="wrap_content"
-	        android:layout_weight="1"
-	        android:gravity="left"
-	        android:focusableInTouchMode="true"
-	        />
-	        
-		<TextView
-			android:id="@+id/cards_left"
-	        android:textSize="9pt"
-	        android:layout_width="wrap_content"
-	        android:layout_height="wrap_content"
-	        android:layout_weight="1"
-	        android:minEms="4"
-	        android:gravity="right"
-	        android:focusableInTouchMode="true"
-	    />
-	</LinearLayout>
+	    android:id="@+id/show_buttons_left"
+	    android:orientation="vertical"
+	    android:layout_width="60sp"
+	    android:layout_height="fill_parent"
+	    android:layout_weight="1"
+	    android:gravity="center"
+	    android:visibility="gone" />
+
+    </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/buttons_bottom"
-        android:orientation="vertical"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentBottom="true"
-        >
+	android:id="@+id/buttons_right"
+	android:orientation="horizontal"    
+	android:layout_width="wrap_content"
+	android:layout_height="fill_parent"
+	android:layout_alignParentTop="true"
+	android:layout_alignParentBottom="true"
+	android:layout_alignParentRight="true" >
 
-	    <LinearLayout
-	        android:id="@+id/show_buttons_bottom"
-	        android:orientation="vertical"
-	        android:layout_width="fill_parent"
-	        android:layout_height="wrap_content"
-            android:visibility="gone"
-	        >
-			<org.tbrk.mnemododo.RotatedButton
-			    android:id="@+id/show"
-			    android:text="@string/show"
-                android:layout_weight="1"
-			    android:layout_width="fill_parent"
-			    android:layout_height="fill_parent"
-                android:gravity="center"
-			/>
-        </LinearLayout>
+	<TableLayout
+	    android:id="@+id/grading_buttons_right"
+	    android:layout_width="60sp"
+	    android:layout_height="fill_parent"
+	    android:layout_weight="1"
+	    android:gravity="center"
+	    android:visibility="gone" />
+
+	<LinearLayout
+	    android:id="@+id/show_buttons_right"
+	    android:orientation="vertical"
+	    android:layout_width="60sp"
+	    android:layout_height="fill_parent"
+	    android:layout_weight="1"
+	    android:gravity="center"
+	    android:visibility="gone" />
+
+    </LinearLayout>
+
+    <LinearLayout
+	android:id="@+id/titlebar"
+	android:orientation="horizontal"	
+	android:layout_width="fill_parent"
+	android:layout_height="wrap_content"
+	android:layout_alignParentTop="true"
+	android:layout_toRightOf="@+id/buttons_left"
+	android:layout_toLeftOf="@+id/buttons_right" >
+
+	<TextView
+	    android:id="@+id/category"
+	    style="@style/Standard.Titlebar"
+	    android:textSize="9pt"
+	    android:layout_width="fill_parent"
+	    android:layout_height="wrap_content"
+	    android:layout_weight="1"
+	    android:gravity="left"
+	    android:focusableInTouchMode="true" />
     
-        <TableLayout
-            android:id="@+id/grading_buttons_bottom"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:visibility="gone"
-            >
-    
-            <TableRow android:layout_height="60sp">
-                <Button
-                    android:id="@+id/grade0"
-                    android:text="@string/grade0"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:layout_width="fill_parent"
-                    android:layout_height="fill_parent" />
-        
-                <Button
-                    android:id="@+id/grade1"
-                    android:text="@string/grade1"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:layout_width="fill_parent"
-                    android:layout_height="fill_parent" />
+	<TextView
+	    android:id="@+id/cards_left"
+	    style="@style/Standard.Titlebar"
+	    android:textSize="9pt"
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:layout_weight="1"
+	    android:minEms="4"
+	    android:gravity="right"
+	    android:focusableInTouchMode="true" />
 
-                <Button
-                    android:id="@+id/grade2"
-                    android:text="@string/grade2"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:layout_width="fill_parent"
-                    android:layout_height="fill_parent" />
-        
-                <Button
-                    android:id="@+id/grade3"
-                    android:text="@string/grade3"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:layout_width="fill_parent"
-                    android:layout_height="fill_parent" />
-        
-                <Button
-                    android:id="@+id/grade4"
-                    android:text="@string/grade4"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:layout_width="fill_parent"
-                    android:layout_height="fill_parent" />
-        
-                <Button
-                    android:id="@+id/grade5"
-                    android:text="@string/grade5"
-                    android:layout_weight="1"
-                    android:gravity="center"                    
-                    android:layout_width="fill_parent"
-                    android:layout_height="fill_parent" />
-            </TableRow>
-        </TableLayout>
-    </LinearLayout> 
+    </LinearLayout>
 
-	<WebView
-		android:id="@+id/card_webview"
+    <LinearLayout
+	android:id="@+id/buttons_bottom"
+	android:orientation="vertical"
+	android:layout_width="fill_parent"
+	android:layout_height="wrap_content"
+	android:layout_alignParentLeft="true"
+	android:layout_alignParentRight="true"
+	android:layout_alignParentBottom="true" >
+
+	<LinearLayout
+	    android:id="@+id/show_buttons_bottom"
+	    android:orientation="vertical"
+	    android:layout_width="fill_parent"
+	    android:layout_height="wrap_content"
+	    android:visibility="gone" >
+
+	    <org.tbrk.mnemododo.RotatedButton
+		android:id="@+id/show"
+		android:text="@string/show"
+		android:layout_weight="1"
 		android:layout_width="fill_parent"
 		android:layout_height="fill_parent"
-        android:layout_below="@+id/titlebar"
-        android:layout_above="@+id/buttons_bottom"
-        android:layout_toRightOf="@+id/buttons_left"
-        android:layout_toLeftOf="@+id/buttons_right"
-	/>
+		android:gravity="center" />
+	</LinearLayout>
+
+	<TableLayout
+	    android:id="@+id/grading_buttons_bottom"
+	    android:layout_width="fill_parent"
+	    android:layout_height="wrap_content"
+	    android:visibility="gone" >
+
+	    <TableRow android:layout_height="60sp">
+
+		<Button
+		    android:id="@+id/grade0"
+		    android:text="@string/grade0"
+		    android:layout_weight="1"
+		    android:gravity="center"
+		    android:layout_width="fill_parent"
+		    android:layout_height="fill_parent" />
+	
+		<Button
+		    android:id="@+id/grade1"
+		    android:text="@string/grade1"
+		    android:layout_weight="1"
+		    android:gravity="center"
+		    android:layout_width="fill_parent"
+		    android:layout_height="fill_parent" />
+
+		<Button
+		    android:id="@+id/grade2"
+		    android:text="@string/grade2"
+		    android:layout_weight="1"
+		    android:gravity="center"
+		    android:layout_width="fill_parent"
+		    android:layout_height="fill_parent" />
+	
+		<Button
+		    android:id="@+id/grade3"
+		    android:text="@string/grade3"
+		    android:layout_weight="1"
+		    android:gravity="center"
+		    android:layout_width="fill_parent"
+		    android:layout_height="fill_parent" />
+	
+		<Button
+		    android:id="@+id/grade4"
+		    android:text="@string/grade4"
+		    android:layout_weight="1"
+		    android:gravity="center"
+		    android:layout_width="fill_parent"
+		    android:layout_height="fill_parent" />
+	
+		<Button
+		    android:id="@+id/grade5"
+		    android:text="@string/grade5"
+		    android:layout_weight="1"
+		    android:gravity="center"                    
+		    android:layout_width="fill_parent"
+		    android:layout_height="fill_parent" />
+	    </TableRow>
+	</TableLayout>
+    </LinearLayout> 
+
+    <WebView
+	android:id="@+id/card_webview"
+	style="@style/Standard.Card"
+	android:layout_width="fill_parent"
+	android:layout_height="fill_parent"
+	android:layout_below="@+id/titlebar"
+	android:layout_above="@+id/buttons_bottom"
+	android:layout_toRightOf="@+id/buttons_left"
+	android:layout_toLeftOf="@+id/buttons_right" />
 
 </RelativeLayout>
-

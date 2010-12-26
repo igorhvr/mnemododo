@@ -97,7 +97,7 @@ abstract class MnemododoMain
     protected static final int KEY_GRADE5 = 5;
     protected static final int KEY_SHOW_ANSWER = 6;
     protected static final int KEY_REPLAY_SOUNDS = 7;
-    
+
     protected static final String html_post = "</body></html>";
 
     /* data (always recalculated) */
@@ -106,7 +106,6 @@ abstract class MnemododoMain
 
     final int make_visible_delay = 300;
     final int make_visible_fade_delay = 50;
-    boolean num_left_color_changed = false;
     
     /* data (cache on temporary restart) */
 
@@ -329,6 +328,7 @@ abstract class MnemododoMain
         webview.setOnKeyListener(this);
         webview.getSettings().setJavaScriptEnabled(true);
         webview.addJavascriptInterface(new Javascript(), "Mnemododo");
+        webview.setBackgroundColor(0);
 
         grading_panel = (TableLayout) findViewById(R.id.grading_buttons_bottom);
         show_panel = (ViewGroup) findViewById(R.id.show_buttons_bottom);
@@ -964,21 +964,20 @@ abstract class MnemododoMain
         TextView cardsl_title = (TextView) findViewById(R.id.cards_left);
         cardsl_title.setText(Integer.toString(cards_left));
 
-        if (num_left_color_changed) {
-            cardsl_title.setBackgroundColor(android.graphics.Color.BLACK);
-        }
-
         if (carddb != null) {
             int daysLeft = carddb.daysLeft();
 
             if (daysLeft < 0) {
                 cardsl_title.setBackgroundColor(android.graphics.Color.RED);
                 cardsl_title.setTextColor(android.graphics.Color.BLACK);
-                num_left_color_changed = true;
             } else if (daysLeft == 0) {
                 cardsl_title.setBackgroundColor(android.graphics.Color.YELLOW);
                 cardsl_title.setTextColor(android.graphics.Color.BLACK);
-                num_left_color_changed = true;
+            } else {
+                TextView cat_title = (TextView) findViewById(R.id.category);
+                cardsl_title.setBackgroundColor(
+                    cat_title.getDrawingCacheBackgroundColor());
+                cardsl_title.setTextColor(cat_title.getCurrentTextColor());
             }
         }
     }

@@ -1,4 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-	
+    <style name="Standard">
+    </style>
+
+    <style name="Standard.Titlebar" >
+    </style>
+
+    <style name="Standard.Card" >
+    </style>
 </resources>

@@ -98,6 +98,10 @@ abstract class MnemododoMain
     protected static final int KEY_SHOW_ANSWER = 6;
     protected static final int KEY_REPLAY_SOUNDS = 7;
 
+    protected static final int STYLE_STANDARD = 0;
+    protected static final int STYLE_DIMMED   = 1;
+    protected static final int STYLE_DARK     = 2;
+
     protected static final String html_post = "</body></html>";
 
     /* data (always recalculated) */
@@ -128,7 +132,12 @@ abstract class MnemododoMain
     boolean center = true;
     boolean touch_buttons = true;
     boolean two_grading_rows = false;
+
+    int style = STYLE_STANDARD;
+
     String card_font_size = "normal";
+    String card_text_color = "black";
+    String card_back_color = "white";
     String card_font = "";
     int[] key;
 
@@ -328,7 +337,6 @@ abstract class MnemododoMain
         webview.setOnKeyListener(this);
         webview.getSettings().setJavaScriptEnabled(true);
         webview.addJavascriptInterface(new Javascript(), "Mnemododo");
-        webview.setBackgroundColor(0);
 
         grading_panel = (TableLayout) findViewById(R.id.grading_buttons_bottom);
         show_panel = (ViewGroup) findViewById(R.id.show_buttons_bottom);
@@ -403,6 +411,7 @@ abstract class MnemododoMain
             editor.putBoolean("show_titlebar", true);
             editor.putBoolean("auto_play", auto_play);
             editor.putString("button_pos", Integer.toString(button_pos));
+            editor.putString("style", Integer.toString(style));
             editor.commit();
         }
 
@@ -410,6 +419,7 @@ abstract class MnemododoMain
         cards_to_load = Integer.parseInt(settings.getString("cards_to_load", "50"));
         touch_buttons = settings.getBoolean("touch_buttons", true);
         auto_play = settings.getBoolean("auto_play", true);
+        style = Integer.parseInt(settings.getString("style", "0"));
         boolean two_grading_rows = settings.getBoolean("two_grading_rows", false);
         int nbutton_pos = Integer.parseInt(settings.getString("button_pos",
                 Integer.toString(BUTTON_POS_BOTTOM)));
@@ -426,6 +436,8 @@ abstract class MnemododoMain
         center = ncenter;
         card_font = ncard_font;
         card_font_size = ncard_font_size;
+
+        applyStyle();
         html_pre = getCardHeader();
 
         // keys
@@ -959,6 +971,46 @@ abstract class MnemododoMain
         cat_title.setText(category);
     }
 
+    public void applyStyle()
+    {
+        View frame = findViewById(R.id.card_webview_frame);
+
+        switch (style) {
+            case STYLE_STANDARD:
+                webview.setBackgroundColor(0xffffffff);
+                card_text_color = "black";
+                card_back_color = "white";
+                frame.setBackgroundColor(0xff000000);
+                break;
+
+            case STYLE_DIMMED:
+                webview.setBackgroundColor(0xff777777);
+                card_text_color = "black";
+                card_back_color = "#777777";
+                frame.setBackgroundColor(0xff000000);
+                break;
+
+            case STYLE_DARK:
+                webview.setBackgroundColor(0xff000000);
+                card_text_color = "white";
+                card_back_color = "black";
+                frame.setBackgroundColor(0xff777777);
+                break;
+        }
+    }
+
+    public void newStyle(int new_style)
+    {
+        style = new_style;
+
+        SharedPreferences settings = PreferenceManager
+            .getDefaultSharedPreferences(this);
+        SharedPreferences.Editor editor = settings.edit();
+        editor.putString("style", Integer.toString(style));
+        editor.commit();
+        applyStyle();
+    }
+
     public void setNumLeft(int cards_left)
     {
         TextView cardsl_title = (TextView) findViewById(R.id.cards_left);
@@ -1225,6 +1277,8 @@ abstract class MnemododoMain
             + "<style>"
             + "body { margin: 0px; padding: 0px; margin-top: 5px; "
             + "font-size: " + card_font_size + "; "
+            + "color: " + card_text_color + "; "
+            + "background-color: " + card_back_color + "; "
             + "}"
             + "div.q, div.a { padding-left: 5px; padding-right: 5px }"
             + "hr { width: 100%; height: 1px;"

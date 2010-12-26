@@ -177,16 +177,27 @@
 		    android:layout_height="fill_parent" />
 	    </TableRow>
 	</TableLayout>
-    </LinearLayout> 
+    </LinearLayout>
 
-    <WebView
-	android:id="@+id/card_webview"
-	style="@style/Standard.Card"
-	android:layout_width="fill_parent"
-	android:layout_height="fill_parent"
+    <LinearLayout
+	android:id="@+id/card_webview_frame"
+	android:layout_width="wrap_content"
+	android:layout_height="wrap_content"
+	android:paddingTop="1sp"
+	android:paddingBottom="1sp"
+	android:layout_toRightOf="@+id/buttons_left"
+	android:layout_toLeftOf="@+id/buttons_right"
 	android:layout_below="@+id/titlebar"
 	android:layout_above="@+id/buttons_bottom"
-	android:layout_toRightOf="@+id/buttons_left"
-	android:layout_toLeftOf="@+id/buttons_right" />
+	>
+
+	<WebView
+	    android:id="@+id/card_webview"
+	    style="@style/Standard.Card"
+	    android:layout_width="fill_parent"
+	    android:layout_height="fill_parent"
+	    />
+
+    </LinearLayout>
 
 </RelativeLayout>

@@ -143,6 +143,7 @@ clean:
 	-@$(RM) bin/resources.ap_
 	-@$(RM) bin/classes.dex
 	-@$(RM) bin/classes/org/tbrk/mnemododo/*.class
+	-@$(RM) gen/org/tbrk/mnemododo/R.java
 
 cleanall: clean
 	-@$(RM) libs/mnemogogo-android.jar

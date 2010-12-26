@@ -14,10 +14,10 @@
    height="48px"
    id="svg2879"
    version="1.1"
-   inkscape:version="0.47pre4 r22446"
-   inkscape:export-filename="/home/tbourke/projects/mnemododo/res/drawable/icon_stats.png"
-   inkscape:export-xdpi="90"
-   inkscape:export-ydpi="90"
+   inkscape:version="0.48.0 r9654"
+   inkscape:export-filename="/home/tbourke/projects/mnemododo/res/drawable-hdpi/icon_stats.png"
+   inkscape:export-xdpi="135"
+   inkscape:export-ydpi="135"
    sodipodi:docname="icon_stats.svg">
   <defs
      id="defs2881">
@@ -567,30 +567,6 @@
     </linearGradient>
     <filter
        inkscape:collect="always"
-       id="filter3947"
-       x="-0.35716019"
-       width="1.7143204"
-       y="-0.36012728"
-       height="1.7202546">
-      <feGaussianBlur
-         inkscape:collect="always"
-         stdDeviation="1.0557042"
-         id="feGaussianBlur3949" />
-    </filter>
-    <filter
-       inkscape:collect="always"
-       id="filter3951"
-       x="-0.18222458"
-       width="1.3644492"
-       y="-0.18543332"
-       height="1.3708666">
-      <feGaussianBlur
-         inkscape:collect="always"
-         stdDeviation="1.0557042"
-         id="feGaussianBlur3953" />
-    </filter>
-    <filter
-       inkscape:collect="always"
        id="filter3955"
        x="-0.18572289"
        width="1.3714458"
@@ -656,22 +632,6 @@
     </filter>
     <filter
        inkscape:collect="always"
-       id="filter3992">
-      <feGaussianBlur
-         inkscape:collect="always"
-         stdDeviation="0.21114084"
-         id="feGaussianBlur3994" />
-    </filter>
-    <filter
-       inkscape:collect="always"
-       id="filter3996">
-      <feGaussianBlur
-         inkscape:collect="always"
-         stdDeviation="0.21114084"
-         id="feGaussianBlur3998" />
-    </filter>
-    <filter
-       inkscape:collect="always"
        id="filter4000"
        x="-0.14662685"
        width="1.2932537"
@@ -698,20 +658,20 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="12.449783"
-     inkscape:cx="13.827394"
-     inkscape:cy="26.730536"
-     inkscape:current-layer="layer5"
+     inkscape:zoom="8.6686477"
+     inkscape:cx="9.9966735"
+     inkscape:cy="19.536145"
+     inkscape:current-layer="layer1"
      showgrid="true"
      inkscape:grid-bbox="true"
      inkscape:document-units="px"
      showguides="true"
      inkscape:guide-bbox="true"
      inkscape:window-width="1440"
-     inkscape:window-height="874"
+     inkscape:window-height="900"
      inkscape:window-x="0"
-     inkscape:window-y="1"
-     inkscape:window-maximized="1">
+     inkscape:window-y="0"
+     inkscape:window-maximized="0">
     <sodipodi:guide
        orientation="0,1"
        position="10.671535,5.5305036"
@@ -737,7 +697,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title />
+        <dc:title></dc:title>
       </cc:Work>
     </rdf:RDF>
   </metadata>

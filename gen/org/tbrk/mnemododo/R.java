@@ -19,8 +19,8 @@ public final class R {
     public static final class attr {
     }
     public static final class drawable {
-        public static final int icon=0x7f020000;
-        public static final int icon128=0x7f020001;
+        public static final int about=0x7f020000;
+        public static final int icon=0x7f020001;
         public static final int icon_categories=0x7f020002;
         public static final int icon_schedule=0x7f020003;
         public static final int icon_skip=0x7f020004;
@@ -181,9 +181,11 @@ public final class R {
  maximum 325 characters 
  maximum 325 characters 
  maximum 325 characters 
+ maximum 325 characters 
          */
         public static final int market_description=0x7f06005d;
         /**  maximum 80 characters 
+ maximum 80 characters 
  maximum 80 characters 
  maximum 80 characters 
  maximum 80 characters 

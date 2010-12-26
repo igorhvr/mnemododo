@@ -14,10 +14,10 @@
    height="48"
    id="svg2879"
    version="1.1"
-   inkscape:version="0.47 r22583"
-   inkscape:export-filename="/home/tbourke/projects/mnemododo/res/drawable-ldpi/icon_categories.png"
-   inkscape:export-xdpi="67.5"
-   inkscape:export-ydpi="67.5"
+   inkscape:version="0.48.0 r9654"
+   inkscape:export-filename="/home/tbourke/projects/mnemododo/res/drawable-hdpi/icon_categories.png"
+   inkscape:export-xdpi="135"
+   inkscape:export-ydpi="135"
    sodipodi:docname="icon_categories.svg"
    style="display:inline"
    enable-background="new">
@@ -843,19 +843,6 @@
          offset="1"
          id="stop3934" />
     </linearGradient>
-    <filter
-       inkscape:collect="always"
-       id="filter3973"
-       x="-0.12"
-       width="1.24"
-       y="-0.12"
-       height="1.24"
-       color-interpolation-filters="sRGB">
-      <feGaussianBlur
-         inkscape:collect="always"
-         stdDeviation="1.1513165"
-         id="feGaussianBlur3975" />
-    </filter>
     <inkscape:perspective
        id="perspective3985"
        inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
@@ -907,15 +894,6 @@
          offset="1"
          id="stop3999" />
     </linearGradient>
-    <filter
-       inkscape:collect="always"
-       id="filter4038"
-       color-interpolation-filters="sRGB">
-      <feGaussianBlur
-         inkscape:collect="always"
-         stdDeviation="0.23026331"
-         id="feGaussianBlur4040" />
-    </filter>
     <inkscape:perspective
        id="perspective4050"
        inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
@@ -1303,9 +1281,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="8.360822"
-     inkscape:cx="22.264114"
-     inkscape:cy="15.102482"
+     inkscape:zoom="5.8215489"
+     inkscape:cx="22.13299"
+     inkscape:cy="20.462275"
      inkscape:current-layer="layer1"
      showgrid="true"
      inkscape:grid-bbox="true"
@@ -1313,10 +1291,10 @@
      showguides="true"
      inkscape:guide-bbox="true"
      inkscape:window-width="1440"
-     inkscape:window-height="874"
+     inkscape:window-height="900"
      inkscape:window-x="0"
-     inkscape:window-y="1"
-     inkscape:window-maximized="1">
+     inkscape:window-y="0"
+     inkscape:window-maximized="0">
     <sodipodi:guide
        orientation="0,1"
        position="10.671535,5.5305036"

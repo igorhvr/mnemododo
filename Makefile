@@ -42,6 +42,14 @@ release: setup
 	$(ANT) release
 
 emulator: sdcard
+	# keys:
+	#    Back		Esc
+	#    Menu		PageUp
+	#    Power		F7
+	#    Home		Home
+	#    Orientation	Ctrl-F12
+	#    Volume Up		Ctrl-F5
+	#    Volume Down	Ctrl-F6
 	$(EMULATOR) -avd $(AVD) -sdcard $(SDCARD) \
 	    -no-boot-anim -logcat $(LOGCAT_LEVEL) $(EMU_OPTIONS)
 

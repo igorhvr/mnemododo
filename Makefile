@@ -165,6 +165,11 @@ set-hr:
 set-nl:
 	$(ADB) -e shell \
 	    'setprop persist.sys.language nl;setprop persist.sys.country NL;stop;sleep 5;start'
+
+set-pl:
+	$(ADB) -e shell \
+	    'setprop persist.sys.language pl;setprop persist.sys.country PL;stop;sleep 5;start'
+
 set-tw:
 	$(ADB) -e shell \
 	    'setprop persist.sys.language zh;setprop persist.sys.country TW;stop;sleep 5;start'

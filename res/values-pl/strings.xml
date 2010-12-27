@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+<!--  translators: please do not change the name="..." attributes! -->
+
+<string name="grade0">0</string>
+<string name="grade1">1</string>
+<string name="grade2">2</string>
+<string name="grade3">3</string>
+<string name="grade4">4</string>
+<string name="grade5">5</string>
+<string name="show">Pokaż odpowiedź</string>
+<string name="ok">Ok</string>
+
+<string name="skip_card">Pomiń kartę</string>
+<string name="schedule">Plan</string>
+<string name="settings">Ustawienia</string>
+<string name="card_statistics">Statystyka karty</string>
+<string name="categories">Kategorie</string>
+<string name="activate_categories">Aktywacja kategorii</string>
+
+<string name="select_card_dir">Wybierz katalog z kartami</string>
+
+<string name="not_enough_memory_to_load">Zbyt mało pamięci aby załadować karty.</string>
+<string name="fatal_error">Poważny błąd</string>
+<string name="no_card_loaded_text">Nieoczekiwany błąd: karta nie załadowana.</string>
+<string name="update_overdue_text">Termin eksportu danych z Mnemogogo upłynął!</string>
+<string name="update_today_text">Dzisiaj upływa termin eksportu danych z Mnemogogo.</string>
+<string name="no_card_dirs">Brak katalogów z kartami. Wyeksportuj dane z Mnemogogo!</string>
+<string name="corrupt_card_dir">Wyeksportowane karty są uszkodzone.</string>
+
+<string name="no_cards_title">Brak kart</string>
+<string name="no_new_cards_title">Brak nowych kart</string>
+<string name="no_cards_left">Aktualnie brak nowych kart do powrórzenia.</string>
+<string name="learn_ahead">Nauka z wyprzedzeniem planu</string>
+<string name="replay_sounds">Odtwórz dźwięk</string>
+
+<string name="in_text">Za</string>
+<string name="day_text">dzień</string>
+<string name="days_text">dni</string>
+
+<string name="statistics">Statystyka</string>
+<string name="easiness">Trudność:</string>
+<string name="repetitions">Powtórzenia:</string>
+<string name="lapses">Pomyłki:</string>
+<string name="grade">Stopień:</string>
+<string name="days_since_last_repetition">Liczba dni od ostatniego powtórzenia:</string>
+<string name="days_until_next_repetition">Liczba dni do następnego powtórzenia:</string>
+
+<string name="info">Informacje</string>
+<string name="about_author_label">Autor:</string>
+<string name="about_author">Timothy Bourke</string>
+<string name="about_mnemosyne_label">Mnemosyne:</string>
+<string name="about_mnemosyne">Peter Bienstman</string>
+<string name="about_sm2_label">Algorytm SM-2:</string>
+<string name="about_sm2">Piotr Wozniak</string>
+<string name="about_translations">Tłumaczenie:</string>
+
+<string name="no_cards_main">Nie wybrano prawidłowego katalogu z kartami.</string>
+
+<string name="not_available">Ta funkcja nie jest dostępna.</string>
+
+<string name="setting_cat_operation">Działanie</string>
+<string name="setting_cat_appearance">Wygląd</string>
+<string name="setting_cat_misc">Różne</string>
+
+<string name="setting_card_dir">Katalog kart</string>
+<string name="setting_card_dir_summary">Lokalizacja plików wyeksportowanych z Mnemogogo.</string>
+<string name="cannot_find_card_dirs">(Nie znaleziono żadnych na tym urządzeniu!)</string>
+<string name="setting_cards_to_load">Ładowanie kart</string>
+<string name="setting_cards_to_load_summary">Wyważ wykorzystanie pamięci oraz prędkość ładowania zawartości kart.</string>
+<string name="select_trade_off">Wybierz kompromis</string>
+
+<string name="setting_center">Centruj tekst na karcie</string>
+<string name="setting_center_summary">Centruj tekst pytań i odpowiedzi.</string>
+<string name="setting_touch_buttons">Przyciski na ekranie</string>
+<string name="setting_touch_buttons_summary">Wyświetl przycisk odsłaniający odpowiedź oraz przyciski ocen.</string>
+<string name="setting_font_size">Rozmiar tekstu na karcie</string>
+<string name="setting_font_size_summary">Ustawianie rozmiaru czcionki tekstu na karcie.</string>
+<string name="select_font_size">Wybierz rozmiar czcionki tekstu na karcie</string>
+
+<string name="setting_fullscreen_mode">Tryb pełnoekranowy</string>
+<string name="setting_fullscreen_mode_summary">Linia statusu ukryta w trybie pełnoekranowym (wymaga ponownego uruchomienia).</string>
+<string name="setting_show_titlebar">Pokaż pasek tytułu</string>
+<string name="setting_show_titlebar_summary">Pasek tytułu zawiera informację o kategorii i ilości kart do powtórzenia.</string>
+
+<string name="loading_card_dir">Ładowanie statystyk...</string>
+<string name="loading_cards">Ładowanie zawartości kart...</string>
+<string name="searching_for_card_dirs">Poszukiwanie katalogów z kartami...</string>
+
+<string-array name="entries_cards_to_load">
+	<item>Więcej ładowania, mniej pamięci</item>
+	<item>Zrównoważ ładowanie i pamięć</item>
+	<item>Mniej ładowania, więcej pamięci</item>
+</string-array>
+
+<string-array name="entries_font_size">
+    <item>Bardzo mały</item>
+    <item>Mały</item>
+    <item>Normalny</item>
+    <item>Duży</item>
+    <item>Bardzo duży</item>
+</string-array>
+
+<string name="eula_title">Licencja</string>
+<string name="eula_accept">Akceptacja</string>
+<string name="eula_refuse">Odmowa</string>
+
+<string name="setting_two_grading_rows">Większe przyciski</string>
+<string name="setting_two_grading_rows_summary">Pokaż dwa wiersze przycisków z ocenami w trybie wąskoekranowym.</string>
+
+<string name="setting_auto_play">Odtwarzaj dźwięk automatycznie</string>
+<string name="setting_auto_play_summary">Odtwarzaj dźwięk w momencie pokazania karty.</string>
+
+<string name="setting_button_pos">Pozycja przycisków</string>
+<string name="setting_button_pos_summary">Lokalizacja przycisków w trybie szerokoekranowym.</string>
+<string name="select_button_pos">Umieść przyciski</string>
+<string-array name="entries_button_pos">
+    <item>Na dole</item>
+    <item>Po lewej</item>
+    <item>Po prawej</item>
+</string-array>
+
+<string name="no_cards_step1">W komputerze: wyeksportuj karty z Mnemosyne na kartę SD korzystając z wtyczki Mnemogogo.</string>
+<string name="no_cards_step2">W telefonie: wybierz wyeksporotwany katalog z zakładki Ustawienia Mnemododo (naciśnij przycisk Menu, a następnie wybierz Ustawienia).</string>
+
+<string name="setting_keys">Przypisanie klawiszy</string>
+<string name="setting_keys_summary">Przypisz klawisze odsłaniające odpowiedź oraz oceny.</string>
+<string name="select_keys">Naciśnij klawisz:</string>
+<string name="key_show">Pokazujący odpowiedź</string>
+<string name="key_grade0">Oceniający kartę na 0</string>
+<string name="key_grade1">Oceniający kartę na 1</string>
+<string name="key_grade2">Oceniający kartę na 2</string>
+<string name="key_grade3">Oceniający kartę na 3</string>
+<string name="key_grade4">Oceniający kartę na 4</string>
+<string name="key_grade5">Oceniający kartę na 5</string>
+<string name="key_replay_sounds">Odtwarzający dźwięk</string>
+
+<!-- maximum 325 characters -->
+<string name="market_description">
+Mnemododo umożliwia planowe powtarzanie kart z Mnemosyne na telefonie komórkowym.
+
+Zarówno Mnemosyne jak i wtyczka Mnemogogo muszą być zainstalowane na komputerze. Karty nie mogą
+być edytowane w telefonie.
+
+Oprogramowanie umożliwia stosowanie znaczników HTML (w tym LaTeX), grafiki (w tym map) oraz dźwięku.
+</string>
+
+<!-- maximum 80 characters -->
+<string name="market_promo">
+Używaj z Mnemosyne na swoim PC lub Mac\'u do nauki w biegu!
+</string>
+
+<string name="setting_restrict_search">Ograniczenie poszukiwania katalogów</string>
+<string name="setting_restrict_search_summary">Poszukuj katalogów z kartami jedynie w podanej lokalizacji.</string>
+<string name="setting_restrict_search_title">Podaj lokalizację w której poszukiwać katalogów z kartami:</string>
+<string name="setting_restrict_search_message">(Pozostaw puste aby przeszukać cały telefon.)</string>
+
+</resources>

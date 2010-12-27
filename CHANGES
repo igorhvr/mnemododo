@@ -7,10 +7,10 @@
 * Better support for low and high density screens.
 * Add dimmed and dark display modes.
   (long press on the number of cards remaining)
+* Volume buttons control media volume.
 
 TODO:
 - check date on restart
-- control media volume
 - translations
 - more screenshots (eight now possible)
 

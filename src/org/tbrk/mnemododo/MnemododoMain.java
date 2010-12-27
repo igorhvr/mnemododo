@@ -373,6 +373,9 @@ abstract class MnemododoMain
                 }
             );
 
+        // Sound
+        setVolumeControlStream(android.media.AudioManager.STREAM_MUSIC);
+
         // Get settings and load cards if necessary
         loadPrefs((MnemododoMain) getLastNonConfigurationInstance());
 

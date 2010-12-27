@@ -1336,7 +1336,7 @@ abstract class MnemododoMain
             + "}"
             + "div.q, div.a { padding-left: 5px; padding-right: 5px }"
             + "hr { width: 100%; height: 1px;"
-            + "     background-color: black; border: 0px }"
+            + "     background-color: " + card_text_color + " ; border: 0px }"
             + "h3 { margin: 0px; padding: 0px; padding-top: 1.5ex;"
             + "     font-size: normal; }"
             + "table { " + tablecss + "}"

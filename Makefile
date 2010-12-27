@@ -92,7 +92,7 @@ bin/Mnemododo-debug.apk: setup
 bin/Mnemododo-release.apk: setup
 	$(ANT) release
 
-setup: libs/mnemogogo-android.jar
+setup: libs/mnemogogo-android.jar icons
 
 mountsdcard: sdcard
 	mkdir -p libs/sdcard
@@ -117,6 +117,33 @@ tags:
 	$(ETAGS) -f tags \
 	    src/org/tbrk/mnemododo/*.java \
 	    $(MNEMOGOGO)/mobile/hexcsv/*.java
+
+# Icons
+
+icons:	res/drawable-mdpi/icon_categories.png \
+	res/drawable-mdpi/icon_schedule.png \
+	res/drawable-mdpi/icon_skip.png \
+	res/drawable-mdpi/icon_stats.png \
+	res/drawable-mdpi/icon_dia_bright.png \
+	res/drawable-mdpi/icon_dia_dark.png
+
+res/drawable-mdpi/icon_categories.png: imgsrc/icon_categories.svg
+	./imgsrc/makeicons.sh menu icon_categories
+
+res/drawable-mdpi/icon_schedule.png: imgsrc/icon_schedule.svg
+	./imgsrc/makeicons.sh menu icon_schedule
+
+res/drawable-mdpi/icon_skip.png: imgsrc/icon_skip.svg
+	./imgsrc/makeicons.sh menu icon_skip
+
+res/drawable-mdpi/icon_stats.png: imgsrc/icon_stats.svg
+	./imgsrc/makeicons.sh menu icon_stats
+
+res/drawable-mdpi/icon_dia_bright.png: imgsrc/icon_dia_bright.svg
+	./imgsrc/makeicons.sh dialog icon_dia_bright
+
+res/drawable-mdpi/icon_dia_dark.png: imgsrc/icon_dia_dark.svg
+	./imgsrc/makeicons.sh dialog icon_dia_dark
 
 # Translations
 

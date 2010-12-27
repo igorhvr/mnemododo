@@ -55,6 +55,7 @@ import android.widget.Button;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
+import android.widget.SeekBar;
 
 abstract class MnemododoMain
     extends Activity
@@ -79,6 +80,7 @@ abstract class MnemododoMain
     static final int DIALOG_STATS = 1;
     static final int DIALOG_SCHEDULE = 2;
     static final int DIALOG_CATEGORIES = 3;
+    static final int DIALOG_STYLES = 4;
 
     protected static final int MENU_SKIP = 0;
     protected static final int MENU_STATISTICS = 1;
@@ -98,9 +100,9 @@ abstract class MnemododoMain
     protected static final int KEY_SHOW_ANSWER = 6;
     protected static final int KEY_REPLAY_SOUNDS = 7;
 
-    protected static final int STYLE_STANDARD = 0;
-    protected static final int STYLE_DIMMED   = 1;
-    protected static final int STYLE_DARK     = 2;
+    protected static final int STYLE_DARK   = 0;
+    protected static final int STYLE_DIMMED = 1;
+    protected static final int STYLE_LIGHT  = 2;
 
     protected static final String html_post = "</body></html>";
 
@@ -133,7 +135,7 @@ abstract class MnemododoMain
     boolean touch_buttons = true;
     boolean two_grading_rows = false;
 
-    int style = STYLE_STANDARD;
+    int style = STYLE_LIGHT;
 
     String card_font_size = "normal";
     String card_text_color = "black";
@@ -357,8 +359,19 @@ abstract class MnemododoMain
             button.setOnKeyListener(this);
         }
         
-        findViewById(R.id.cards_left).setOnClickListener(this);
         findViewById(R.id.category).setOnClickListener(this);
+
+        View leftview = findViewById(R.id.cards_left);
+        leftview.setOnClickListener(this);
+        leftview.setLongClickable(true);
+        leftview.setOnLongClickListener(
+                new View.OnLongClickListener () {
+                    public boolean onLongClick(View v) {
+                        showDialog(DIALOG_STYLES);
+                        return true;
+                    }
+                }
+            );
 
         // Get settings and load cards if necessary
         loadPrefs((MnemododoMain) getLastNonConfigurationInstance());
@@ -437,7 +450,7 @@ abstract class MnemododoMain
         card_font = ncard_font;
         card_font_size = ncard_font_size;
 
-        applyStyle();
+        applyStyle(style);
         html_pre = getCardHeader();
 
         // keys
@@ -913,10 +926,12 @@ abstract class MnemododoMain
             AlertDialog.Builder builder = new AlertDialog.Builder(this);
             builder
             .setTitle(getString(R.string.activate_categories))
-            .setMultiChoiceItems(items, checked, new DialogInterface.OnMultiChoiceClickListener() {
-                public void onClick(DialogInterface dialog, int item, boolean value) {
-                    carddb.setSkipCategory(item, !value);
-                }
+            .setMultiChoiceItems(items, checked,
+                new DialogInterface.OnMultiChoiceClickListener() {
+                    public void onClick(DialogInterface dialog,
+                                        int item, boolean value) {
+                        carddb.setSkipCategory(item, !value);
+                    }
             })
             .setCancelable(false)
             .setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
@@ -928,6 +943,24 @@ abstract class MnemododoMain
             });
             
             dialog = (Dialog)builder.create();
+            break;
+
+        case DIALOG_STYLES:
+            dialog = new Dialog(mContext);
+            dialog.requestWindowFeature(android.view.Window.FEATURE_NO_TITLE);
+            dialog.setContentView(R.layout.styles);
+            dialog.setCanceledOnTouchOutside(true);            
+
+            final SeekBar slider = (SeekBar) dialog.findViewById(R.id.slider);
+            slider.setProgress(style);
+
+            dialog.setOnDismissListener(
+                    new DialogInterface.OnDismissListener () {
+                        public void onDismiss(DialogInterface dialog) {
+                            newStyle(slider.getProgress());
+                        }
+                    }
+                );
             break;
         }
 
@@ -971,31 +1004,32 @@ abstract class MnemododoMain
         cat_title.setText(category);
     }
 
-    public void applyStyle()
+    public void applyStyle(int style)
     {
         View frame = findViewById(R.id.card_webview_frame);
 
         switch (style) {
-            case STYLE_STANDARD:
-                webview.setBackgroundColor(0xffffffff);
-                card_text_color = "black";
-                card_back_color = "white";
-                frame.setBackgroundColor(0xff000000);
-                break;
-
-            case STYLE_DIMMED:
-                webview.setBackgroundColor(0xff777777);
-                card_text_color = "black";
-                card_back_color = "#777777";
-                frame.setBackgroundColor(0xff000000);
-                break;
-
             case STYLE_DARK:
                 webview.setBackgroundColor(0xff000000);
                 card_text_color = "white";
                 card_back_color = "black";
                 frame.setBackgroundColor(0xff777777);
                 break;
+
+            case STYLE_DIMMED:
+                webview.setBackgroundColor(0xff777777);
+                card_text_color = "white";
+                card_back_color = "#777777";
+                frame.setBackgroundColor(0xff000000);
+                break;
+
+            case STYLE_LIGHT:
+                webview.setBackgroundColor(0xffffffff);
+                card_text_color = "black";
+                card_back_color = "white";
+                frame.setBackgroundColor(0xff000000);
+                break;
+
         }
     }
 
@@ -1008,7 +1042,10 @@ abstract class MnemododoMain
         SharedPreferences.Editor editor = settings.edit();
         editor.putString("style", Integer.toString(style));
         editor.commit();
-        applyStyle();
+
+        applyStyle(style);
+        html_pre = getCardHeader();
+        refreshMode();
     }
 
     public void setNumLeft(int cards_left)
@@ -1069,7 +1106,9 @@ abstract class MnemododoMain
             break;
 
         case SHOW_ANSWER:
-            pauseThinking();
+            if (start_thinking) {
+                pauseThinking();
+            }
             setNumLeft(carddb.numScheduled());
             if (cur_card != null) {
                 if (touch_buttons) {
@@ -1122,6 +1161,11 @@ abstract class MnemododoMain
                     "UTF-8", "");
             break;
         }
+    }
+
+    public void refreshMode()
+    {
+        setMode(mode, false);
     }
 
     public void onClick(View v)

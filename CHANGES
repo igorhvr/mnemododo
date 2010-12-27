@@ -3,6 +3,16 @@
 * Now requires Android 1.6.
 * German translation.
   (thanks to Karsten Breitig)
+* Supports large screens.
+* Better support for low and high density screens.
+* Add dimmed and dark display modes.
+  (long press on the number of cards remaining)
+
+TODO:
+- check date on restart
+- control media volume
+- translations
+- more screenshots (eight now possible)
 
 20100530 1.1.2
 * Allow automatic sound playing to be disabled.

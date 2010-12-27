@@ -22,9 +22,11 @@ public final class R {
         public static final int about=0x7f020000;
         public static final int icon=0x7f020001;
         public static final int icon_categories=0x7f020002;
-        public static final int icon_schedule=0x7f020003;
-        public static final int icon_skip=0x7f020004;
-        public static final int icon_stats=0x7f020005;
+        public static final int icon_dia_bright=0x7f020003;
+        public static final int icon_dia_dark=0x7f020004;
+        public static final int icon_schedule=0x7f020005;
+        public static final int icon_skip=0x7f020006;
+        public static final int icon_stats=0x7f020007;
     }
     public static final class id {
         public static final int about_author_layout=0x7f090004;
@@ -72,6 +74,8 @@ public final class R {
         public static final int layout_names=0x7f090002;
         public static final int layout_root=0x7f090000;
         public static final int logo=0x7f090003;
+        public static final int logo_bright=0x7f090047;
+        public static final int logo_dark=0x7f090045;
         public static final int repetitions=0x7f09003e;
         public static final int repetitions_layout=0x7f09003d;
         public static final int schedule_table=0x7f090037;
@@ -79,6 +83,7 @@ public final class R {
         public static final int show_buttons_bottom=0x7f090024;
         public static final int show_buttons_left=0x7f09001c;
         public static final int show_buttons_right=0x7f09001f;
+        public static final int slider=0x7f090046;
         public static final int text_author=0x7f090006;
         public static final int text_mnemosyne=0x7f090009;
         public static final int text_sm2=0x7f09000c;
@@ -103,6 +108,7 @@ public final class R {
         public static final int mapkeys=0x7f030002;
         public static final int schedule=0x7f030003;
         public static final int stats=0x7f030004;
+        public static final int styles=0x7f030005;
     }
     public static final class raw {
         public static final int silence=0x7f050000;

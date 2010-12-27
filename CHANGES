@@ -3,6 +3,10 @@
 * Now requires Android 1.6.
 * German translation.
   (thanks to Karsten Breitig)
+* Polish translation.
+  (thanks to Mateusz Krzyzosiak)
+* Danish translation
+  (thanks to Henrik Skov Midtiby)
 * Supports large screens.
 * Better support for low and high density screens.
 * Add dimmed and dark display modes.

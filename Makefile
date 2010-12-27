@@ -150,6 +150,9 @@ res/drawable-mdpi/icon_dia_dark.png: imgsrc/icon_dia_dark.svg
 set-cn:
 	$(ADB) -e shell \
 	    'setprop persist.sys.language zh;setprop persist.sys.country CN;stop;sleep 5;start'
+set-da:
+	$(ADB) -e shell \
+	    'setprop persist.sys.language da;setprop persist.sys.country DK;stop;sleep 5;start'
 set-de:
 	$(ADB) -e shell \
 	    'setprop persist.sys.language de;setprop persist.sys.country DE;stop;sleep 5;start'
@@ -165,7 +168,6 @@ set-hr:
 set-nl:
 	$(ADB) -e shell \
 	    'setprop persist.sys.language nl;setprop persist.sys.country NL;stop;sleep 5;start'
-
 set-pl:
 	$(ADB) -e shell \
 	    'setprop persist.sys.language pl;setprop persist.sys.country PL;stop;sleep 5;start'

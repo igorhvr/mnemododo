@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+<string name="grade0">0</string>
+<string name="grade1">1</string>
+<string name="grade2">2</string>
+<string name="grade3">3</string>
+<string name="grade4">4</string>
+<string name="grade5">5</string>
+<string name="show">Vis svar</string>
+<string name="ok">Ok</string>
+
+<string name="skip_card">Spring over kort</string>
+<string name="schedule">Plan</string>
+<string name="settings">Indstillinger</string>
+<string name="card_statistics">Kort statistik</string>
+<string name="categories">Kategorier</string>
+<string name="activate_categories">Aktiver kategorier</string>
+
+<string name="select_card_dir">Vælg kort bibliotek</string>
+
+<string name="not_enough_memory_to_load">For lidt hukommelse til at indlæse kort.</string>
+<string name="fatal_error">Fatal fejl</string>
+<string name="no_card_loaded_text">Unexpected error: card not loaded.</string>
+<string name="update_overdue_text">An export from Mnemogogo is overdue!</string>
+<string name="update_today_text">An export from Mnemogogo is due today.</string>
+<string name="no_card_dirs">No card directories could be found. Please export from Mnemogogo!</string>
+<string name="corrupt_card_dir">Der er fejl i de eksporterede kort.</string>
+
+<string name="no_cards_title">Ingen kort</string>
+<string name="no_new_cards_title">Ingen nye kort</string>
+<string name="no_cards_left">Der er ingen nye kort at gennemse nu.</string>
+<string name="learn_ahead">Lær forud</string>
+<string name="replay_sounds">Genafspil lyde</string>
+
+<string name="in_text">Om</string>
+<string name="day_text">dag</string>
+<string name="days_text">dage</string>
+
+<string name="statistics">Statistik</string>
+<string name="easiness">Easiness:</string>
+<string name="repetitions">Gentagelser:</string>
+<string name="lapses">Lapses:</string>
+<string name="grade">Karakter:</string>
+<string name="days_since_last_repetition">Dage siden sidste gentagelse:</string>
+<string name="days_until_next_repetition">Dage til næste gentagelse:</string>
+
+<string name="info">Info</string>
+<string name="about_author_label">Author:</string>
+<string name="about_author">Timothy Bourke</string>
+<string name="about_mnemosyne_label">Mnemosyne:</string>
+<string name="about_mnemosyne">Peter Bienstman</string>
+<string name="about_sm2_label">SM-2 Algorithm:</string>
+<string name="about_sm2">Piotr Wozniak</string>
+<string name="about_translations">Oversættelse:</string>
+
+<string name="no_cards_main">Et gyldigt kort bibliotek er endnu ikke valgt.</string>
+
+<string name="not_available">Denne feature er endnu ikke tilgængelig.</string>
+
+<string name="setting_cat_operation">Operation</string>
+<string name="setting_cat_appearance">Appearance</string>
+<string name="setting_cat_misc">Miscellaneous</string>
+
+<string name="setting_card_dir">Kort bibliotek</string>
+<string name="setting_card_dir_summary">Placeringen af kort biblioteket eksporteret fra Mnemogogo.</string>
+<string name="cannot_find_card_dirs">(Ingen biblioteker blev fundet på denne enhed!)</string>
+<string name="setting_cards_to_load">Indlæser kort</string>
+<string name="setting_cards_to_load_summary">Afvej hukommelse og hastighed under indlæsning af kort.</string>
+<string name="select_trade_off">Vælg kompromis</string>
+
+<string name="setting_center">Centrer kort tekst</string>
+<string name="setting_center_summary">Centrer spørgsmål og svar tekster.</string>
+<string name="setting_touch_buttons">Onscreen buttons</string>
+<string name="setting_touch_buttons_summary">Vis knapper til svar og karakter givning.</string>
+<string name="setting_font_size">Kort skriftstørrelse</string>
+<string name="setting_font_size_summary">Sæt skriftstørrelsen på tekst i kort.</string>
+<string name="select_font_size">Vælg kort tekst størrelse</string>
+
+<string name="setting_fullscreen_mode">Fuldskærmstilstand</string>
+<string name="setting_fullscreen_mode_summary">Status linjen er skjult i fuldskærmstilstand (kræver genstart).</string>
+<string name="setting_show_titlebar">Vis titellinje</string>
+<string name="setting_show_titlebar_summary">Titel linjen viser katerogien og antallet af kort til gennemsyn.</string>
+
+<string name="loading_card_dir">Indlæser statistik...</string>
+<string name="loading_cards">Indlæser kort...</string>
+<string name="searching_for_card_dirs">Søger efter kort biblioteker...</string>
+
+<string-array name="entries_cards_to_load">
+	<item>Mere indlæsning, mindre hukommelse</item>
+	<item>Balancer indlæsning og hukommelse</item>
+	<item>Mindre indlæsning, mere hukommelse</item>
+</string-array>
+
+<string-array name="entries_font_size">
+    <item>Meget lille</item>
+    <item>Lille</item>
+    <item>Normal</item>
+    <item>Stor</item>
+    <item>Meget stor</item>
+</string-array>
+
+<string name="eula_title">Licens</string>
+<string name="eula_accept">Accepter</string>
+<string name="eula_refuse">Afvis</string>
+
+<string name="setting_two_grading_rows">Større knapper</string>
+<string name="setting_two_grading_rows_summary">Vis to rækker af karakter knapper i smal skærms tilstand.</string>
+
+<string name="setting_auto_play">Afspil lyde automatisk</string>
+<string name="setting_auto_play_summary">Afspil lyde i det øjeblik at kortet vises.</string>
+
+<string name="setting_button_pos">Knap placering</string>
+<string name="setting_button_pos_summary">Placering af knapperne i bred skærms tilstand.</string>
+<string name="select_button_pos">Placer knapper</string>
+<string-array name="entries_button_pos">
+    <item>I bunden</item>
+    <item>Til venstre</item>
+    <item>Til højre</item>
+</string-array>
+
+<string name="no_cards_step1">Ved en PC: Eksporter kort fra
+Mnemosyne til dit SD kort via Mnemogogo udviddelsen.</string>
+<string name="no_cards_step2">På denne enhed: vælg det eksporterede bibliotek fra
+Mnemododo indstillinger skærmen (press Menu knappen og vælg derefter Indstillinger).</string>
+
+<string name="setting_keys">Tastatur genveje</string>
+<string name="setting_keys_summary">Sæt tastatur genveje for visning af svar og karaktergivning.</string>
+<string name="select_keys">Tryk på tasten der:</string>
+<string name="key_show">Viser svaret</string>
+<string name="key_grade0">Giver karakteren 0</string>
+<string name="key_grade1">Giver karakteren 1</string>
+<string name="key_grade2">Giver karakteren 2</string>
+<string name="key_grade3">Giver karakteren 3</string>
+<string name="key_grade4">Giver karakteren 4</string>
+<string name="key_grade5">Giver karakteren 5</string>
+<string name="key_replay_sounds">Genafspiller lyde</string>
+
+<!-- maximum 325 characters -->
+<string name="market_description">
+Mnemododo muliggør gennemsyn af flash kort fra Mnemosyne på en mobil telefon.
+
+Både Mnemosyne og Mnemogogo udviddelsen skal være installeret på din PC. Kort kan ikke rettes på telefonen.
+
+Det er understøttelse af HTML markup (inklusiv LaTeX), grafik (inklusiv kort) og lyd.
+</string>
+
+<!-- maximum 80 characters -->
+<string name="market_promo">
+Bruges sammen med Mnemosyne på PC eller Mac til læring af flash kort på farten!
+</string>
+
+<string name="setting_restrict_search">Begræns biblioteks søgning</string>
+<string name="setting_restrict_search_summary">Søg kun efter kort biblioteker i en specifik sti.</string>
+<string name="setting_restrict_search_title">Indtast en sti for at søge efter kort biblioteker:</string>
+<string name="setting_restrict_search_message">(Efterlad tom for at gennemsøge hele telefonen.)</string>
+
+<string name="grade0_short_help">Fuldstændig glemt.</string>
+<string name="grade1_short_help">Glemt.</string>
+<string name="grade2_short_help">Meget svært.</string>
+<string name="grade3_short_help">Svært.</string>
+<string name="grade4_short_help">Husket.</string>
+<string name="grade5_short_help">For let.</string>
+
+<string name="grade01_help">Du har glemt dette kort fuldstændigt.</string>
+<string name="grade2_help">Næsten korrekt svar. Intervallet var alt for langt.</string>
+<string name="grade3_help">Korrekt svar, men med besvær. Intervallet var nok for langt.</string>
+<string name="grade4_help">Korrekt svar, med lidt udfordring. Intervallet var nok passende.</string>
+<string name="grade5_help">Korrekt svar, men uden nogen udfordring. Intervallet var nok for kort.</string>
+
+<string name="grade0_new_help">Du husker ikke dette kort endnu.</string>
+<string name="grade1_new_help">Som \'0\', men det bliver mere bekendt. Vis det mindre ofte.</string>
+<string name="grade2345_new_help">Du har memoreret dette kort og vil sandsynligvis kunne huske det i nogle få dage.</string>
+
+</resources>

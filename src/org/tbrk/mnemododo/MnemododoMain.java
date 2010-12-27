@@ -118,6 +118,7 @@ abstract class MnemododoMain
     Mode mode = Mode.SHOW_QUESTION;
     protected String html_pre = "<html>";
     protected HexCsvAndroid carddb;
+    protected long carddb_timestamp = 0;
     protected Card cur_card;
     protected long thinking_msecs = 0;
     String cards_path = null;
@@ -246,6 +247,7 @@ abstract class MnemododoMain
         {
             if (result) {
                 carddb = loaddb;
+                carddb_timestamp = carddb.nowInDays();
                 carddb_dirty = false;
                 try {
                     carddb.backupCards(new StringBuffer(cards_path), null);
@@ -406,6 +408,7 @@ abstract class MnemododoMain
             html_pre = lastDodo.html_pre;
             cards_path = lastDodo.cards_path;
             carddb = lastDodo.carddb;
+            carddb_timestamp = lastDodo.carddb_timestamp;
             cur_card = lastDodo.cur_card;
             thinking_msecs = lastDodo.thinking_msecs;
             auto_play = lastDodo.auto_play;
@@ -752,7 +755,11 @@ abstract class MnemododoMain
     public void onResume()
     {
         super.onResume();
-        unpauseThinking();
+        if (carddb != null && carddb_timestamp != carddb.nowInDays()) {
+            new LoadStatsTask().execute(cards_path);
+        } else {
+            unpauseThinking();
+        }
     }
 
     public void onPause()

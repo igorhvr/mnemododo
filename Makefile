@@ -108,7 +108,7 @@ sdcard:
 	fi
 
 libs/mnemogogo-android.jar:
-	$(LN) $(MNEMOGOGO)/mnemogogo-android-?.?.?.jar libs/mnemogogo-android.jar
+	$(LN) `ls $(MNEMOGOGO)/mnemogogo-android-?.?.?.jar | tail -1` libs/mnemogogo-android.jar
 
 listkeys:
 	keytool -list -keystore libs/mnemododo.keystore

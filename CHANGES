@@ -8,11 +8,7 @@
 * Add dimmed and dark display modes.
   (long press on the number of cards remaining)
 * Volume buttons control media volume.
-
-TODO:
-- check date on restart
-- translations
-- more screenshots (eight now possible)
+* Detect date changes on resume and reload cards if necessary.
 
 20100530 1.1.2
 * Allow automatic sound playing to be disabled.

@@ -31,6 +31,7 @@ import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
 import android.graphics.Typeface;
 import android.os.Bundle;
+import android.os.AsyncTask;
 import android.preference.ListPreference;
 import android.preference.Preference;
 import android.preference.PreferenceActivity;
@@ -62,7 +63,7 @@ public class Settings
     protected static final int DIALOG_KEY_ASSIGN = 0;
     
     private class FindCardDirsTask
-        extends UserTask<ListPreference, Integer, Vector<String>>
+        extends AsyncTask<ListPreference, Integer, Vector<String>>
     {
         private ListPreference list_pref = null;
         private ProgressDialog progress_dialog;

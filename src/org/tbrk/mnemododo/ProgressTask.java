@@ -21,9 +21,10 @@ package org.tbrk.mnemododo;
 import mnemogogo.mobile.hexcsv.Progress;
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.os.AsyncTask;
 
 public abstract class ProgressTask<Params, Result>
-    extends UserTask<Params, Integer, Result>
+    extends AsyncTask<Params, Integer, Result>
     implements Progress
 {
     private ProgressDialog progress_dialog = null;

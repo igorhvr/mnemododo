@@ -50,12 +50,15 @@ public abstract class ProgressTask<Params, Result>
 
         } else {
             if (progress_dialog == null && !task_done) {
-                progress_dialog = new ProgressDialog(getContext());
-                progress_dialog.setProgressStyle(style);
-                progress_dialog.setMessage(getMessage());
-                progress_dialog.setMax(progress_max);
-                progress_dialog.setCancelable(false);
-                progress_dialog.show();
+                Context context = getContext();
+                if (context != null) {
+                    progress_dialog = new ProgressDialog(context);
+                    progress_dialog.setProgressStyle(style);
+                    progress_dialog.setMessage(getMessage());
+                    progress_dialog.setMax(progress_max);
+                    progress_dialog.setCancelable(false);
+                    progress_dialog.show();
+                }
             }
             
             if (progress_dialog != null) {

@@ -39,6 +39,7 @@ import android.preference.PreferenceManager;
 import android.preference.Preference.OnPreferenceClickListener;
 import android.view.KeyEvent;
 import android.widget.TextView;
+import android.util.Log;
 
 public class Settings
     extends PreferenceActivity
@@ -61,13 +62,32 @@ public class Settings
     protected int[] keys_assigned = new int[key_text_ids.length];
     
     protected static final int DIALOG_KEY_ASSIGN = 0;
+
+    private FindCardDirsTask find_task = null;
     
     private class FindCardDirsTask
-        extends AsyncTask<ListPreference, Integer, Vector<String>>
+        extends ProgressTask<Boolean, Vector<String>>
     {
         private ListPreference list_pref = null;
         private ProgressDialog progress_dialog;
         private String restrict_path[] = null;
+        private String progress_msg = getString(R.string.searching_for_card_dirs);
+        private Context context = (Context) Settings.this;
+
+        protected String getMessage()
+        {
+            return progress_msg;
+        }
+
+        protected Context getContext()
+        {
+            return context;
+        }
+
+        public FindCardDirsTask(ListPreference list_pref)
+        {
+            this.list_pref = list_pref;
+        }
         
         public void onPreExecute()
         {
@@ -82,32 +102,32 @@ public class Settings
                 }
             }
 
-            progress_dialog = ProgressDialog.show(Settings.this, "",
-                    getString(R.string.searching_for_card_dirs), true);
         }
 
-        public Vector<String> doInBackground(ListPreference... pref)
+        public Vector<String> doInBackground(Boolean... ignore)
         {
-            if (pref.length == 0) {
-                list_pref = null;
-                return null;
-            }
-
-            list_pref = pref[0];
+            Vector<String> result = null;
             try {
+                startOperation(0, "");
                 if (restrict_path == null) {
-                    return FindCardDirAndroid.list(!is_demo);
+                    result = FindCardDirAndroid.list(!is_demo);
                 } else {
-                    return FindCardDirAndroid.list(restrict_path);
+                    result = FindCardDirAndroid.list(restrict_path);
                 }
             } catch (Exception e) {
-                return new Vector<String>();
+                result = new Vector<String>();
             }
+
+
+            stopOperation();
+            return result;
         }
 
         public void onPostExecute(Vector<String> result)
         {
-            progress_dialog.dismiss();
+            if (find_task == this) {
+                find_task = null;
+            }
 
             if (list_pref == null) {
                 return;
@@ -123,6 +143,21 @@ public class Settings
 
                 list_pref.setEnabled(true);
             }
+        }
+
+        public void onPause()
+        {
+            if (find_task != null) {
+                find_task.pause();
+                context = null;
+                list_pref = null;
+            }
+        }
+
+        public void onResume(Context context, ListPreference list_pref)
+        {
+            this.context = context;
+            this.list_pref = list_pref;
         }
     }
 
@@ -147,6 +182,7 @@ public class Settings
         Preference restrict = (Preference) findPreference("restrict_search");
         restrict.setEnabled(!is_demo);
         
+        setCardDirEntries();
         setResult(RESULT_OK);
     }
 
@@ -178,7 +214,13 @@ public class Settings
         
         if ((entries == null) || (entries.length == 0)) {
             pref_card_dir.setEnabled(false);
-            new FindCardDirsTask().execute(pref_card_dir);
+
+            if (find_task == null) {
+                find_task = new FindCardDirsTask(pref_card_dir);
+                find_task.execute();
+            } else {
+                find_task.onResume(this, pref_card_dir);
+            }
 
         } else {
             pref_card_dir.setEntries(getCardDirValues(entries));
@@ -194,11 +236,12 @@ public class Settings
         return pref_card_dir.getEntries();
     }
 
-    public void onResume()
+    public void onPause()
     {
-        super.onResume();
-        setCardDirEntries();
-        setResult(RESULT_OK);
+        super.onPause();
+        if (find_task != null) {
+            find_task.onPause();
+        }
     }
 
     public void onContentChanged()

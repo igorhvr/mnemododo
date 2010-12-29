@@ -56,6 +56,7 @@ import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
 import android.widget.SeekBar;
+import android.util.Log;
 
 abstract class MnemododoMain
     extends Activity
@@ -115,14 +116,15 @@ abstract class MnemododoMain
     
     /* data (cache on temporary restart) */
 
-    Mode mode = Mode.SHOW_QUESTION;
+    Mode mode = Mode.NO_CARDS;
     protected String html_pre = "<html>";
-    protected HexCsvAndroid carddb;
-    protected long carddb_timestamp = 0;
+    protected boolean auto_play = true;
+
+    CardStore carddb = new CardStore();
     protected Card cur_card;
     protected long thinking_msecs = 0;
-    String cards_path = null;
-    protected boolean auto_play = true;
+
+    protected LoadCardTask card_task = null;
 
     protected boolean is_demo = false;
     protected String demo_path = "/android_asset/demodeck/";
@@ -181,7 +183,7 @@ abstract class MnemododoMain
         {
             final Runnable r = new Runnable() {
                 public void run() {
-                    carddb.learnAhead();
+                    carddb.cards.learnAhead();
                     nextQuestion();
                 }
             };
@@ -203,65 +205,7 @@ abstract class MnemododoMain
     }
 
     /* Tasks */
-        
-    private class LoadStatsTask
-            extends ProgressTask<String, Boolean>
-    {
-        protected HexCsvAndroid loaddb;
-        protected String error_msg;
 
-        protected String getMessage()
-        {
-            return getString(R.string.loading_card_dir);
-        }
-
-        protected Context getContext()
-        {
-            return MnemododoMain.this;
-        }
-
-        public Boolean doInBackground(String... path)
-        {
-            try {
-                loaddb = new HexCsvAndroid(path[0],
-                                           LoadStatsTask.this);
-                loaddb.cards_to_load = cards_to_load;
-
-            } catch (Exception e) {
-                error_msg = getString(R.string.corrupt_card_dir) + "\n\n("
-                                + e.toString() + ")";
-                stopOperation();
-                return false;
-
-            } catch (OutOfMemoryError e) {
-                error_msg = getString(R.string.not_enough_memory_to_load);
-                stopOperation();
-                return false;
-            }
-
-            stopOperation();
-            return true;
-        }
-
-        public void onPostExecute(Boolean result)
-        {
-            if (result) {
-                carddb = loaddb;
-                carddb_timestamp = carddb.nowInDays();
-                carddb_dirty = false;
-                try {
-                    carddb.backupCards(new StringBuffer(cards_path), null);
-                } catch (IOException e) { }
-                nextQuestion();
-
-            } else {
-                carddb = null;
-                setMode(Mode.NO_CARDS);
-                showFatal(error_msg, false);
-            }
-        }
-    }
-        
     private class LoadCardTask
             extends ProgressTask<Boolean, String>
     {
@@ -280,13 +224,16 @@ abstract class MnemododoMain
 
         public void onPreExecute()
         {
+            Log.d("DODO(" + Long.toString(Thread.currentThread().getId()) + ")", "LoadCardTask.onPreExecute:start"); // XXX
             style = ProgressDialog.STYLE_HORIZONTAL;
             carddb.setProgress(LoadCardTask.this);
             card = cur_card;
+            Log.d("DODO(" + Long.toString(Thread.currentThread().getId()) + ")", "LoadCardTask.onPreExecute:stop"); // XXX
         }
 
         public String doInBackground(Boolean... options)
         {
+            Log.d("DODO(" + Long.toString(Thread.currentThread().getId()) + ")", "LoadCardTask.doInBackground:start"); // XXX
             is_question = !options[0];
             if (options.length > 1) {
                 start_thinking = options[1];
@@ -296,11 +243,13 @@ abstract class MnemododoMain
 
             String html = makeCardHtml(card, !is_question);
             stopOperation();
+            Log.d("DODO(" + Long.toString(Thread.currentThread().getId()) + ")", "LoadCardTask.doInBackground:stop"); // XXX
             return html;
         }
 
         public void onPostExecute(String html)
         {
+            Log.d("DODO(" + Long.toString(Thread.currentThread().getId()) + ")", "LoadCardTask.onPostExecute:start"); // XXX
             setCategory(cur_card.categoryName());
             
             if (demo_imgson_path_override != null) {
@@ -308,8 +257,8 @@ abstract class MnemododoMain
                         demo_imgson_path_override, html,
                         "text/html", "UTF-8", "");
             } else {
-                webview.loadDataWithBaseURL("file://" + cards_path, html,
-                        "text/html", "UTF-8", "");
+                webview.loadDataWithBaseURL("file://" + carddb.cards_path,
+                        html, "text/html", "UTF-8", "");
             }
 
             if (start_thinking && (cur_card != null)) {
@@ -320,6 +269,7 @@ abstract class MnemododoMain
                 handler.removeCallbacks(makeViewVisible);
                 handler.postDelayed(makeViewVisible, make_visible_delay);
             }
+            Log.d("DODO(" + Long.toString(Thread.currentThread().getId()) + ")", "LoadCardTask.onPostExecute:stop"); // XXX
         }
     }
     
@@ -331,6 +281,8 @@ abstract class MnemododoMain
         super.onCreate(savedInstanceState);
         setFullscreenMode();
         setContentView(R.layout.main);
+
+        Log.d("DODO(" + Long.toString(Thread.currentThread().getId()) + ")", "onCreate:00"); // XXX
         
         configureDemo();
         
@@ -388,6 +340,40 @@ abstract class MnemododoMain
         Eula.show(MnemododoMain.this);
     }
 
+    protected TaskListener makeCardStoreListener ()
+    {
+        return new TaskListener () {
+                public void onLoaded() {
+                    carddb_dirty = false;
+                    nextQuestion();
+                }
+
+                public void onLoadFailed(String err) {
+                    setMode(Mode.NO_CARDS);
+                    showFatal(err, false);
+                }
+
+                public Context getContext () {
+                    return MnemododoMain.this;
+                }
+
+                public String getString(int resid) {
+                    return MnemododoMain.this.getString(resid);
+                }
+            };
+    }
+
+    protected void loadCardDB(String path)
+    {
+        carddb = new CardStore(path, cards_to_load, makeCardStoreListener());
+    }
+
+    protected void loadCard(boolean is_question, boolean start_thinking)
+    {
+        card_task = new LoadCardTask();
+        card_task.execute(is_question, start_thinking);
+    }
+
     public void setFullscreenMode()
     {
         SharedPreferences settings = PreferenceManager
@@ -400,18 +386,22 @@ abstract class MnemododoMain
 
     public void loadPrefs(MnemododoMain lastDodo)
     {
+        Log.d("DODO(" + Long.toString(Thread.currentThread().getId()) + ")",
+                "loadPrefs:00 - " + (carddb.active() ? "active" : "inactive" )); // XXX
         boolean quick_restart = false;
         Mode nmode = mode;
         
         if (lastDodo != null) {
             nmode = lastDodo.mode;
             html_pre = lastDodo.html_pre;
-            cards_path = lastDodo.cards_path;
+            auto_play = lastDodo.auto_play;
+
             carddb = lastDodo.carddb;
-            carddb_timestamp = lastDodo.carddb_timestamp;
+            carddb.updateCallback(makeCardStoreListener());
+            carddb.resume();
+
             cur_card = lastDodo.cur_card;
             thinking_msecs = lastDodo.thinking_msecs;
-            auto_play = lastDodo.auto_play;
             quick_restart = true;
         }
         
@@ -479,11 +469,7 @@ abstract class MnemododoMain
             settings_cards_path = settings_cards_path + File.separator;
         }
         
-        boolean will_load_cards =
-            (cards_path == null && settings_cards_path != null)
-            || (cards_path != null
-                && settings_cards_path != null
-                && !cards_path.equals(settings_cards_path));
+        boolean will_load_cards = carddb.needLoadCards(settings_cards_path);
 
         // update the layout
         reconfigureButtons(nbutton_pos, two_grading_rows);
@@ -504,9 +490,11 @@ abstract class MnemododoMain
         }
 
         if (will_load_cards) {
-            setCardDir(settings_cards_path);
+            if (!carddb.loadingCards()) {
+                loadCards(settings_cards_path);
+            }
             reload = false;
-        } else if (cards_path == null) {
+        } else if (!carddb.active()) {
             setMode(Mode.NO_CARDS);
             reload = false;
         }
@@ -749,14 +737,18 @@ abstract class MnemododoMain
     
     public Object onRetainNonConfigurationInstance()
     {
+        Log.d("DODO(" + Long.toString(Thread.currentThread().getId()) + ")",
+            "onRetainNonConfigurationInstance - " +
+            (carddb.active() ? "active" : "inactive" )); // XXX
         return this;
     }
 
     public void onResume()
     {
         super.onResume();
-        if (carddb != null && carddb_timestamp != carddb.nowInDays()) {
-            new LoadStatsTask().execute(cards_path);
+        Log.d("DODO(" + Long.toString(Thread.currentThread().getId()) + ")", "onResume"); // XXX
+        if (carddb.needsReload()) {
+            loadCardDB(carddb.cards_path);
         } else {
             unpauseThinking();
         }
@@ -765,17 +757,19 @@ abstract class MnemododoMain
     public void onPause()
     {
         super.onPause();
+        Log.d("DODO(" + Long.toString(Thread.currentThread().getId()) + ")", "onPause:start"); // XXX
         sound_player.release();
         pauseThinking();
         saveCards();
+        carddb.onPause();
+        Log.d("DODO(" + Long.toString(Thread.currentThread().getId()) + ")", "onPause:done"); // XXX
     }
 
     public void onDestroy()
     {
         super.onDestroy();
-        if (carddb != null) {
-            carddb.close();
-        }
+        Log.d("DODO(" + Long.toString(Thread.currentThread().getId()) + ")", "onDestroy"); // XXX
+        carddb.close();
     }
 
     protected Dialog showInfo(int msg_id, boolean terminate)
@@ -805,7 +799,7 @@ abstract class MnemododoMain
     {
         switch (id) {
         case DIALOG_STATS:
-            if (cur_card == null) {
+            if (cur_card == null || !carddb.active()) {
                 return;
             }
 
@@ -826,12 +820,12 @@ abstract class MnemododoMain
             text = (TextView) dialog
                     .findViewById(R.id.days_since_last_repetition);
             text.setText(Integer.toString(cur_card
-                    .daysSinceLastRep(carddb.days_since_start)));
+                    .daysSinceLastRep(carddb.cards.days_since_start)));
 
             text = (TextView) dialog
                     .findViewById(R.id.days_until_next_repetition);
             text.setText(Integer.toString(cur_card
-                    .daysUntilNextRep(carddb.days_since_start)));
+                    .daysUntilNextRep(carddb.cards.days_since_start)));
 
             break;
         }
@@ -876,7 +870,7 @@ abstract class MnemododoMain
             break;
 
         case DIALOG_SCHEDULE:
-            int daysLeft = carddb.daysLeft();
+            int daysLeft = carddb.cards.daysLeft();
             if (daysLeft < 0) {
                 dialog = showInfo(R.string.update_overdue_text, false);
 
@@ -884,7 +878,7 @@ abstract class MnemododoMain
                 dialog = showInfo(R.string.update_today_text, false);
 
             } else {
-                int[] indays = carddb.getFutureSchedule();
+                int[] indays = carddb.cards.getFutureSchedule();
                 if (indays != null) {
                     dialog = new Dialog(mContext);
                     dialog.setTitle(getString(R.string.schedule));
@@ -924,13 +918,13 @@ abstract class MnemododoMain
             break;
 
         case DIALOG_CATEGORIES:
-            int num_categories = carddb.numCategories();
+            int num_categories = carddb.cards.numCategories();
             CharSequence[] items = new CharSequence[num_categories];
             boolean[] checked = new boolean[num_categories];
             
             for (int i=0; i < num_categories; ++i) {
-                items[i] = carddb.getCategory(i);
-                checked[i] = !carddb.skipCategory(i);
+                items[i] = carddb.cards.getCategory(i);
+                checked[i] = !carddb.cards.skipCategory(i);
             }
 
             AlertDialog.Builder builder = new AlertDialog.Builder(this);
@@ -940,14 +934,14 @@ abstract class MnemododoMain
                 new DialogInterface.OnMultiChoiceClickListener() {
                     public void onClick(DialogInterface dialog,
                                         int item, boolean value) {
-                        carddb.setSkipCategory(item, !value);
+                        carddb.cards.setSkipCategory(item, !value);
                     }
             })
             .setCancelable(false)
             .setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
                 public void onClick(DialogInterface dialog, int id) {
-                    carddb.writeCategorySkips(new StringBuffer(cards_path));
-                    carddb.rebuildQueue();
+                    carddb.writeCategorySkips();
+                    carddb.cards.rebuildQueue();
                     nextQuestion();
                 }
             });
@@ -977,35 +971,31 @@ abstract class MnemododoMain
         return dialog;
     }
 
-    public void setCardDir(String path)
+    public void loadCards(String path)
     {
         removeDialog(DIALOG_CATEGORIES);
+
+        saveCards();
+        carddb.close();
 
         if (!path.endsWith(File.separator)) {
             path = path + File.separator;
         }
 
         if (!FindCardDirAndroid.isCardDir(path)) {
-            cards_path = null;
+            carddb = new CardStore();
             cur_card = null;
             setMode(Mode.NO_CARDS);
             return;
         }
 
-        cards_path = path;
-
         if (demo_imgson_path_override != null) {
             sound_player.setBasePath(demo_imgson_path_override);
         } else {
-            sound_player.setBasePath(cards_path);
+            sound_player.setBasePath(path);
         }
 
-        saveCards();
-        if (carddb != null) {
-            carddb.close();
-        }
-
-        new LoadStatsTask().execute(path);
+        loadCardDB(path);
     }
 
     public void setCategory(String category)
@@ -1063,8 +1053,8 @@ abstract class MnemododoMain
         TextView cardsl_title = (TextView) findViewById(R.id.cards_left);
         cardsl_title.setText(Integer.toString(cards_left));
 
-        if (carddb != null) {
-            int daysLeft = carddb.daysLeft();
+        if (carddb.active()) {
+            int daysLeft = carddb.cards.daysLeft();
 
             if (daysLeft < 0) {
                 cardsl_title.setBackgroundColor(android.graphics.Color.RED);
@@ -1106,16 +1096,18 @@ abstract class MnemododoMain
 
         switch (m) {
         case SHOW_QUESTION:
+            Log.d("DODO(" + Long.toString(Thread.currentThread().getId()) + ")", "setMode:SHOW_QUESTION:00"); // XXX
             setNumLeft(carddb.numScheduled());
             if (cur_card != null) {
                 if (touch_buttons) {
                     hidden_view = show_panel;
                 }
-                new LoadCardTask().execute(false, start_thinking);
+                loadCard(false, start_thinking);
             }
             break;
 
         case SHOW_ANSWER:
+            Log.d("DODO(" + Long.toString(Thread.currentThread().getId()) + ")", "setMode:SHOW_ANSWER:00"); // XXX
             if (start_thinking) {
                 pauseThinking();
             }
@@ -1124,11 +1116,12 @@ abstract class MnemododoMain
                 if (touch_buttons) {
                     hidden_view = grading_panel;
                 }
-                new LoadCardTask().execute(true, start_thinking);
+                loadCard(true, start_thinking);
             }
             break;
 
         case NO_CARDS:
+            Log.d("DODO(" + Long.toString(Thread.currentThread().getId()) + ")", "setMode:NO_CARDS:00"); // XXX
             html = new StringBuffer(html_pre);
             html.append("<body>");
 
@@ -1152,6 +1145,7 @@ abstract class MnemododoMain
             break;
 
         case NO_NEW_CARDS:
+            Log.d("DODO(" + Long.toString(Thread.currentThread().getId()) + ")", "setMode:NO_NEW_CARDS:00"); // XXX
             html = new StringBuffer(html_pre);
             html.append("<body>");
             html.append("<div style=\"padding: 1ex; text-align: center;\"><p>");
@@ -1232,12 +1226,16 @@ abstract class MnemododoMain
         }
 
         try {
-            carddb.removeFromFutureSchedule(cur_card);
-            cur_card.gradeCard(carddb.days_since_start, grade, thinking_msecs,
-                    carddb.logfile);
-            carddb.addToFutureSchedule(cur_card);
-            carddb_dirty = true;
-            return true;
+            if (carddb.active()) {
+                carddb.cards.removeFromFutureSchedule(cur_card);
+                cur_card.gradeCard(carddb.cards.days_since_start, grade,
+                        thinking_msecs, carddb.cards.logfile);
+                carddb.cards.addToFutureSchedule(cur_card);
+                carddb_dirty = true;
+                return true;
+            } else {
+                return false;
+            }
 
         } catch (IOException e) {
             showFatal(e.toString(), false);
@@ -1247,9 +1245,9 @@ abstract class MnemododoMain
 
     protected void saveCards()
     {
-        if ((carddb != null) && (cards_path != null) && carddb_dirty) {
+        if (carddb_dirty) {
             try {
-                carddb.writeCards(new StringBuffer(cards_path), null);
+                carddb.saveCards();
                 carddb_dirty = false;
             } catch (IOException e) {
                 showFatal(e.toString(), true);
@@ -1259,7 +1257,7 @@ abstract class MnemododoMain
 
     protected boolean nextQuestion()
     {
-        cur_card = carddb.getCard();
+        cur_card = carddb.cards.getCard();
 
         if (cur_card == null) {
             setMode(Mode.NO_NEW_CARDS);

@@ -22,6 +22,7 @@ import mnemogogo.mobile.hexcsv.Progress;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.os.AsyncTask;
+import android.util.Log;
 
 public abstract class ProgressTask<Params, Result>
     extends AsyncTask<Params, Integer, Result>
@@ -82,4 +83,13 @@ public abstract class ProgressTask<Params, Result>
         progress_max = 10000;
         publishProgress(-1);
     }
+
+    public void pause() {
+        Log.d("DODO(" + Long.toString(Thread.currentThread().getId()) + ")", "ProgressTask:kill"); // XXX
+        if (progress_dialog != null) {
+            progress_dialog.dismiss();
+            progress_dialog = null;
+        }
+    }
+
 }

@@ -85,7 +85,6 @@ public abstract class ProgressTask<Params, Result>
     }
 
     public void pause() {
-        Log.d("DODO(" + Long.toString(Thread.currentThread().getId()) + ")", "ProgressTask:kill"); // XXX
         if (progress_dialog != null) {
             progress_dialog.dismiss();
             progress_dialog = null;

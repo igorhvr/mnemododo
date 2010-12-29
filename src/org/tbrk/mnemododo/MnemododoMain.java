@@ -224,16 +224,13 @@ abstract class MnemododoMain
 
         public void onPreExecute()
         {
-            Log.d("DODO(" + Long.toString(Thread.currentThread().getId()) + ")", "LoadCardTask.onPreExecute:start"); // XXX
             style = ProgressDialog.STYLE_HORIZONTAL;
             carddb.setProgress(LoadCardTask.this);
             card = cur_card;
-            Log.d("DODO(" + Long.toString(Thread.currentThread().getId()) + ")", "LoadCardTask.onPreExecute:stop"); // XXX
         }
 
         public String doInBackground(Boolean... options)
         {
-            Log.d("DODO(" + Long.toString(Thread.currentThread().getId()) + ")", "LoadCardTask.doInBackground:start"); // XXX
             is_question = !options[0];
             if (options.length > 1) {
                 start_thinking = options[1];
@@ -243,13 +240,15 @@ abstract class MnemododoMain
 
             String html = makeCardHtml(card, !is_question);
             stopOperation();
-            Log.d("DODO(" + Long.toString(Thread.currentThread().getId()) + ")", "LoadCardTask.doInBackground:stop"); // XXX
             return html;
         }
 
         public void onPostExecute(String html)
         {
-            Log.d("DODO(" + Long.toString(Thread.currentThread().getId()) + ")", "LoadCardTask.onPostExecute:start"); // XXX
+            if (card_task == this) {
+                card_task = null;
+            }
+
             setCategory(cur_card.categoryName());
             
             if (demo_imgson_path_override != null) {
@@ -269,7 +268,6 @@ abstract class MnemododoMain
                 handler.removeCallbacks(makeViewVisible);
                 handler.postDelayed(makeViewVisible, make_visible_delay);
             }
-            Log.d("DODO(" + Long.toString(Thread.currentThread().getId()) + ")", "LoadCardTask.onPostExecute:stop"); // XXX
         }
     }
     
@@ -282,8 +280,6 @@ abstract class MnemododoMain
         setFullscreenMode();
         setContentView(R.layout.main);
 
-        Log.d("DODO(" + Long.toString(Thread.currentThread().getId()) + ")", "onCreate:00"); // XXX
-        
         configureDemo();
         
         HexCsvAndroid.context = this;
@@ -386,8 +382,6 @@ abstract class MnemododoMain
 
     public void loadPrefs(MnemododoMain lastDodo)
     {
-        Log.d("DODO(" + Long.toString(Thread.currentThread().getId()) + ")",
-                "loadPrefs:00 - " + (carddb.active() ? "active" : "inactive" )); // XXX
         boolean quick_restart = false;
         Mode nmode = mode;
         
@@ -737,16 +731,12 @@ abstract class MnemododoMain
     
     public Object onRetainNonConfigurationInstance()
     {
-        Log.d("DODO(" + Long.toString(Thread.currentThread().getId()) + ")",
-            "onRetainNonConfigurationInstance - " +
-            (carddb.active() ? "active" : "inactive" )); // XXX
         return this;
     }
 
     public void onResume()
     {
         super.onResume();
-        Log.d("DODO(" + Long.toString(Thread.currentThread().getId()) + ")", "onResume"); // XXX
         if (carddb.needsReload()) {
             loadCardDB(carddb.cards_path);
         } else {
@@ -757,18 +747,20 @@ abstract class MnemododoMain
     public void onPause()
     {
         super.onPause();
-        Log.d("DODO(" + Long.toString(Thread.currentThread().getId()) + ")", "onPause:start"); // XXX
         sound_player.release();
         pauseThinking();
         saveCards();
         carddb.onPause();
-        Log.d("DODO(" + Long.toString(Thread.currentThread().getId()) + ")", "onPause:done"); // XXX
+
+        if (card_task != null) {
+            card_task.cancel(true);
+            card_task = null;
+        }
     }
 
     public void onDestroy()
     {
         super.onDestroy();
-        Log.d("DODO(" + Long.toString(Thread.currentThread().getId()) + ")", "onDestroy"); // XXX
         carddb.close();
     }
 
@@ -1096,7 +1088,6 @@ abstract class MnemododoMain
 
         switch (m) {
         case SHOW_QUESTION:
-            Log.d("DODO(" + Long.toString(Thread.currentThread().getId()) + ")", "setMode:SHOW_QUESTION:00"); // XXX
             setNumLeft(carddb.numScheduled());
             if (cur_card != null) {
                 if (touch_buttons) {
@@ -1107,7 +1098,6 @@ abstract class MnemododoMain
             break;
 
         case SHOW_ANSWER:
-            Log.d("DODO(" + Long.toString(Thread.currentThread().getId()) + ")", "setMode:SHOW_ANSWER:00"); // XXX
             if (start_thinking) {
                 pauseThinking();
             }
@@ -1121,7 +1111,6 @@ abstract class MnemododoMain
             break;
 
         case NO_CARDS:
-            Log.d("DODO(" + Long.toString(Thread.currentThread().getId()) + ")", "setMode:NO_CARDS:00"); // XXX
             html = new StringBuffer(html_pre);
             html.append("<body>");
 
@@ -1145,7 +1134,6 @@ abstract class MnemododoMain
             break;
 
         case NO_NEW_CARDS:
-            Log.d("DODO(" + Long.toString(Thread.currentThread().getId()) + ")", "setMode:NO_NEW_CARDS:00"); // XXX
             html = new StringBuffer(html_pre);
             html.append("<body>");
             html.append("<div style=\"padding: 1ex; text-align: center;\"><p>");

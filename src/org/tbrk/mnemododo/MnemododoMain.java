@@ -1003,23 +1003,23 @@ abstract class MnemododoMain
         switch (style) {
             case STYLE_DARK:
                 webview.setBackgroundColor(0xff000000);
-                card_text_color = "white";
-                card_back_color = "black";
                 frame.setBackgroundColor(0xff777777);
+                card_text_color = "lightgray";
+                card_back_color = "black";
                 break;
 
             case STYLE_DIMMED:
                 webview.setBackgroundColor(0xff777777);
+                frame.setBackgroundColor(0xff000000);
                 card_text_color = "white";
                 card_back_color = "#777777";
-                frame.setBackgroundColor(0xff000000);
                 break;
 
             case STYLE_LIGHT:
                 webview.setBackgroundColor(0xffffffff);
+                frame.setBackgroundColor(0xff000000);
                 card_text_color = "black";
                 card_back_color = "white";
-                frame.setBackgroundColor(0xff000000);
                 break;
 
         }

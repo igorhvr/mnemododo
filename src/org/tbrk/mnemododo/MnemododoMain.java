@@ -366,8 +366,10 @@ abstract class MnemododoMain
 
     protected void loadCard(boolean is_question, boolean start_thinking)
     {
-        card_task = new LoadCardTask();
-        card_task.execute(is_question, start_thinking);
+        if (card_task == null) {
+            card_task = new LoadCardTask();
+            card_task.execute(is_question, start_thinking);
+        }
     }
 
     public void setFullscreenMode()
@@ -393,6 +395,8 @@ abstract class MnemododoMain
             carddb = lastDodo.carddb;
             carddb.updateCallback(makeCardStoreListener());
             carddb.resume();
+
+            card_task = lastDodo.card_task;
 
             cur_card = lastDodo.cur_card;
             thinking_msecs = lastDodo.thinking_msecs;
@@ -753,8 +757,7 @@ abstract class MnemododoMain
         carddb.onPause();
 
         if (card_task != null) {
-            card_task.cancel(true);
-            card_task = null;
+            card_task.pause();
         }
     }
 

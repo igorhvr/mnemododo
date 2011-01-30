@@ -132,42 +132,6 @@
 		    android:layout_height="wrap_content">
 
 		    <TextView
-			android:id="@+id/trans_fr1"
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			android:paddingLeft="10dp"
-			android:paddingRight="10dp"                    
-			android:text="Français"/>
-		    <TextView
-			android:id="@+id/trans_credit_fr1"
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			android:text="Patrick Jayet"/>
-		</TableRow>
-
-		<TableRow
-		    android:layout_width="wrap_content"
-		    android:layout_height="wrap_content">
-
-		    <TextView
-			android:id="@+id/trans_fr2"
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			android:paddingLeft="10dp"
-			android:paddingRight="10dp"
-			android:text=""/>
-		    <TextView
-			android:id="@+id/trans_credit_fr2"
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			android:text="Jean-Baptiste Rouquier"/>
-		</TableRow>
-
-		<TableRow
-		    android:layout_width="wrap_content"
-		    android:layout_height="wrap_content">
-
-		    <TextView
 			android:id="@+id/trans_da"
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
@@ -197,6 +161,60 @@
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
 			android:text="Karsten Breitig"/>
+		</TableRow>
+
+		<TableRow
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content">
+
+		    <TextView
+			android:id="@+id/trans_es"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:paddingLeft="10dp"
+			android:paddingRight="10dp"
+			android:text="Español"/>
+		    <TextView
+			android:id="@+id/trans_credit_es"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="Paco Cubí"/>
+		</TableRow>
+
+		<TableRow
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content">
+
+		    <TextView
+			android:id="@+id/trans_fr1"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:paddingLeft="10dp"
+			android:paddingRight="10dp"                    
+			android:text="Français"/>
+		    <TextView
+			android:id="@+id/trans_credit_fr1"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="Patrick Jayet"/>
+		</TableRow>
+
+		<TableRow
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content">
+
+		    <TextView
+			android:id="@+id/trans_fr2"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:paddingLeft="10dp"
+			android:paddingRight="10dp"
+			android:text=""/>
+		    <TextView
+			android:id="@+id/trans_credit_fr2"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="Jean-Baptiste Rouquier"/>
 		</TableRow>
 
 		<TableRow

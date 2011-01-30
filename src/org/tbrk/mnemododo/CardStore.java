@@ -33,18 +33,17 @@ class CardStore
     protected int cards_to_load = 50;
 
     protected LoadStatsTask stats_task = null;
-    public TaskListener callback = null;
 
     public CardStore()
     {
     }
 
-    public CardStore(String path, int cards_to_load, TaskListener callback)
+    public CardStore(String path, int cards_to_load,
+                     TaskListener<String> callback)
     {
-        this.callback = callback;
         this.cards_to_load = cards_to_load;
 
-        stats_task = new LoadStatsTask();
+        stats_task = new LoadStatsTask(callback);
         stats_task.execute(path);
     }
 
@@ -53,39 +52,26 @@ class CardStore
         return ((cards_path != null) && (cards != null));
     }
 
-    public void updateCallback(TaskListener callback)
+    public void updateCallback(TaskListener<String> callback)
     {
         if (stats_task != null) {
-            this.callback = callback;
+            stats_task.updateCallback(callback);
         }
     }
 
     private class LoadStatsTask
-            extends ProgressTask<String, Boolean>
+            extends ProgressTask<String, String>
     {
         protected HexCsvAndroid loaddb;
         protected String error_msg;
         protected String load_path;
 
-        protected String getMessage()
+        LoadStatsTask(TaskListener<String> callback)
         {
-            if (callback != null) {
-                return callback.getString(R.string.loading_card_dir);
-            } else {
-                return "";
-            }
+            super(callback, R.string.loading_card_dir);
         }
 
-        protected Context getContext()
-        {
-            if (callback != null) {
-                return callback.getContext();
-            } else {
-                return null;
-            }
-        }
-
-        public Boolean doInBackground(String... path)
+        public String doInBackground(String... path)
         {
             load_path = path[0];
             try {
@@ -93,36 +79,24 @@ class CardStore
                 loaddb.cards_to_load = cards_to_load;
 
             } catch (Exception e) {
-                if (callback != null) {
-                    error_msg = callback.getString(R.string.corrupt_card_dir)
-                        + "\n\n(" + e.toString() + ")";
-                } else {
-                    error_msg = e.toString();
-                }
                 stopOperation();
-                return false;
+                return getString(R.string.corrupt_card_dir)
+                    + "\n\n(" + e.toString() + ")";
 
             } catch (OutOfMemoryError e) {
-                if (callback != null) {
-                    error_msg = callback.getString(
-                        R.string.not_enough_memory_to_load);
-                } else {
-                    error_msg = "no memory";
-                }
                 stopOperation();
-                return false;
+                return getString(R.string.not_enough_memory_to_load);
             }
 
             stopOperation();
-
-            return true;
+            return null;
         }
 
-        public void onPostExecute(Boolean result)
+        public void onPostExecute(String error_msg)
         {
             stats_task = null;
 
-            if (result) {
+            if (error_msg == null) {
                 cards = loaddb;
                 cards_path = load_path;
                 cards_timestamp = loaddb.nowInDays();
@@ -131,18 +105,12 @@ class CardStore
                     cards.backupCards(new StringBuffer(load_path), null);
                 } catch (IOException e) { }
 
-                if (callback != null) {
-                    callback.onLoaded();
-                }
+                callback.onFinished(null);
 
             } else {
                 cards = null;
-                if (callback != null) {
-                    callback.onLoadFailed(error_msg);
-                }
+                callback.onFinished(error_msg);
             }
-
-            callback = null;
         }
     }
 

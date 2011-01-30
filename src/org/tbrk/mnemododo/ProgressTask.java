@@ -31,11 +31,28 @@ public abstract class ProgressTask<Params, Result>
     private ProgressDialog progress_dialog = null;
     private int progress_max = 10000;
     private int progress_level = 0;
+    private int progress_message;
     protected int style = ProgressDialog.STYLE_SPINNER;
     boolean task_done = false;
 
-    protected abstract String getMessage();
-    protected abstract Context getContext();
+    protected TaskListener<Result> callback = null;
+
+    ProgressTask(TaskListener<Result> callback, int progress_message)
+    {
+        super();
+        this.callback = callback;
+        this.progress_message = progress_message;
+    }
+
+    public void updateCallback(TaskListener<Result> callback)
+    {
+        this.callback = callback;
+    }
+
+    protected String getString(int resid)
+    {
+        return callback.getString(resid);
+    }
 
     public void onProgressUpdate(Integer... progress)
     {
@@ -50,11 +67,11 @@ public abstract class ProgressTask<Params, Result>
 
         } else {
             if (progress_dialog == null && !task_done) {
-                Context context = getContext();
+                Context context = callback.getContext();
                 if (context != null) {
                     progress_dialog = new ProgressDialog(context);
                     progress_dialog.setProgressStyle(style);
-                    progress_dialog.setMessage(getMessage());
+                    progress_dialog.setMessage(getString(progress_message));
                     progress_dialog.setMax(progress_max);
                     progress_dialog.setCancelable(false);
                     progress_dialog.show();
@@ -87,11 +104,19 @@ public abstract class ProgressTask<Params, Result>
         publishProgress(-1);
     }
 
-    public void pause() {
+    public void pause()
+    {
+        callback = null;
+
         if (progress_dialog != null) {
             progress_dialog.dismiss();
             progress_dialog = null;
         }
     }
 
+    public void onPostExecute(Result result)
+    {
+        callback.onFinished(result);
+    }
 }
+

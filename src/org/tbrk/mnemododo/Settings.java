@@ -68,25 +68,11 @@ public class Settings
     private class FindCardDirsTask
         extends ProgressTask<Boolean, Vector<String>>
     {
-        private ListPreference list_pref = null;
-        private ProgressDialog progress_dialog;
         private String restrict_path[] = null;
-        private String progress_msg = getString(R.string.searching_for_card_dirs);
-        private Context context = (Context) Settings.this;
 
-        protected String getMessage()
+        FindCardDirsTask(TaskListener<Vector<String>> callback)
         {
-            return progress_msg;
-        }
-
-        protected Context getContext()
-        {
-            return context;
-        }
-
-        public FindCardDirsTask(ListPreference list_pref)
-        {
-            this.list_pref = list_pref;
+            super(callback, R.string.searching_for_card_dirs);
         }
         
         public void onPreExecute()
@@ -101,7 +87,6 @@ public class Settings
                     restrict_path[0] = path;
                 }
             }
-
         }
 
         public Vector<String> doInBackground(Boolean... ignore)
@@ -118,47 +103,45 @@ public class Settings
                 result = new Vector<String>();
             }
 
-
             stopOperation();
             return result;
         }
+    }
 
-        public void onPostExecute(Vector<String> result)
-        {
-            if (find_task == this) {
+    TaskListener<Vector<String>> makeFindCardDirsListener(
+            final ListPreference list_pref)
+    {
+        return new TaskListener<Vector<String>> () {
+            public Context getContext ()
+            {
+                return Settings.this;
+            }
+
+            public String getString(int resid)
+            {
+                return Settings.this.getString(resid);
+            }
+
+            public void onFinished(Vector<String> result)
+            {
                 find_task = null;
+
+                if (list_pref == null) {
+                    return;
+                }
+
+                if (result.isEmpty()) {
+                    list_pref.setSummary(R.string.cannot_find_card_dirs);
+
+                } else {
+                    String[] dirs = result.toArray(new String[result.size()]);
+                    list_pref.setEntries(getCardDirValues(dirs));
+                    list_pref.setEntryValues(dirs);
+
+                    list_pref.setEnabled(true);
+                }
             }
-
-            if (list_pref == null) {
-                return;
-            }
-
-            if (result.isEmpty()) {
-                list_pref.setSummary(R.string.cannot_find_card_dirs);
-
-            } else {
-                String[] dirs = result.toArray(new String[result.size()]);
-                list_pref.setEntries(getCardDirValues(dirs));
-                list_pref.setEntryValues(dirs);
-
-                list_pref.setEnabled(true);
-            }
-        }
-
-        public void onPause()
-        {
-            if (find_task != null) {
-                find_task.pause();
-                context = null;
-                list_pref = null;
-            }
-        }
-
-        public void onResume(Context context, ListPreference list_pref)
-        {
-            this.context = context;
-            this.list_pref = list_pref;
-        }
+        };
     }
 
     /** Called when the activity is first created. */
@@ -216,10 +199,12 @@ public class Settings
             pref_card_dir.setEnabled(false);
 
             if (find_task == null) {
-                find_task = new FindCardDirsTask(pref_card_dir);
+                find_task = new FindCardDirsTask(
+                    makeFindCardDirsListener(pref_card_dir));
                 find_task.execute();
             } else {
-                find_task.onResume(this, pref_card_dir);
+                find_task.updateCallback(
+                    makeFindCardDirsListener(pref_card_dir));
             }
 
         } else {
@@ -240,7 +225,7 @@ public class Settings
     {
         super.onPause();
         if (find_task != null) {
-            find_task.onPause();
+            find_task.pause();
         }
     }
 

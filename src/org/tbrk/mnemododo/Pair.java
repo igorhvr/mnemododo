@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2010 Timothy Bourke
+ * Copyright (C) 2011 Timothy Bourke
  *
  * This program is free software; you can redistribute it and/or modify it
  * under the terms of the GNU General Public License as published by the Free
@@ -18,10 +18,15 @@
 
 package org.tbrk.mnemododo;
 
-interface TaskListener<Result>
+class Pair<Tfst, Tsnd>
 {
-    public android.content.Context getContext ();
-    public String getString(int resid);
-    public void onFinished(Result result);
+    public Tfst fst;
+    public Tsnd snd;
+
+    Pair(Tfst fst, Tsnd snd)
+    {
+        this.fst = fst;
+        this.snd = snd;
+    }
 }
 

@@ -406,7 +406,7 @@ abstract class MnemododoMain
         cards_to_load = Integer.parseInt(settings.getString("cards_to_load", "50"));
         touch_buttons = settings.getBoolean("touch_buttons", true);
         auto_play = settings.getBoolean("auto_play", true);
-        style = Integer.parseInt(settings.getString("style", "0"));
+        style = Integer.parseInt(settings.getString("style", "2"));
         boolean two_grading_rows = settings.getBoolean("two_grading_rows", false);
         int nbutton_pos = Integer.parseInt(settings.getString("button_pos",
                 Integer.toString(BUTTON_POS_BOTTOM)));

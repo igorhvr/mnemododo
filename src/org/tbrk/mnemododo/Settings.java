@@ -47,6 +47,18 @@ public class Settings
     protected int key_assign_mode = 0;
     protected Dialog key_assign_dialog = null;
     protected boolean is_demo = false;
+
+    private class PassState
+    {
+        CharSequence[] entries = null;
+        FindCardDirsTask find_task = null;
+
+        PassState(CharSequence[] entries, FindCardDirsTask find_task)
+        {
+            this.entries = entries;
+            this.find_task = find_task;
+        }
+    }
     
     protected static final int key_text_ids[] = {
         R.id.key_show, R.id.key_grade0, R.id.key_grade1,
@@ -165,7 +177,14 @@ public class Settings
         Preference restrict = (Preference) findPreference("restrict_search");
         restrict.setEnabled(!is_demo);
         
-        setCardDirEntries();
+        PassState lastnonconfig = (PassState) getLastNonConfigurationInstance();
+        if (lastnonconfig == null) {
+            setCardDirEntries(null);
+        } else {
+            find_task = lastnonconfig.find_task;
+            setCardDirEntries(lastnonconfig.entries);
+        }
+
         setResult(RESULT_OK);
     }
 
@@ -185,14 +204,13 @@ public class Settings
         return values;
     }
     
-    public void setCardDirEntries()
+    public void setCardDirEntries(CharSequence[] entries)
     {
         ListPreference pref_card_dir = (ListPreference) getPreferenceScreen()
             .findPreference("cards_path");
-        CharSequence[] entries = pref_card_dir.getEntries();
 
         if (entries == null) {
-            entries = (CharSequence[]) getLastNonConfigurationInstance();
+            entries = pref_card_dir.getEntries();
         }
         
         if ((entries == null) || (entries.length == 0)) {
@@ -213,12 +231,12 @@ public class Settings
             pref_card_dir.setEnabled(true);
         }
     }
-    
+
     public Object onRetainNonConfigurationInstance()
     {
         ListPreference pref_card_dir = (ListPreference) getPreferenceScreen()
             .findPreference("cards_path");
-        return pref_card_dir.getEntries();
+        return new PassState(pref_card_dir.getEntries(), find_task);
     }
 
     public void onPause()

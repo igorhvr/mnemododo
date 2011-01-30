@@ -67,7 +67,12 @@ public abstract class ProgressTask<Params, Result>
 
         } else {
             if (progress_dialog == null && !task_done) {
-                Context context = callback.getContext();
+                Context context = null;
+
+                if (callback != null) {
+                    context = callback.getContext();
+                }
+
                 if (context != null) {
                     progress_dialog = new ProgressDialog(context);
                     progress_dialog.setProgressStyle(style);

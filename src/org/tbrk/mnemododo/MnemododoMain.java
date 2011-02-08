@@ -1094,7 +1094,7 @@ abstract class MnemododoMain
                 if (touch_buttons) {
                     hidden_view = grading_panel;
                 }
-                loadCard(true, start_thinking);
+                loadCard(true, false);
             }
             break;
 
@@ -1203,6 +1203,12 @@ abstract class MnemododoMain
 
         try {
             if (carddb.active()) {
+                /*
+                android.widget.Toast.makeText(this,
+                    "thinking time=" + Long.toString(thinking_msecs)
+                    + " grade=" + Integer.toString(grade),
+                    android.widget.Toast.LENGTH_SHORT).show();
+                */
                 carddb.cards.removeFromFutureSchedule(cur_card);
                 cur_card.gradeCard(carddb.cards.days_since_start, grade,
                         thinking_msecs, carddb.cards.logfile);

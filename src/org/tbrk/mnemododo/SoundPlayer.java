@@ -26,6 +26,7 @@ import java.util.Queue;
 import android.content.Context;
 import android.content.res.AssetFileDescriptor;
 import android.media.MediaPlayer;
+import android.widget.Toast; /* XXX */
 
 public class SoundPlayer
 {
@@ -47,6 +48,7 @@ public class SoundPlayer
     public void queue(String[] sounds)
     {
         for (String sound : sounds) {
+            Toast.makeText(context, "media: queuing: " + sound, Toast.LENGTH_SHORT).show(); /* XXX */
             if (!to_play.isEmpty()) {
                 // add a brief gap between sounds
                 to_play.add(null);
@@ -110,6 +112,7 @@ public class SoundPlayer
         
         try {
             String file = to_play.remove();
+            String filename; /* XXX */
             if (file == null) {
                 AssetFileDescriptor afd =
                     context.getResources().openRawResourceFd(R.raw.silence);
@@ -120,20 +123,27 @@ public class SoundPlayer
                 mp.setDataSource(afd.getFileDescriptor(),
                         afd.getStartOffset(), afd.getLength());
                 afd.close();
+                filename = "null"; /* XXX */
 
             } else {
                 mp.setDataSource(file);
+                filename = file; /* XXX */
             }
 
             mp.prepare();
+            Toast.makeText(context, "media: MediaPlayer.start: " + filename, Toast.LENGTH_SHORT).show(); /* XXX */
             mp.start();
 
         } catch (IllegalArgumentException e) {
+            Toast.makeText(context, "media: IllegalArgumentException", Toast.LENGTH_SHORT).show(); /* XXX */
             startPlaying();
             return;
         } catch (IllegalStateException e) {
+            Toast.makeText(context, "media: IllegalStateException", Toast.LENGTH_SHORT).show(); /* XXX */
             return;
         } catch (IOException e) {
+            Toast.makeText(context, "media: IOException", Toast.LENGTH_SHORT).show(); /* XXX */
+            Toast.makeText(context, e.toString(), Toast.LENGTH_LONG).show(); /* XXX */
             startPlaying();
             return;
         }

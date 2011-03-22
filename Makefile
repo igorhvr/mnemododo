@@ -21,7 +21,7 @@ ANDROIDSDK=/opt/android-sdk-linux_x86
 EMULATOR=$(ANDROIDSDK)/tools/emulator
 EMU_OPTIONS=#-noskin
 
-ADB=$(ANDROIDSDK)/tools/adb
+ADB=$(ANDROIDSDK)/platform-tools/adb
 LOGCAT_LEVEL=d
 MKSDCARD=$(ANDROIDSDK)/tools/mksdcard
 SDCARD=libs/sdcard.iso
@@ -33,7 +33,7 @@ AVD?=basic1.6
 
 debug: setup
 	$(ANT) debug
-	@if [ `$(ADB) devices | egrep -v 'List of devices|^$$' | wc -l` -eq 1 ]; then \
+	@if [ `$(ADB) devices | egrep -v 'List of devices attached|^$$' | wc -l` -eq 1 ]; then \
 	    echo "Installing Mnemododo-debug.apk"; \
 	    $(ADB) install -r bin/Mnemododo-debug.apk; \
 	fi

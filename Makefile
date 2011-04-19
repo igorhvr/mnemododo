@@ -6,6 +6,9 @@
 #		
 #		... (to /sdcard/output.trace) ...
 #
+# Lock screen	F7
+# Rotate screen Ctrl-F11 / Ctrl-F12
+#
 
 MNEMOGOGO=$(HOME)/.mnemosyne/plugins/mnemogogo
 EXPORTDIR=libs/export
@@ -19,7 +22,7 @@ ETAGS=etags
 ANDROIDSDK=/opt/android-sdk-linux_x86
 
 EMULATOR=$(ANDROIDSDK)/tools/emulator
-EMU_OPTIONS=#-noskin
+EMU_OPTIONS= -no-boot-anim -no-skin
 
 ADB=$(ANDROIDSDK)/platform-tools/adb
 LOGCAT_LEVEL=d
@@ -44,7 +47,6 @@ release: setup
 emulator: sdcard
 	$(EMULATOR) -help-keys
 	$(EMULATOR) -avd $(AVD) -sdcard $(SDCARD) \
-	    -no-boot-anim -no-skin \
 	    -logcat $(LOGCAT_LEVEL) $(EMU_OPTIONS)
 
 push:

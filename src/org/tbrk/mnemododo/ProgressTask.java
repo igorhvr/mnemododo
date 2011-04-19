@@ -36,6 +36,7 @@ public abstract class ProgressTask<Params, Result>
     boolean task_done = false;
 
     protected TaskListener<Result> callback = null;
+    protected Result cached_result = null;
 
     ProgressTask(TaskListener<Result> callback, int progress_message)
     {
@@ -47,6 +48,11 @@ public abstract class ProgressTask<Params, Result>
     public void updateCallback(TaskListener<Result> callback)
     {
         this.callback = callback;
+
+        if (cached_result != null) {
+            callback.onFinished(cached_result);
+            cached_result = null;
+        }
     }
 
     protected String getString(int resid)
@@ -121,7 +127,11 @@ public abstract class ProgressTask<Params, Result>
 
     public void onPostExecute(Result result)
     {
-        callback.onFinished(result);
+        if (callback == null) {
+            cached_result = result;
+        } else {
+            callback.onFinished(result);
+        }
     }
 }
 

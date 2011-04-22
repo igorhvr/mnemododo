@@ -19,6 +19,7 @@
 package org.tbrk.mnemododo;
 
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.LinkedList;
 import java.util.Queue;
@@ -26,7 +27,7 @@ import java.util.Queue;
 import android.content.Context;
 import android.content.res.AssetFileDescriptor;
 import android.media.MediaPlayer;
-import android.widget.Toast; /* XXX */
+import android.util.Log;
 
 public class SoundPlayer
 {
@@ -48,7 +49,6 @@ public class SoundPlayer
     public void queue(String[] sounds)
     {
         for (String sound : sounds) {
-            Toast.makeText(context, "media: queuing: " + sound, Toast.LENGTH_SHORT).show(); /* XXX */
             if (!to_play.isEmpty()) {
                 // add a brief gap between sounds
                 to_play.add(null);
@@ -75,8 +75,13 @@ public class SoundPlayer
             mp = null;
         }
     }
-    
+
     private void startPlaying()
+    {
+        startPlaying(true);
+    }
+    
+    private void startPlaying(boolean try_recovery)
     {
         if (to_play.isEmpty()) {
             return;
@@ -111,40 +116,48 @@ public class SoundPlayer
         }
         
         try {
-            String file = to_play.remove();
-            String filename; /* XXX */
+            String file = to_play.element();
             if (file == null) {
                 AssetFileDescriptor afd =
                     context.getResources().openRawResourceFd(R.raw.silence);
                 if (afd == null) {
+                    to_play.remove();
                     startPlaying();
                     return;
                 }
                 mp.setDataSource(afd.getFileDescriptor(),
                         afd.getStartOffset(), afd.getLength());
                 afd.close();
-                filename = "null"; /* XXX */
 
             } else {
-                mp.setDataSource(file);
-                filename = file; /* XXX */
+                FileInputStream fis = new FileInputStream(file);
+                mp.setDataSource(fis.getFD());
             }
 
             mp.prepare();
-            Toast.makeText(context, "media: MediaPlayer.start: " + filename, Toast.LENGTH_SHORT).show(); /* XXX */
             mp.start();
+            to_play.remove();
 
         } catch (IllegalArgumentException e) {
-            Toast.makeText(context, "media: IllegalArgumentException", Toast.LENGTH_SHORT).show(); /* XXX */
+            to_play.remove();
             startPlaying();
             return;
+
         } catch (IllegalStateException e) {
-            Toast.makeText(context, "media: IllegalStateException", Toast.LENGTH_SHORT).show(); /* XXX */
+            to_play.remove();
             return;
+
         } catch (IOException e) {
-            Toast.makeText(context, "media: IOException", Toast.LENGTH_SHORT).show(); /* XXX */
-            Toast.makeText(context, e.toString(), Toast.LENGTH_LONG).show(); /* XXX */
-            startPlaying();
+            if (try_recovery) {
+                // Try to work around spurious IOException:
+                //      prepare failed.: status 0x1
+                mp.release();
+                mp = null;
+                startPlaying(false);
+            } else {
+                to_play.remove();
+                startPlaying();
+            }
             return;
         }
     }

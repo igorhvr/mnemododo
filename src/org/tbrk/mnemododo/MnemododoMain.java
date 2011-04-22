@@ -373,9 +373,6 @@ abstract class MnemododoMain
             auto_play = lastDodo.auto_play;
 
             carddb = lastDodo.carddb;
-            carddb.updateCallback(makeCardStoreListener());
-            carddb.resume();
-
             card_task = lastDodo.card_task;
 
             cur_card = lastDodo.cur_card;
@@ -721,6 +718,9 @@ abstract class MnemododoMain
     public void onResume()
     {
         super.onResume();
+
+        carddb.updateCallback(makeCardStoreListener());
+        carddb.resume();
 
         if (carddb.needsReload()) {
             loadCardDB(carddb.cards_path);

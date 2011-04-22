@@ -33,6 +33,7 @@ class CardStore
     protected int cards_to_load = 50;
 
     protected LoadStatsTask stats_task = null;
+    protected boolean zombie_stats_task = false;
 
     public CardStore()
     {
@@ -56,6 +57,10 @@ class CardStore
     {
         if (stats_task != null) {
             stats_task.updateCallback(callback);
+
+            if (zombie_stats_task) {
+                stats_task = null;
+            }
         }
     }
 
@@ -78,6 +83,10 @@ class CardStore
                 loaddb = new HexCsvAndroid(load_path, LoadStatsTask.this);
                 loaddb.cards_to_load = cards_to_load;
 
+                try {
+                    loaddb.backupCards(new StringBuffer(load_path), null);
+                } catch (IOException e) { }
+
             } catch (Exception e) {
                 stopOperation();
                 return getString(R.string.corrupt_card_dir)
@@ -94,22 +103,22 @@ class CardStore
 
         public void onPostExecute(String error_msg)
         {
-            stats_task = null;
-
             if (error_msg == null) {
                 cards = loaddb;
                 cards_path = load_path;
                 cards_timestamp = loaddb.nowInDays();
-
-                try {
-                    cards.backupCards(new StringBuffer(load_path), null);
-                } catch (IOException e) { }
-
-                callback.onFinished(null);
-
             } else {
                 cards = null;
+            }
+
+            if (callback == null) {
+                finished = true;
+                cached_result = error_msg;
+                zombie_stats_task = true;
+
+            } else {
                 callback.onFinished(error_msg);
+                stats_task = null;
             }
         }
     }

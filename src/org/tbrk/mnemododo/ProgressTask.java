@@ -36,6 +36,8 @@ public abstract class ProgressTask<Params, Result>
     boolean task_done = false;
 
     protected TaskListener<Result> callback = null;
+
+    protected boolean finished = false;
     protected Result cached_result = null;
 
     ProgressTask(TaskListener<Result> callback, int progress_message)
@@ -49,8 +51,9 @@ public abstract class ProgressTask<Params, Result>
     {
         this.callback = callback;
 
-        if (cached_result != null) {
+        if (finished) {
             callback.onFinished(cached_result);
+            finished = false;
             cached_result = null;
         }
     }
@@ -128,6 +131,7 @@ public abstract class ProgressTask<Params, Result>
     public void onPostExecute(Result result)
     {
         if (callback == null) {
+            finished = true;
             cached_result = result;
         } else {
             callback.onFinished(result);

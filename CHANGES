@@ -15,6 +15,7 @@
 * Volume buttons control media volume.
 * Detect date changes on resume and reload cards if necessary.
 * Fix occasional crashes on screen orientation changes.
+* Properly handle screen rotations while configuring keys.
 
 20100530 1.1.2
 * Allow automatic sound playing to be disabled.

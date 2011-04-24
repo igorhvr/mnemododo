@@ -48,18 +48,6 @@ public class Settings
     protected Dialog key_assign_dialog = null;
     protected boolean is_demo = false;
 
-    private class PassState
-    {
-        CharSequence[] entries = null;
-        FindCardDirsTask find_task = null;
-
-        PassState(CharSequence[] entries, FindCardDirsTask find_task)
-        {
-            this.entries = entries;
-            this.find_task = find_task;
-        }
-    }
-    
     protected static final int key_text_ids[] = {
         R.id.key_show, R.id.key_grade0, R.id.key_grade1,
         R.id.key_grade2, R.id.key_grade3, R.id.key_grade4,
@@ -74,6 +62,23 @@ public class Settings
     protected int[] keys_assigned = new int[key_text_ids.length];
     
     protected static final int DIALOG_KEY_ASSIGN = 0;
+
+    private class PassState
+    {
+        CharSequence[] entries = null;
+        FindCardDirsTask find_task = null;
+        int key_assign_mode = 0;
+        int[] keys_assigned = null;
+
+        PassState(CharSequence[] entries, FindCardDirsTask find_task,
+                  int key_assign_mode, int[] keys_assigned)
+        {
+            this.entries = entries;
+            this.find_task = find_task;
+            this.key_assign_mode = key_assign_mode;
+            this.keys_assigned = keys_assigned;
+        }
+    }
 
     private FindCardDirsTask find_task = null;
     
@@ -183,6 +188,8 @@ public class Settings
         } else {
             find_task = lastnonconfig.find_task;
             setCardDirEntries(lastnonconfig.entries);
+            key_assign_mode = lastnonconfig.key_assign_mode;
+            keys_assigned = lastnonconfig.keys_assigned;
         }
 
         setResult(RESULT_OK);
@@ -236,7 +243,8 @@ public class Settings
     {
         ListPreference pref_card_dir = (ListPreference) getPreferenceScreen()
             .findPreference("cards_path");
-        return new PassState(pref_card_dir.getEntries(), find_task);
+        return new PassState(pref_card_dir.getEntries(), find_task,
+                             key_assign_mode, keys_assigned);
     }
 
     public void onPause()
@@ -269,7 +277,9 @@ public class Settings
                 {
                     if (keyCode == KeyEvent.KEYCODE_MENU
                             || keyCode == KeyEvent.KEYCODE_HOME
-                            || keyCode == KeyEvent.KEYCODE_BACK) {
+                            || keyCode == KeyEvent.KEYCODE_BACK)
+                    {
+                        key_assign_mode = 0;
                         return false;
                     }
                     
@@ -291,6 +301,7 @@ public class Settings
                 }
             });
             key_assign_dialog = dialog;
+            highlightCurrentKey();
             break;
         }
 

@@ -1,4 +1,4 @@
-201001__ 1.1.3 (NOW REQUIRES ANDROID >= 1.6!)
+20100508 1.1.3 (NOW REQUIRES ANDROID >= 1.6!)
 * Build with a Makefile.
 * German translation.
   (thanks to Karsten Breitig)
@@ -6,8 +6,6 @@
   (thanks to Mateusz Krzyzosiak)
 * Danish translation
   (thanks to Henrik Skov Midtiby)
-* Spanish translation
-  (thanks to Paco Cubí)
 * Supports large screens.
 * Better support for low and high density screens.
 * Add dimmed and dark display modes.

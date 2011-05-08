@@ -15,6 +15,11 @@
 * Fix occasional crashes on screen orientation changes.
 * Properly handle screen rotations while configuring keys.
 
+20100703 1.2.0
+* Add activate/deactivate categories feature.
+* Add features for making demo versions.
+* Fix typos in translations.
+
 20100530 1.1.2
 * Allow automatic sound playing to be disabled.
 * Croatian translation.

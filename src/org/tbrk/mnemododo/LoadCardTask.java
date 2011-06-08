@@ -76,7 +76,14 @@ class LoadCardTask
     protected String makeCardHtml(Card c, boolean show_answer)
     {
         StringBuffer html = new StringBuffer(html_pre);
-        
+
+        html.append("<script language=\"javascript\">");
+        html.append("function scroll() {");
+        html.append("  var qelem = document.getElementById('q');");
+        html.append("  var aelem = document.getElementById('a');");
+        html.append("  if (qelem && aelem) { window.scrollTo(0, qelem.offsetHeight); } }");
+        html.append("</script>");
+
         char[] catname = c.categoryName().toCharArray();
         html.append("<body class=\"");
         for (char l : catname) {

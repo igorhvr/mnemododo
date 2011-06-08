@@ -50,6 +50,7 @@ import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
+import android.webkit.WebViewClient;
 import android.widget.Button;
 import android.widget.TableLayout;
 import android.widget.TableRow;
@@ -221,6 +222,14 @@ abstract class MnemododoMain
         webview.setOnKeyListener(this);
         webview.getSettings().setJavaScriptEnabled(true);
         webview.addJavascriptInterface(new Javascript(), "Mnemododo");
+        webview.setWebViewClient(new WebViewClient() {
+            @Override
+            public void onPageFinished(WebView view, String url)
+            {
+                view.loadUrl("javascript:(scroll())");
+            }
+        });
+
 
         grading_panel = (TableLayout) findViewById(R.id.grading_buttons_bottom);
         show_panel = (ViewGroup) findViewById(R.id.show_buttons_bottom);
@@ -315,7 +324,7 @@ abstract class MnemododoMain
                 card_task = null;
 
                 setCategory(cur_card.categoryName());
-                
+
                 if (demo_imgson_path_override != null) {
                     webview.loadDataWithBaseURL("file://" +
                             demo_imgson_path_override, html,

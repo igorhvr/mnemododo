@@ -1,4 +1,8 @@
-20100508 1.1.3 (NOW REQUIRES ANDROID >= 1.6!)
+20100608 1.3.1
+* Implement 'scroll to answer' for long questions and answers.
+  Suggested by Jan Egil Hagen.
+
+20100508 1.3.0 (NOW REQUIRES ANDROID >= 1.6!)
 * Build with a Makefile.
 * German translation.
   (thanks to Karsten Breitig)

@@ -167,12 +167,9 @@ und Bewertungen</string>
 
 <!-- maximum 325 characters -->
 <string name="market_description">
-Mit Mnemododo kann man Flash-Karteikarten von Mnemosyne auf dem
-Mobiltelefon lernen.
+Mit Mnemododo kann man Flash-Karteikarten von Mnemosyne auf dem Mobiltelefon lernen.
 
-Sowohl Mnemosyne als auch das Mnemogogo-Plugin müssen auf dem PC
-installiert sein. Karteikarten können auf dem Telefon nicht bearbeitet
-werden.
+Sowohl Mnemosyne als auch das Mnemogogo-Plugin müssen auf dem PC installiert sein. Karteikarten können auf dem Telefon nicht bearbeitet werden.
 
 HTML, LaTeX, Bilder (inkl. Karten) und Sounds werden unterstützt.
 
